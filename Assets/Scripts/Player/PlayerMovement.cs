@@ -7,7 +7,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
 
     // ----------- Move ------------
-    [SerializeField] private float movespeed = 2f;
+    [SerializeField] private float movespeed = 3f;
+    [SerializeField] private float sprintspeed = 1f;
     private Vector2 currentPos;
     private Vector2 InputVector;
     private Vector2 newPos;
@@ -17,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-
     void Update()
     {
         // ----------- Move ------------
@@ -25,12 +25,16 @@ public class PlayerMovement : MonoBehaviour
         InputVector.x = Input.GetAxisRaw("Horizontal");     
         InputVector.y = Input.GetAxisRaw("Vertical");
         InputVector = Vector2.ClampMagnitude(InputVector, 1);    // Diagonal movement 1,4 => 1
-        newPos = currentPos + (InputVector * movespeed * Time.fixedDeltaTime);   
+
+        if (Input.GetKey(KeyCode.LeftShift))      
+        { newPos = currentPos + (InputVector * (movespeed + sprintspeed) * Time.fixedDeltaTime); }
+
+        else
+        { newPos = currentPos + (InputVector * movespeed * Time.fixedDeltaTime); }
     }
 
     private void FixedUpdate()
     {
-        // ----------- Move ------------
         rb.MovePosition(newPos);
     }
 }
