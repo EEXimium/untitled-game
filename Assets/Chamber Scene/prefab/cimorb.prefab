@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 466033153825559228}
   - component: {fileID: 3744101116144477654}
   - component: {fileID: 7233711992331328566}
-  - component: {fileID: 6157465867638655773}
+  - component: {fileID: 3436083943510476562}
   m_Layer: 0
   m_Name: cimorb
   m_TagString: runrock
@@ -130,7 +130,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1589955594731235357}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -149,7 +149,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6157465867638655773
+--- !u!114 &3436083943510476562
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,9 +158,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1589955594731235357}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04938d06580ada1438c95d64ba80bf50, type: 3}
+  m_Script: {fileID: 11500000, guid: c1806fb0f350b514f8431c719de7c2ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   AnchorPoint: {x: 13, y: -3.5, z: 0}
-  runrock: {fileID: 1589955594731235357}
-  CimPrefab: {fileID: 954165241333325926, guid: 3be2300bff81c694d803b906bdf1c5df, type: 3}
+  SelfOrb: {fileID: 1589955594731235357}
+  ChamberPrefab: {fileID: 954165241333325926, guid: 3be2300bff81c694d803b906bdf1c5df, type: 3}

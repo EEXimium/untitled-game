@@ -6,6 +6,7 @@ TagManager:
   tags:
   - runrock
   - Slot
+  - ActiveChamber
   layers:
   - Default
   - TransparentFX

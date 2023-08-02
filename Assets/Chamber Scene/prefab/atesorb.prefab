@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3997895306597232270}
   - component: {fileID: 9211070356863460317}
   - component: {fileID: 782557913570960750}
-  - component: {fileID: 760889712001935025}
+  - component: {fileID: 7872749730208670635}
   m_Layer: 0
   m_Name: atesorb
   m_TagString: runrock
@@ -130,7 +130,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6973292655582810787}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -149,7 +149,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &760889712001935025
+--- !u!114 &7872749730208670635
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,9 +158,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6973292655582810787}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bbcec3842adb0c4daec8d6ecd5cae4f, type: 3}
+  m_Script: {fileID: 11500000, guid: c1806fb0f350b514f8431c719de7c2ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   AnchorPoint: {x: 13, y: -3.5, z: 0}
-  runrock: {fileID: 6973292655582810787}
-  AtesPrefab: {fileID: 38350344041042993, guid: 44e0288da173e774e886ae7c41c49945, type: 3}
+  SelfOrb: {fileID: 6973292655582810787}
+  ChamberPrefab: {fileID: 38350344041042993, guid: 44e0288da173e774e886ae7c41c49945, type: 3}
