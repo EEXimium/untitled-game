@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - runrock
+  - Slot
+  - ActiveChamber
   layers:
   - Default
   - TransparentFX
@@ -38,6 +41,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: bg
+    uniqueID: 740501941
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: chamberslots
+    uniqueID: 2899888569
     locked: 0
