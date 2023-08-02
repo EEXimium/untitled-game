@@ -4,19 +4,17 @@ using UnityEngine;
 
 public class suorb : MonoBehaviour
 {
-    private bool canMove;
     private bool dragging;
     private CircleCollider2D Ccoll;
+
+    [SerializeField] private Vector3 AnchorPoint;
 
     public GameObject runrock;
 
     public GameObject SuPrefab;
 
-    public GameObject OrbHolder;
-
     private void Start()
     {
-        canMove = false;
         dragging = false;
         Ccoll = GetComponent<CircleCollider2D>();
     }
@@ -29,24 +27,21 @@ public class suorb : MonoBehaviour
         {
             if (Ccoll == Physics2D.OverlapPoint(mousePos))
             {
-                canMove = true;
-            }
-            else
-            {
-                canMove = false;
-            }
-            if (canMove)
-            {
                 dragging = true;
             }
         }
+
         if (dragging)
         {
             this.transform.position = mousePos;
         }
+        else
+        {
+            StartCoroutine(ReturnToBase());
+        }
+
         if (Input.GetMouseButtonUp(0))
         {
-            canMove = false;
             dragging = false;
         }
     }
@@ -61,5 +56,9 @@ public class suorb : MonoBehaviour
         }
     }
 
-
+    private IEnumerator ReturnToBase()
+    {
+        yield return new WaitForSeconds(.05f);
+        this.transform.position = AnchorPoint;
+    }
 }

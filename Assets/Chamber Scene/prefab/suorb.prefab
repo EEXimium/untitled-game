@@ -161,6 +161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 071287c524d3f8c4491104d973952416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnchorPoint: {x: 13, y: -3.5, z: 0}
   runrock: {fileID: 1181402894749419328}
   SuPrefab: {fileID: 8626523202625844154, guid: 6f518021b6ba38b4f883c3fed98eaa66, type: 3}
-  OrbHolder: {fileID: 0}

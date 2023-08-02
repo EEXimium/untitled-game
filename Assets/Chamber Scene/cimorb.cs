@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class cimorb : MonoBehaviour
 {
-    private bool canMove;
     private bool dragging;
     private CircleCollider2D Ccoll;
+
+    [SerializeField] private Vector3 AnchorPoint;
 
     public GameObject runrock;
 
@@ -14,9 +16,8 @@ public class cimorb : MonoBehaviour
 
     private void Start()
     {
-        canMove = false;
         dragging = false;
-        Ccoll = GetComponent<CircleCollider2D>();
+        Ccoll = GetComponent<CircleCollider2D>();        
     }
 
     void Update()
@@ -27,24 +28,21 @@ public class cimorb : MonoBehaviour
         {
             if (Ccoll == Physics2D.OverlapPoint(mousePos))
             {
-                canMove = true;
-            }
-            else
-            {
-                canMove = false;
-            }
-            if (canMove)
-            {
                 dragging = true;
             }
         }
+
         if (dragging)
         {
             this.transform.position = mousePos;
         }
+        else
+        {
+            StartCoroutine(ReturnToBase());
+        }
+
         if (Input.GetMouseButtonUp(0))
         {
-            canMove = false;
             dragging = false;
         }
     }
@@ -57,5 +55,11 @@ public class cimorb : MonoBehaviour
             Instantiate(CimPrefab, collision.gameObject.transform.position, collision.gameObject.transform.rotation);
             Destroy(collision.gameObject);
         }
+    }
+
+    private IEnumerator ReturnToBase()
+    {
+        yield return new WaitForSeconds(.05f);
+        this.transform.position = AnchorPoint;
     }
 }

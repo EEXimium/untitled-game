@@ -161,5 +161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04938d06580ada1438c95d64ba80bf50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnchorPoint: {x: 13, y: -3.5, z: 0}
   runrock: {fileID: 1589955594731235357}
   CimPrefab: {fileID: 954165241333325926, guid: 3be2300bff81c694d803b906bdf1c5df, type: 3}

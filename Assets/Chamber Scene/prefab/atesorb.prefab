@@ -161,5 +161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bbcec3842adb0c4daec8d6ecd5cae4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnchorPoint: {x: 13, y: -3.5, z: 0}
   runrock: {fileID: 6973292655582810787}
   AtesPrefab: {fileID: 38350344041042993, guid: 44e0288da173e774e886ae7c41c49945, type: 3}
