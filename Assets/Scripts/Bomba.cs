@@ -20,7 +20,6 @@ public class Bomba : MonoBehaviour
     private void OnTriggerEnter2D (Collider2D collision)
     {
         Ccoll.radius = 0.8f;
-        Debug.Log("çalýþtý");
     }
 
     private void OnTriggerStay2D (Collider2D collision)
