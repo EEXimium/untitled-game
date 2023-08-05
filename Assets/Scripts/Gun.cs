@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
     public Transform character; // Reference to the character's Transform
     public float orbitRadius = 1.5f;
-
+    public GameObject BulletPrefab;
+    public Transform firePoint;
+    public float fireRate;
+    bool canshoot = true;
     public SpriteRenderer gun;
 
     private void Update()
@@ -35,11 +39,23 @@ public class Gun : MonoBehaviour
             Debug.Log("32");
         }
             
-
-
-
         Vector3 aimDirection = (mousePosition - character.position).normalized;
         float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, aimAngle);
+
+        if (Input.GetMouseButton(0) && canshoot)
+        {
+            StartCoroutine(Shoot());
+        }
     }
+
+    public IEnumerator Shoot()
+    {
+        canshoot = false;
+        Instantiate(BulletPrefab, firePoint.position, firePoint.rotation);
+        yield return new WaitForSeconds(fireRate);
+        canshoot = true;
+    }
+
+    
 }
