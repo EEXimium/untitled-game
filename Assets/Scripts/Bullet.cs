@@ -13,15 +13,15 @@ public class Bullet : MonoBehaviour
         rb.velocity = transform.right * speed;
     }
 
-    /*
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        PlayerHealth player = collision.GetComponent<PlayerHealth>();
-        if (player != null && player.PlayerAlive)
+        EnemyHealth enemy = collision.GetComponent<EnemyHealth>();
+        if (enemy != null && enemy.BossAlive)
         {
-            player.TakeDamage(damage);
+            enemy.BossTakeDamage(damage);
         }
         Destroy(gameObject);
     }
-    */
+
 }

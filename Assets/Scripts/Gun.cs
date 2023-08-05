@@ -8,8 +8,11 @@ public class Gun : MonoBehaviour
     public Transform character; // Reference to the character's Transform
     public float orbitRadius = 1.5f;
     public GameObject BulletPrefab;
+    public GameObject GranadePrefab;
     public Transform firePoint;
     public float fireRate;
+    public float granadefireRate;
+    bool cangranade = true;
     bool canshoot = true;
     public SpriteRenderer gun;
 
@@ -29,14 +32,11 @@ public class Gun : MonoBehaviour
         
         if(directionToMouse.x < 0)
         {
-            
             gun.flipY = true;
-            Debug.Log("31");
         }
         else
         {
             gun.flipY = false;
-            Debug.Log("32");
         }
             
         Vector3 aimDirection = (mousePosition - character.position).normalized;
@@ -47,6 +47,11 @@ public class Gun : MonoBehaviour
         {
             StartCoroutine(Shoot());
         }
+
+        if (Input.GetMouseButton(1) && cangranade)
+        {
+            StartCoroutine(Granade());
+        }
     }
 
     public IEnumerator Shoot()
@@ -56,6 +61,13 @@ public class Gun : MonoBehaviour
         yield return new WaitForSeconds(fireRate);
         canshoot = true;
     }
+    public IEnumerator Granade()
+    {
+        cangranade = false;
+        Instantiate(GranadePrefab, firePoint.position, firePoint.rotation);
+        yield return new WaitForSeconds(granadefireRate);
+        cangranade = true;
+    }
 
-    
+
 }
