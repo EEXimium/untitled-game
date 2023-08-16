@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 782557913570960750}
   - component: {fileID: 7872749730208670635}
   m_Layer: 0
-  m_Name: atesorb
+  m_Name: Orb-Noir
   m_TagString: runrock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: -1395078727
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.6039216, g: 0.024140876, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 049847d7b82cf224f8f797e617310f25, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
