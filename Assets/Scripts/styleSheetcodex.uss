@@ -1,0 +1,32 @@
+.mainButtons {
+    background-color: rgb(255, 0, 0);
+    position: relative;
+    bottom: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-top-left-radius: 9px;
+    border-bottom-left-radius: 9px;
+    border-top-right-radius: 9px;
+    border-bottom-right-radius: 9px;
+    -unity-font-style: bold;
+    font-size: 14px;
+    -unity-text-align: upper-center;
+    text-overflow: clip;
+    white-space: normal;
+}
+
+.codexPage {
+    left: auto;
+    top: auto;
+}
+
+.mainPages {
+}
+
+.itemButtons {
+}
+
+.itemPages {
+}
