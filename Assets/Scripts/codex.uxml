@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/Scripts/styleSheetcodex.uss?fileID=7433441132597879392&amp;guid=0800f6198ab42094c8d58f022a792703&amp;type=3#styleSheetcodex" />
-    <ui:VisualElement class="codexpage codexPage" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.76);">
+    <ui:VisualElement name="VisualElement" class="codexpage codexPage" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.76); -unity-text-align: upper-center; transform-origin: center; position: relative; left: auto; align-items: auto; justify-content: flex-start; align-self: auto;">
         <ui:VisualElement name="solmenu" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); height: 545px; flex-direction: column-reverse; align-items: center; width: 168px; justify-content: center; align-self: flex-start; flex-wrap: nowrap; position: absolute;">
             <ui:Button text="test" display-tooltip-when-elided="true" name="testButton" class="button mainButtons" />
             <ui:Button text="düşmanlar" display-tooltip-when-elided="true" name="dusmanlarButton" class="button mainButtons" />
@@ -12,6 +12,10 @@
         </ui:VisualElement>
         <ui:VisualElement name="dusmanlarpage" class="codexpage mainpages mainPages" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 625px; height: 545px; align-items: center; justify-content: flex-start; align-self: flex-end; left: 175px; top: auto; position: absolute;" />
         <ui:VisualElement name="testpage" class="codexpage mainpages mainPages" style="flex-grow: 1; background-color: rgba(0, 0, 245, 0); width: 625px; height: 545px; align-items: center; justify-content: flex-start; align-self: flex-end; left: 175px; top: 2px; position: absolute;" />
-        <ui:VisualElement name="itemPage" class="codexpage mainpages mainPages" style="flex-grow: 1; background-color: rgba(0, 0, 245, 0); width: 625px; height: 545px; align-items: center; justify-content: flex-start; align-self: flex-end; left: 175px; top: 2px; position: absolute;" />
+        <ui:VisualElement name="itempage" class="codexpage mainpages mainPages" style="flex-grow: 1; background-color: rgba(0, 0, 245, 0); width: 625px; height: 545px; align-items: center; justify-content: flex-start; align-self: flex-end; left: 175px; top: 2px; position: absolute;">
+            <ui:Label text="TEST TEST 31" display-tooltip-when-elided="true" name="weaponNameLabel" style="height: 44px; width: 292px; position: relative; top: auto; left: auto; font-size: 40px; color: rgb(255, 255, 255); bottom: -37px;" />
+            <ui:Label text="SDFHSDFHSDHSDHDFHSDFHSDHFHDHDSHSDHSDFHSDHSDFHSDFHDSFHDSHDFHDSHD" display-tooltip-when-elided="true" name="descriptionLabel" style="height: 44px; width: 292px; position: relative; top: auto; left: auto; font-size: 35px; color: rgb(255, 255, 255); bottom: -234px; text-overflow: clip; white-space: normal;" />
+            <ui:Button text="close" display-tooltip-when-elided="true" name="closeButton" class="mainButtons" style="position: absolute; top: 455px; left: 506px;" />
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

@@ -18,8 +18,6 @@
 }
 
 .codexPage {
-    left: auto;
-    top: auto;
 }
 
 .mainPages {

@@ -37,4 +37,21 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.MovePosition(newPos);
     }
+
+    /*
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("weapon"))
+        {
+            string collectedWeaponName = other.gameObject.name; // Assuming the weapon's GameObject name matches its weapon name
+            collectedWeapons.Add(collectedWeaponName);
+            unlockedWeapons[collectedWeaponName] = true;
+
+            
+
+            // Optional: Deactivate the collected weapon object
+            other.gameObject.SetActive(false);
+        }
+    }
+    */
 }
