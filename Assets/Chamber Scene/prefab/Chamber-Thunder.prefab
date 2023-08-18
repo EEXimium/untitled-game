@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 6980686612403987209}
   - component: {fileID: 1806361438026135410}
   - component: {fileID: 1206784820076550413}
+  - component: {fileID: 7613138179567474921}
   m_Layer: 0
-  m_Name: "alt\u0131gencim"
+  m_Name: Chamber-Thunder
   m_TagString: ActiveChamber
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f0700ed6a0700af4ea9805eb92656613, type: 3}
+  m_Sprite: {fileID: 84545974, guid: bfd26f7733e39da4da39e8bb5ea96a1a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -136,3 +137,24 @@ PolygonCollider2D:
       - {x: 0.5259728, y: -0.25568473}
       - {x: 0.5287236, y: 0.25402522}
   m_UseDelaunayMesh: 0
+--- !u!95 &7613138179567474921
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954165241333325926}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bff7bb799aa42324e945311a53045448, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
