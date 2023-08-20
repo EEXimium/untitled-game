@@ -14,10 +14,11 @@ public class codex : MonoBehaviour
     VisualElement testPage;
     VisualElement itemPage;
 
+
     private List<string> collectedWeapons = new List<string>();
     public Texture2D lockedSprite; // Assign the locked image sprite in the inspector
     public Dictionary<string, bool> unlockedWeapons = new Dictionary<string, bool>(); // Assign unlocked weapons in the inspector
-
+    private Dictionary<string, Texture2D> weaponSprites = new Dictionary<string, Texture2D>();
     private void OnEnable()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
@@ -38,7 +39,7 @@ public class codex : MonoBehaviour
         dusmanlar.clicked += ShowDusmanlarPage;
         test.clicked += ShowTestPage;
 
-        AttachWeaponButtonClickHandlers();
+        WeaponButtons();
 
     }
     // Start is called before the first frame update
@@ -48,6 +49,7 @@ public class codex : MonoBehaviour
         root.SetEnabled(false);
         root.style.opacity = 0.0f;
         HideAllPages();
+        
     }
 
     // Update is called once per frame
@@ -70,6 +72,15 @@ public class codex : MonoBehaviour
                 HideAllPages();
                 isCodexOpen = false;
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Time.timeScale = 1; // Resume the game
+            root.SetEnabled(false);
+            root.style.opacity = 0.0f;
+            HideAllPages();
+            isCodexOpen = false;
         }
     }
 
@@ -117,26 +128,32 @@ public class codex : MonoBehaviour
         ShowWeaponInfo(weaponName, description);
     }
 
-    private void AttachWeaponButtonClickHandlers()
+    private void WeaponButtons()
     {
         Button testSilah1 = silahlarPage.Q<Button>("testSilah1");
         //testSilah1.clicked += () => WeaponButtonClicked("keremiyoketinator", "keremi varoluþtan silmeye yarar");
-        AttachWeaponButton(testSilah1, "keremiyoketinator", "keremi varoluþtan silmeye yarar");
-        testSilah1.clicked += () => WeaponButtonClicked("keremiyoketinator", "keremi varoluþtan silmeye yarar");
+        WeaponButtonUpdater(testSilah1, "keremiyoketinator", "keremi varoluþtan silmeye yarar");
+        
 
         Button testSilah2 = silahlarPage.Q<Button>("testSilah2");
-        testSilah2.clicked += () => WeaponButtonClicked("Weapon Name 2", "Description 2");
+        WeaponButtonUpdater(testSilah2, "steampunkgun1", "dumanserserisi silahý piyuv piyuv");
+        //testSilah2.clicked += () => WeaponButtonClicked("Weapon Name 2", "Description 2");
+
+        Button testSilah3 = silahlarPage.Q<Button>("testSilah3");
+        WeaponButtonUpdater(testSilah3, "bomba", "lan patlicak");
 
         // daha çok silah eklendikçe isimlerini ve açýklamalarýný buraya yazacaðýz. Butonlarýný burada atayacaðýz.
     }
 
-    private void AttachWeaponButton(Button button, string weaponName, string description)
+    private void WeaponButtonUpdater(Button button, string weaponName, string description)
     {
         if (unlockedWeapons.ContainsKey(weaponName) && unlockedWeapons[weaponName])
         {
             // Weapon is unlocked
             button.SetEnabled(true);
             //button.style.backgroundImage = unlockedSprites[weaponName]; // Set unlocked weapon image
+            button.style.backgroundImage = weaponSprites[weaponName];
+            
             button.clicked += () => WeaponButtonClicked(weaponName, description);
         }
         else
@@ -147,19 +164,13 @@ public class codex : MonoBehaviour
         }
     }
 
-    /*
-    private void OnTriggerEnter2D(Collider2D other)
+    public void CollectedWeaponUpdater(string weaponName, Texture2D weaponSprite)
     {
-        if (other.CompareTag("weapon"))
-        {
-            string collectedWeaponName = other.gameObject.name; // Assuming the weapon's GameObject name matches its weapon name
-            collectedWeapons.Add(collectedWeaponName);
-            unlockedWeapons[collectedWeaponName] = true;
+        collectedWeapons.Add(weaponName);
+        unlockedWeapons[weaponName] = true;
+        weaponSprites[weaponName] = weaponSprite;
 
-            // Optional: Deactivate the collected weapon object
-            other.gameObject.SetActive(false);
-        }
+        // Update the UI buttons
+        WeaponButtons();
     }
-
-    */
 }
