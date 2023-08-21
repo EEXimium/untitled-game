@@ -35,6 +35,8 @@ public class EnemyHealth : MonoBehaviour
     {
         bosscurrentHealth -= damage;
 
+        Debug.Log($"Remaining health of enemy: {bosscurrentHealth}");
+
         if (bosscurrentHealth <= 0)
         {
             StartCoroutine(ColorShift());
