@@ -17,6 +17,18 @@ public class electrizzity : MonoBehaviour
     public float hitRange = 0.5f;
     private bool canAttack = true;
     private int currentAttackHand = 1;
+    
+    private bool canShoot = true;
+    public int attack2Damage = 54;
+    public int knocback2Power = 10;
+    public float attack2Cooldown = 0.5f;
+    public float hitRange2 = 0.5f;
+    public Transform firePoint1;
+    public Transform firePoint2;
+    public GameObject BulletPrefab;
+    
+
+    
 
     public float orbitRadius = 1.5f;
 
@@ -27,6 +39,12 @@ public class electrizzity : MonoBehaviour
         {
             currentAttackHand = (currentAttackHand == 1) ? 2 : 1;
             StartCoroutine(AttackCooldown());
+        }
+
+        if (Input.GetMouseButtonDown(1) && canShoot)
+        {
+            currentAttackHand = (currentAttackHand == 1) ? 2 : 1;
+            StartCoroutine(Attack2Cooldown());
         }
 
         // ----------------------- WEAPON ROTATE -----------------------------
@@ -77,7 +95,7 @@ public class electrizzity : MonoBehaviour
             bcollright.enabled = true;
         }
     }
-    // -------------------------- Anim Activation -----------------------------
+    // -------------------------------------------------------------------------
 
     public void ElecGloveCollFalse() 
     {       
@@ -91,6 +109,25 @@ public class electrizzity : MonoBehaviour
         canAttack = false;
         yield return new WaitForSeconds(attackCooldown);
         canAttack = true;
+    }
+
+    private IEnumerator Attack2Cooldown()
+    {
+        anim.SetInteger("Counter", currentAttackHand + 2);
+        canShoot = false;
+        
+        if (currentAttackHand == 1)
+        {
+            Instantiate(BulletPrefab, firePoint1.position, firePoint1.rotation);
+        }
+        
+        else if (currentAttackHand == 2)
+        {
+            Instantiate(BulletPrefab, firePoint2.position, firePoint2.rotation);
+        }
+
+        yield return new WaitForSeconds(attack2Cooldown);
+        canShoot = true;
     }
 
 }
