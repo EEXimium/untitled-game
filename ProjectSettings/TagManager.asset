@@ -8,6 +8,7 @@ TagManager:
   - Slot
   - ActiveChamber
   - weapon
+  - Item
   layers:
   - Default
   - TransparentFX

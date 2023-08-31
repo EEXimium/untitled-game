@@ -22,6 +22,7 @@ public class InventoryManager : MonoBehaviour
         {
            Time.timeScale = 1; //Allows user to open inventory while game is active and running.
            InventoryMenu.SetActive(false);
+           DeselectAllSlots(); //Deselects the selected slot after the menu is closed
            menuActivated = false;
         }
         
@@ -33,7 +34,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void AddItem(string itemName, int quantity, Sprite itemSprite)
+    public void AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription)
     {
        Debug.Log("itemName: " + itemName + " quantity: " + quantity + " itemSprite: " + itemSprite);
 
@@ -41,12 +42,19 @@ public class InventoryManager : MonoBehaviour
        {
            if(itemSlot[i].isFull == false)
            {
-                itemSlot[i].AddItem(itemName, quantity, itemSprite);
+                itemSlot[i].AddItem(itemName, quantity, itemSprite, itemDescription);
                 return;
            }
        }
     }
 
-
+    public void DeselectAllSlots()
+    {
+        for (int i = 0; i < itemSlot.Length; i++)
+        {
+            itemSlot[i].selectedShader.SetActive(false);
+            itemSlot[i].thisItemSelected = false;
+        }
+    }
 
 }
