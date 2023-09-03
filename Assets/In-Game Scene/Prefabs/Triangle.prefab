@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8093704600681871520}
   - component: {fileID: 2124683085304274369}
   - component: {fileID: 6117935797167175891}
+  - component: {fileID: 1380689327081534459}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Untagged
@@ -55,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -147,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c40ccac8a8fa31e40b7d45686ca522eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Weapon: {fileID: 0}
   bossmaxHealth: 30000
   bosscurrentHealth: 0
   BossAlive: 1
@@ -179,3 +181,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &1380689327081534459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3670866521106732586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: b529232c00000000b9c9d8ac
+  m_ShapePath:
+  - {x: -0.5, y: -0.28866673, z: 0}
+  - {x: 0.00421992, y: 0.57575357, z: 0}
+  - {x: 0.49999994, y: -0.28866673, z: 0}
+  m_ShapePathHash: 109141826
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 43810
+  m_LocalBounds:
+    m_Center: {x: -0.000000029802322, y: 0.14354342, z: 0}
+    m_Extent: {x: 0.49999997, y: 0.43221015, z: 0}
