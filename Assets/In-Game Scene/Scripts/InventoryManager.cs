@@ -8,6 +8,8 @@ public class InventoryManager : MonoBehaviour
     public GameObject InventoryMenu; 
     private bool menuActivated;
     public ItemSlot[] itemSlot; 
+
+    public ItemSO[] itemSOs;
     
     // Start is called before the first frame update
     void Start()
@@ -34,18 +36,33 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription)
+    public void UseItem(string itemName)
+    {
+        for (int i = 0; i < itemSOs.Length; i++)
+        {
+            if(itemSOs[i].itemName == itemName)
+            {
+                itemSOs[i].UseItem();
+            }
+        }
+    }
+    
+    public int AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription)
     {
        Debug.Log("itemName: " + itemName + " quantity: " + quantity + " itemSprite: " + itemSprite);
 
        for (int i = 0; i < itemSlot.Length; i++)
        {
-           if(itemSlot[i].isFull == false)
+           if(itemSlot[i].isFull == false && itemSlot[i].name == name || itemSlot[i].quantity == 0 )
            {
-                itemSlot[i].AddItem(itemName, quantity, itemSprite, itemDescription);
-                return;
+                int leftOverItems = itemSlot[i].AddItem(itemName, quantity, itemSprite, itemDescription);
+                if (leftOverItems > 0)
+                    leftOverItems = AddItem(itemName, leftOverItems, itemSprite, itemDescription);
+                
+                return leftOverItems;
            }
        }
+        return quantity;
     }
 
     public void DeselectAllSlots()
@@ -54,6 +71,9 @@ public class InventoryManager : MonoBehaviour
         {
             itemSlot[i].selectedShader.SetActive(false);
             itemSlot[i].thisItemSelected = false;
+            itemSlot[i].ItemDescriptionNameText.text = null;
+            itemSlot[i].ItemDescriptionText.text = null;
+            itemSlot[i].ItemDesccriptionImage.sprite = null;
         }
     }
 
