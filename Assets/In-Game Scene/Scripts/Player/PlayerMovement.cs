@@ -14,32 +14,52 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 newPos;
     public codex CodexScript;
     public GameObject UIDoc;
+    private Animator animator;
+    
+    private bool diablo = false;
 
 
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
         // ----------- Move ------------
-        currentPos = rb.position;     
-        InputVector.x = Input.GetAxisRaw("Horizontal");     
-        InputVector.y = Input.GetAxisRaw("Vertical");
-        InputVector = Vector2.ClampMagnitude(InputVector, 1);    // Diagonal movement 1,4 => 1
+        currentPos = rb.position;
+        InputVector.x = Input.GetAxis("Horizontal");
+        InputVector.y = Input.GetAxis("Vertical");
+        InputVector.Normalize(); //Diagonal hareketin bozuk hýzlý olmamasý için
+        //InputVector = Vector2.ClampMagnitude(InputVector, 1);    // Diagonal movement 1,4 => 1
+
+        animator.SetFloat("Horizontal", InputVector.x);
+        animator.SetFloat("Vertical", InputVector.y);
 
         if (Input.GetKey(KeyCode.LeftShift))      
         { newPos = currentPos + (InputVector * (movespeed + sprintspeed) * Time.fixedDeltaTime); }
 
         else
         { newPos = currentPos + (InputVector * movespeed * Time.fixedDeltaTime); }
+
+        if (Input.GetKeyDown(KeyCode.F) && !diablo)
+        {
+            diablo = true;
+            animator.SetTrigger("FKeyPressed");
+        }
+    }
+
+    public void endDiablo()
+    {
+        diablo = false;
     }
 
     private void FixedUpdate()
     {
         rb.MovePosition(newPos);
+        //rb.velocity = InputVector * movespeed;
     }
 
     /*
