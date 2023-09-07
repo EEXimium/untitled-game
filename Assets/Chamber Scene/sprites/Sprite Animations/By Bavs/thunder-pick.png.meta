@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 22.5
+  spritePixelsToUnits: 55
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -128,8 +128,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 90
-        height: 106
+        width: 45
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,8 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0eb5f047c36429749a823a84428c3261
-      internalID: -445851163
+      spriteID: 05a621a7a1789ce4e841538458eea849
+      internalID: 1507523609
       vertices: []
       indices: 
       edges: []
@@ -147,10 +147,10 @@ TextureImporter:
       name: thunder-pick_1
       rect:
         serializedVersion: 2
-        x: 90
+        x: 45
         y: 0
-        width: 90
-        height: 106
+        width: 45
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,8 +158,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7cfdbce754e424d48b3f0397cfc6460e
-      internalID: -1885175014
+      spriteID: 2b8b6c70eff7ebc48a760dd6f3a0835d
+      internalID: 140103779
       vertices: []
       indices: 
       edges: []
@@ -168,10 +168,10 @@ TextureImporter:
       name: thunder-pick_2
       rect:
         serializedVersion: 2
-        x: 180
+        x: 90
         y: 0
-        width: 90
-        height: 106
+        width: 45
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,8 +179,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f997db500ac68a440977e356e2711c40
-      internalID: 1387629941
+      spriteID: fe3d7681562f30644b94cc2bad62d888
+      internalID: 453630376
       vertices: []
       indices: 
       edges: []
@@ -189,10 +189,10 @@ TextureImporter:
       name: thunder-pick_3
       rect:
         serializedVersion: 2
-        x: 270
+        x: 135
         y: 0
-        width: 90
-        height: 106
+        width: 45
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e922938c1d547741831209b895ee6e8
-      internalID: 1624059486
+      spriteID: fc211e7fa22dce44cb7cde8898ae082d
+      internalID: -1422463972
       vertices: []
       indices: 
       edges: []
@@ -210,10 +210,10 @@ TextureImporter:
       name: thunder-pick_4
       rect:
         serializedVersion: 2
-        x: 360
+        x: 180
         y: 0
-        width: 90
-        height: 106
+        width: 45
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,8 +221,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93788c958d89dd54f83cd8314f0576cd
-      internalID: 1267843946
+      spriteID: f80f448fb4d0db141a7044ea873d90d0
+      internalID: -1857875635
       vertices: []
       indices: 
       edges: []
@@ -231,10 +231,10 @@ TextureImporter:
       name: thunder-pick_5
       rect:
         serializedVersion: 2
-        x: 450
+        x: 225
         y: 0
-        width: 90
-        height: 106
+        width: 45
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,8 +242,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 166ea111177431f41b102a41a8d35ee8
-      internalID: -249581517
+      spriteID: 74018f6fd58634c45bdf63c01ceb3f0f
+      internalID: -611772226
       vertices: []
       indices: 
       edges: []
@@ -252,10 +252,10 @@ TextureImporter:
       name: thunder-pick_6
       rect:
         serializedVersion: 2
-        x: 540
+        x: 270
         y: 0
-        width: 90
-        height: 106
+        width: 45
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,8 +263,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9facf5057134a7f46aa7c51d1f0e16fd
-      internalID: -1515974963
+      spriteID: 62917914725377b4a92d23a91ee81a0d
+      internalID: 1140521218
       vertices: []
       indices: 
       edges: []
@@ -273,10 +273,10 @@ TextureImporter:
       name: thunder-pick_7
       rect:
         serializedVersion: 2
-        x: 630
+        x: 315
         y: 0
-        width: 90
-        height: 106
+        width: 45
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,8 +284,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e785ca5a74cde24b86ee0df2ce8b6d7
-      internalID: 2018191336
+      spriteID: 945acf498a8549046861ededdd859557
+      internalID: 262163118
       vertices: []
       indices: 
       edges: []
@@ -294,10 +294,10 @@ TextureImporter:
       name: thunder-pick_8
       rect:
         serializedVersion: 2
-        x: 720
+        x: 360
         y: 0
-        width: 90
-        height: 106
+        width: 45
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,8 +305,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f237c3b89fd596409be58aea2012afd
-      internalID: -2133114502
+      spriteID: 2171c8d5934777e4689cb99e6cf32f22
+      internalID: 237565371
       vertices: []
       indices: 
       edges: []
@@ -315,10 +315,10 @@ TextureImporter:
       name: thunder-pick_9
       rect:
         serializedVersion: 2
-        x: 810
+        x: 405
         y: 0
-        width: 90
-        height: 106
+        width: 45
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,8 +326,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8e5b3ec694d57a42876e502e52a7261
-      internalID: -1126442939
+      spriteID: 7f88fd35c2a004f46825125bff1d4930
+      internalID: 1966269094
       vertices: []
       indices: 
       edges: []
@@ -336,10 +336,10 @@ TextureImporter:
       name: thunder-pick_10
       rect:
         serializedVersion: 2
-        x: 900
+        x: 450
         y: 0
-        width: 90
-        height: 106
+        width: 45
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -347,8 +347,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e09f75f15f041644af9e459c698aff9
-      internalID: 694810428
+      spriteID: fe207e7e7d50e16418e391bf52c8bb49
+      internalID: 985282180
       vertices: []
       indices: 
       edges: []
@@ -357,10 +357,10 @@ TextureImporter:
       name: thunder-pick_11
       rect:
         serializedVersion: 2
-        x: 990
+        x: 495
         y: 0
-        width: 90
-        height: 106
+        width: 45
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -368,8 +368,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc37ed6affd195f43a387e47caca7662
-      internalID: -762461029
+      spriteID: ffd9383656842f441943edc1334d42a0
+      internalID: -1892693008
       vertices: []
       indices: 
       edges: []
@@ -378,10 +378,10 @@ TextureImporter:
       name: thunder-pick_12
       rect:
         serializedVersion: 2
-        x: 1080
+        x: 540
         y: 0
-        width: 90
-        height: 106
+        width: 45
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -389,8 +389,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b860f56c88f7cc341aad105a586aeafb
-      internalID: 921497015
+      spriteID: b59ce56690fb98e4f9908fb135d6364c
+      internalID: 407109470
       vertices: []
       indices: 
       edges: []
@@ -399,10 +399,10 @@ TextureImporter:
       name: thunder-pick_13
       rect:
         serializedVersion: 2
-        x: 1170
+        x: 585
         y: 0
-        width: 90
-        height: 106
+        width: 45
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -410,8 +410,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4339ac2d79254dc4dacc1edd758fa215
-      internalID: -1057053659
+      spriteID: 67d71bbe085306847955d6c6d0a7c1ac
+      internalID: 1397174192
       vertices: []
       indices: 
       edges: []
@@ -420,27 +420,27 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      thunder-pick_0: -445851163
-      thunder-pick_1: -1885175014
-      thunder-pick_10: 694810428
-      thunder-pick_11: -762461029
-      thunder-pick_12: 921497015
-      thunder-pick_13: -1057053659
-      thunder-pick_2: 1387629941
-      thunder-pick_3: 1624059486
-      thunder-pick_4: 1267843946
-      thunder-pick_5: -249581517
-      thunder-pick_6: -1515974963
-      thunder-pick_7: 2018191336
-      thunder-pick_8: -2133114502
-      thunder-pick_9: -1126442939
+      thunder-pick_0: 1507523609
+      thunder-pick_1: 140103779
+      thunder-pick_10: 985282180
+      thunder-pick_11: -1892693008
+      thunder-pick_12: 407109470
+      thunder-pick_13: 1397174192
+      thunder-pick_2: 453630376
+      thunder-pick_3: -1422463972
+      thunder-pick_4: -1857875635
+      thunder-pick_5: -611772226
+      thunder-pick_6: 1140521218
+      thunder-pick_7: 262163118
+      thunder-pick_8: 237565371
+      thunder-pick_9: 1966269094
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
