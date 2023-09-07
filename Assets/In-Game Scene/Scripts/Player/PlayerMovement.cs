@@ -30,13 +30,12 @@ public class PlayerMovement : MonoBehaviour
     {
         // ----------- Move ------------
         currentPos = rb.position;
-        InputVector.x = Input.GetAxis("Horizontal");
-        InputVector.y = Input.GetAxis("Vertical");
+        InputVector.x = Input.GetAxisRaw("Horizontal");
+        InputVector.y = Input.GetAxisRaw("Vertical");
         InputVector.Normalize(); //Diagonal hareketin bozuk hýzlý olmamasý için
-        //InputVector = Vector2.ClampMagnitude(InputVector, 1);    // Diagonal movement 1,4 => 1
+        InputVector = Vector2.ClampMagnitude(InputVector, 1);    // Diagonal movement 1,4 => 1
 
-        animator.SetFloat("Horizontal", InputVector.x);
-        animator.SetFloat("Vertical", InputVector.y);
+        
 
         if (Input.GetKey(KeyCode.LeftShift))      
         { newPos = currentPos + (InputVector * (movespeed + sprintspeed) * Time.fixedDeltaTime); }
@@ -49,6 +48,11 @@ public class PlayerMovement : MonoBehaviour
             diablo = true;
             animator.SetTrigger("FKeyPressed");
         }
+
+        rb.MovePosition(newPos);
+
+        animator.SetFloat("Horizontal", InputVector.x);
+        animator.SetFloat("Vertical", InputVector.y);
     }
 
     public void endDiablo()
@@ -58,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.MovePosition(newPos);
+        //rb.MovePosition(newPos);
         //rb.velocity = InputVector * movespeed;
     }
 
