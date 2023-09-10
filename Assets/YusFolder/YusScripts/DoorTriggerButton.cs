@@ -5,16 +5,19 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
+    private Collider2D boxCollider;
     private Animator anim;
     private bool DoorButtonActive = false;
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        boxCollider = GetComponent<Collider2D>();
     }
 
     public void OpenDoor()
     {
         anim.SetBool("Open", true);
+        
     }
 
     public void CloseDoor()
@@ -28,10 +31,12 @@ public class NewBehaviourScript : MonoBehaviour
             if (anim.GetBool("Open"))
             {
                 CloseDoor();
+                boxCollider.enabled = true;
             }
             else
             {
                 OpenDoor();
+                boxCollider.enabled = false;
             }
          }
 
