@@ -13,9 +13,9 @@ public class spawnorb : MonoBehaviour
 
     //----------------- ORBS -------------------
     public GameObject OrbHolder;
-    public GameObject SuPrefab;
-    public GameObject AtesPrefab;
-    public GameObject CimPrefab;
+    public GameObject IcePrefab;
+    public GameObject NoirPrefab;
+    public GameObject ThunderPrefab;
 
     private void Start()
     {
@@ -40,20 +40,20 @@ public class spawnorb : MonoBehaviour
     }
 
     // --------------------- SpawnSection -----------------------
-    public void SpawnSuOrb()
+    public void SpawnIceOrb()
     {
-        GameObject SuOrb = Instantiate(SuPrefab, OrbHolder.transform.position, OrbHolder.transform.rotation);        
-        SuOrb.transform.parent = OrbHolder.transform;
+        GameObject IceOrb = Instantiate(IcePrefab, OrbHolder.transform.position, OrbHolder.transform.rotation);        
+        IceOrb.transform.parent = OrbHolder.transform;
     }
-    public void SpawnAtesOrb()
+    public void SpawnNoirOrb()
     {
-        GameObject AtesOrb = Instantiate(AtesPrefab, OrbHolder.transform.position, OrbHolder.transform.rotation);
-        AtesOrb.transform.parent = OrbHolder.transform;
+        GameObject NoirOrb = Instantiate(NoirPrefab, OrbHolder.transform.position, OrbHolder.transform.rotation);
+        NoirOrb.transform.parent = OrbHolder.transform;
     }
-    public void SpawnCimOrb()
+    public void SpawnThunderOrb()
     {
-        GameObject CimOrb = Instantiate(CimPrefab, OrbHolder.transform.position, OrbHolder.transform.rotation);
-        CimOrb.transform.parent = OrbHolder.transform;
+        GameObject ThunderOrb = Instantiate(ThunderPrefab, OrbHolder.transform.position, OrbHolder.transform.rotation);
+        ThunderOrb.transform.parent = OrbHolder.transform;
     }
 
 }
