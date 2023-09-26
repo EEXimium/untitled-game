@@ -177,3 +177,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23fdc06b60a937b40bf8dc4fe9195ac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  excludedLayers:
+    serializedVersion: 2
+    m_Bits: 64

@@ -16,12 +16,19 @@ public class ChamberSlotBehavior : MonoBehaviour
     private void OnTriggerStay2D (Collider2D collision)
     {
         if (collision.gameObject.CompareTag("ActiveChamber"))
-        {
-            Ccoll.radius = .1f;
+        {           
             Ccoll.isTrigger = true;
             ChangeAlpha(1f);
         }
+    }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("ActiveChamber"))
+        {
+            Ccoll.isTrigger = false;
+            ChangeAlpha(0f);
+        }
     }
     void ChangeAlpha(float alphaValue)
     {
