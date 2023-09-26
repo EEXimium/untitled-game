@@ -10,12 +10,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float movespeed = 3f;
     [SerializeField] private float sprintspeed = 1f;
     private Vector2 currentPos;
-    private Vector2 InputVector;
+    public Vector2 InputVector;
     private Vector2 newPos;
     public codex CodexScript;
     public GameObject UIDoc;
     private Animator animator;
-    
+
     private bool diablo = false;
 
 
