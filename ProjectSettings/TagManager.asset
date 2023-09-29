@@ -9,6 +9,7 @@ TagManager:
   - ActiveChamber
   - weapon
   - Item
+  - NPC
   layers:
   - Default
   - TransparentFX

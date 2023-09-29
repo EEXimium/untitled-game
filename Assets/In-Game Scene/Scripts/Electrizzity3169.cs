@@ -81,6 +81,12 @@ public class electrizzity : MonoBehaviour
             enemy.EnemyKnockback(enemy.transform.position - attackPoint.position, knocbackPower);
         }
 
+        NPCHealth npcHealth = collision.GetComponent<NPCHealth>();
+        if (npcHealth != null)
+        {
+            npcHealth.TakeDamage(attack1Damage);
+            npcHealth.ApplyKnockback(npcHealth.transform.position - attackPoint.position, knocbackPower);
+        }
     }
 
     // -------------------------- Anim Activation -----------------------------
