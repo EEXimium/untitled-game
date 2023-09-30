@@ -35,7 +35,13 @@ public class PlayerMovement : MonoBehaviour
         InputVector.Normalize(); //Diagonal hareketin bozuk hýzlý olmamasý için
         InputVector = Vector2.ClampMagnitude(InputVector, 1);    // Diagonal movement 1,4 => 1
 
-        
+        //------Look at cursor--------
+        //Vector2 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //Vector2 characterPosition = transform.position;
+        //Vector2 direction = cursorPosition - characterPosition;
+
+        //direction = Vector2.ClampMagnitude(direction, 1f);
+        //direction = new Vector2(Mathf.Clamp(direction.x, -1f, 1f), Mathf.Clamp(direction.y, -1f, 1f));
 
         if (Input.GetKey(KeyCode.LeftShift))      
         { newPos = currentPos + (InputVector * (movespeed + sprintspeed) * Time.fixedDeltaTime); }
@@ -43,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
         else
         { newPos = currentPos + (InputVector * movespeed * Time.fixedDeltaTime); }
 
-        if (Input.GetKeyDown(KeyCode.F) && !diablo)
+        if (Input.GetKeyDown(KeyCode.H) && !diablo)
         {
             diablo = true;
             animator.SetTrigger("FKeyPressed");
@@ -53,6 +59,10 @@ public class PlayerMovement : MonoBehaviour
 
         animator.SetFloat("Horizontal", InputVector.x);
         animator.SetFloat("Vertical", InputVector.y);
+
+        //animator.SetFloat("MouseHorizontal", direction.x);
+        //animator.SetFloat("MouseVertical", direction.y);
+        //animator.SetFloat("Speed", InputVector.sqrMagnitude);
     }
 
     public void endDiablo()
