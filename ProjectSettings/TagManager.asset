@@ -10,6 +10,9 @@ TagManager:
   - weapon
   - Item
   - NPC
+  - InfoPanels
+  - OrbHolder
+  - Cards
   layers:
   - Default
   - TransparentFX

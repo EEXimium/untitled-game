@@ -6,7 +6,11 @@ public class InfoPanelScript : MonoBehaviour
 {
     private Animator animator;
     private int state;
-    public GameObject InfoPanel;   
+    public GameObject InfoPanel;
+    public GameObject CardSlotLeft;
+    public GameObject CardSlotMiddle;
+    public GameObject CardSlotRight;
+
     // Start is called before the first frame update
     void Start()
     {
