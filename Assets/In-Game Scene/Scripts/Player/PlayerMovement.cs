@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
 
     // ----------- Move ------------
     [SerializeField] private float movespeed = 3f;
@@ -14,23 +14,10 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 newPos;
     public codex CodexScript;
     public GameObject UIDoc;
-    private Animator animator;
-    private string currentState;
+    public Animator animator;
 
     //private bool diabloState = false;
 
-    //ANIM STATES
-    const string Idle = "Idle";
-    const string Run = "Run";
-    const string Walk_Left = "Walk_Left";
-    const string Walk_Right = "Walk_Right";
-    const string Walk_Up = "Walk_Up";
-    const string Walk_Up_Left = "Walk_Up_Left";
-    const string Walk_Up_Right = "Walk_Up_Right";
-    const string Walk_Down = "Walk_Down";
-    const string Walk_Down_Left = "Walk_Down_Left";
-    const string Walk_Down_Right = "Walk_Down_Right";
-    const string diabloAnim = "diablo";
 
     void Start()
     {
@@ -45,22 +32,6 @@ public class PlayerMovement : MonoBehaviour
         InputVector.x = Input.GetAxisRaw("Horizontal");
         InputVector.y = Input.GetAxisRaw("Vertical");
 
-        //------Look at cursor--------
-        //Vector2 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //Vector2 characterPosition = transform.position;
-        //Vector2 direction = cursorPosition - characterPosition;
-
-        //direction = Vector2.ClampMagnitude(direction, 1f);
-        //direction = new Vector2(Mathf.Clamp(direction.x, -1f, 1f), Mathf.Clamp(direction.y, -1f, 1f));
-
-        //-----------------------------------------------
-
-        ////animator.SetFloat("Horizontal", InputVector.x);
-        ////animator.SetFloat("Vertical", InputVector.y);
-
-        //animator.SetFloat("MouseHorizontal", direction.x);
-        //animator.SetFloat("MouseVertical", direction.y);
-        //animator.SetFloat("Speed", InputVector.sqrMagnitude);
     }
 
     private void FixedUpdate()
@@ -78,52 +49,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         rb.MovePosition(newPos);
-
-        //ANIM CHANGES
-
-        if(InputVector.x >= 0.1f && InputVector.y == 0)
-        {
-            ChangeAnimationState(Walk_Right);
-        }
-        else if(InputVector.x <= -0.1f && InputVector.y == 0)
-        {
-            ChangeAnimationState(Walk_Left);
-        }
-        else if(InputVector.x == 0 && InputVector.y >= 0.1)
-        {
-            ChangeAnimationState(Walk_Up);
-        }
-        else if (InputVector.x >= 0.1f && InputVector.y >= 0.1)
-        {
-            ChangeAnimationState(Walk_Up_Right);
-        }
-        else if (InputVector.x <= -0.1f && InputVector.y >= 0.1)
-        {
-            ChangeAnimationState(Walk_Up_Left);
-        }
-        else if (InputVector.x == 0 && InputVector.y <= -0.1)
-        {
-            ChangeAnimationState(Walk_Down);
-        }
-        else if (InputVector.x >= 0.1f && InputVector.y <= -0.1)
-        {
-            ChangeAnimationState(Walk_Down_Right);
-        }
-        else if (InputVector.x <= -0.1f && InputVector.y <= -0.1)
-        {
-            ChangeAnimationState(Walk_Down_Left);
-        }
-        else
-        {
-            ChangeAnimationState(Idle);
-        }
-
-        /*
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            ChangeAnimationState(diabloAnim);
-        }
-        */
 
     }
 
@@ -163,18 +88,5 @@ public class PlayerMovement : MonoBehaviour
             // Deactivate the collected weapon object
             other.gameObject.SetActive(false);
         }
-    }
-
-    void ChangeAnimationState(string newState)
-    {
-        //halihazýrda oynayan animasyonun kendini kesmesine engel ol
-        if (currentState == newState)
-            return;
-
-        //yeni anim oynat
-        animator.Play(newState);
-
-        //current state güncelle çünkü deðiþti
-        currentState = newState;
     }
 }
