@@ -74,19 +74,19 @@ public class PlayerMovement : MonoBehaviour
     }
     */
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("weapon"))
-        {
-            string collectedWeaponName = other.gameObject.name;
-            Texture2D collectedWeaponSprite = other.GetComponent<SpriteRenderer>().sprite.texture;
-            // Call the method to update the collected weapon in the codex script
-            //CodexScript.UpdateCollectedWeapon(collectedWeaponName);
-            UIDoc.GetComponent<codex>().CollectedWeaponUpdater(collectedWeaponName, collectedWeaponSprite);
+    //private void OnTriggerEnter2D(Collider2D other)
+    //{
+    //    if (other.CompareTag("weapon"))
+    //    {
+    //        string collectedWeaponName = other.gameObject.name;
+    //        Texture2D collectedWeaponSprite = other.GetComponent<SpriteRenderer>().sprite.texture;
+    //        // Call the method to update the collected weapon in the codex script
+    //        //CodexScript.UpdateCollectedWeapon(collectedWeaponName);
+    //        UIDoc.GetComponent<codex>().CollectedWeaponUpdater(collectedWeaponName, collectedWeaponSprite);
 
 
-            // Deactivate the collected weapon object
-            other.gameObject.SetActive(false);
-        }
-    }
+    //        // Deactivate the collected weapon object
+    //        other.gameObject.SetActive(false);
+    //    }
+    //}
 }
