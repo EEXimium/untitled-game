@@ -12,14 +12,14 @@ public class SteampunkSniper : MonoBehaviour
     public SpriteRenderer gun;
 
     public float orbitRadius = 1.5f;  // silahýn karaktere olan uzaklýðý ya da yakýnlýðý
-    public float fireRate; 
+    public float fireRate;
+    private float nextFireTime = 0f;
 
-    public bool canshoot = true;
-  
 
     // Camera Movement
     private new Camera camera;
-    [SerializeField] private SpriteRenderer camlimitrender;
+    private GameObject camlimitrender;
+    private SpriteRenderer camlimitrenderSprite;
     private float limitminX, limitmaxX, limitminY, limitmaxY;
     Vector3 StartMousePos;
 
@@ -27,6 +27,8 @@ public class SteampunkSniper : MonoBehaviour
     {
         camera = Camera.main;
         character = GameObject.FindWithTag("Player");
+        camlimitrender = GameObject.Find("CameraLimit");
+        camlimitrenderSprite = camlimitrender.GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -67,22 +69,22 @@ public class SteampunkSniper : MonoBehaviour
             float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, aimAngle);
 
-            if (Input.GetMouseButtonDown(0) && canshoot)
+            if (Input.GetMouseButtonDown(0) && Time.time > nextFireTime)
             {
-                StartCoroutine(Shoot());
+                Instantiate(BulletPrefab, firePoint.position, firePoint.rotation);
+                nextFireTime = Time.time + 1f / fireRate;
             }
-        }
-      
+        }      
     }
 
     // --------------- Zoom -------------------
     private void Onzoom()
     {
-        limitminX = camlimitrender.transform.position.x - camlimitrender.bounds.size.x;
-        limitmaxX = camlimitrender.transform.position.x + camlimitrender.bounds.size.x;
+        limitminX = camlimitrenderSprite.transform.position.x - camlimitrenderSprite.bounds.size.x;
+        limitmaxX = camlimitrenderSprite.transform.position.x + camlimitrenderSprite.bounds.size.x;
 
-        limitminY = camlimitrender.transform.position.y - camlimitrender.bounds.size.y;
-        limitmaxY = camlimitrender.transform.position.y + camlimitrender.bounds.size.y;
+        limitminY = camlimitrenderSprite.transform.position.y - camlimitrenderSprite.bounds.size.y;
+        limitmaxY = camlimitrenderSprite.transform.position.y + camlimitrenderSprite.bounds.size.y;
 
 
         Vector3 mouse2Position = camera.ScreenToWorldPoint(Input.mousePosition);     
@@ -105,12 +107,4 @@ public class SteampunkSniper : MonoBehaviour
         return new Vector3(newX, newY, targetPosition.z);
     }
     // ---------------------------------------
-
-    public IEnumerator Shoot()
-    {
-        canshoot = false;
-        Instantiate(BulletPrefab, firePoint.position, firePoint.rotation);
-        yield return new WaitForSeconds(fireRate);
-        canshoot = true;
-    }
 }

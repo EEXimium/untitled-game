@@ -132,11 +132,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orbitRadius: 1
   BulletPrefab: {fileID: 573570370025025618, guid: 4ddf2294028bada4e8e4e4d81e543e8d, type: 3}
-  GranadePrefab: {fileID: 2887288873887243734, guid: 1ae1e568d7464a64a91b6e665b4861bf, type: 3}
   firePoint: {fileID: 6937194617085932244}
-  fireRate: 0.14
-  granadefireRate: 2
+  fireRate: 7
+  GranadePrefab: {fileID: 2887288873887243734, guid: 1ae1e568d7464a64a91b6e665b4861bf, type: 3}
   gun: {fileID: 1514707405845596045}
+  granadefireRate: 2
 --- !u!58 &763106424148130014
 CircleCollider2D:
   m_ObjectHideFlags: 0

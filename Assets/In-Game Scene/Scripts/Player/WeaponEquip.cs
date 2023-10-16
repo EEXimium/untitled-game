@@ -1,79 +1,121 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponEquip : MonoBehaviour
 {
-    public GameObject Hand1;
-    public GameObject Hand2;
+    public GameObject Hand1;  // Birincil Silah Slotu.
+    public GameObject Hand2;  // Ýkincil Silah Slotu.
 
-    private GameObject Hand1Weapon;
-    private GameObject Hand2Weapon;
+    private GameObject Hand1Weapon;  // Birincil Silah.
+    private GameObject Hand2Weapon;  // Ýkincil Silah.
 
+    private SpriteRenderer WeaponSprite;  // UI'da Göstermek için sprite çekme.
 
-    private bool Hand1Online;
-    private bool Hand2Online;
+    private bool Hand1Online;  // Hangi Eli kullanýyoruz ?
+    private bool Hand2Online;  // Hangi Eli kullanýyoruz ?
 
-    private GameObject Weapon;
+    private GameObject Weapon;  // Collide Olunan Yerdeki Silah.
 
-    private bool WeaponCheck;
-    private string WeaponName;
+    private bool WeaponCheck;  // Silahla collide olundu mu ?
+     
+    public Image Hand1Sprite, Hand2Sprite;  // UI'da Kullanýlan Silahýn Gösterileceði Yer.
 
-    public GameObject[] Weapons;
-    
-
-    private void Update()
+    private void Update() 
     {
-        if (Hand1Online && Input.GetKeyDown(KeyCode.G))
-        {
-            Instantiate(Hand1Weapon, Hand1.transform.position, this.transform.rotation);
-            Destroy(Hand1Weapon);
-        }
-        if (Hand2Online && Input.GetKeyDown(KeyCode.G))
-        {
-            Instantiate(Hand2Weapon, Hand2.transform.position, this.transform.rotation);
-            Destroy(Hand2Weapon);
-        }
+        HandSelection();  // LÝNE -- 84 
 
-        if (WeaponCheck)
+        if (WeaponCheck)  // Silahla collide olundu mu ?
         {
-            if (Hand1.transform.childCount == 0 && Input.GetKeyDown(KeyCode.E))
-            {                
-                Hand1.SetActive(true);
-                Hand1Online = true;
-                Hand1Weapon = Instantiate(Weapon, Hand1.transform.position, Quaternion.identity);
-                Hand1Weapon.transform.parent = Hand1.transform;
-                Destroy(Weapon);
-            }
-            else if (Hand2.transform.childCount == 0 && Input.GetKeyDown(KeyCode.E))
+            if (Hand1.transform.childCount == 0 && Hand1Online && Input.GetKeyDown(KeyCode.E)) // Birincil Silah Slotu boþ mu ? -- Birincil Slotu mu kullanýyoruz ? -- E tuþu basýldý mý ?
             {
-                Hand2.SetActive(true);
-                Hand2Online = true;
-                Hand2Weapon = Instantiate(Weapon, Hand2.transform.position, Quaternion.identity);
-                Hand2Weapon.transform.parent = Hand2.transform;
-                Destroy(Weapon);
+                Hand1Weapon = Instantiate(Weapon, Hand1.transform.position, Quaternion.identity); // Yerdeki Silahý Elde Oluþtur.
+                Hand1Weapon.transform.parent = Hand1.transform;                                  // Birincil Silah Slotunun Child'ý yap.
+                Destroy(Weapon);                                                                // Yerdeki Silahý Sil.
+                Hand1Sprite.sprite = WeaponSprite.sprite;                                      // Silah Sprite'ýný UI'da göster.
             }
+            else if (Hand2.transform.childCount == 0 && Hand2Online && Input.GetKeyDown(KeyCode.E)) // Ýkincil Silah Slotu boþ mu ? -- Ýkincil Slotu mu kullanýyoruz ? -- E tuþu basýldý mý ?
+            {
+                Hand2Weapon = Instantiate(Weapon, Hand2.transform.position, Quaternion.identity); // Yerdeki Silahý Elde Oluþtur.
+                Hand2Weapon.transform.parent = Hand2.transform;                                  // Ýkincil Silah Slotunun Child'ý yap.
+                Destroy(Weapon);                                                                // Yerdeki Silahý Sil.
+                Hand2Sprite.sprite = WeaponSprite.sprite;                                      // Silah Sprite'ýný UI'da göster.
+            }
+        }
 
+        if (Hand1Online && Input.GetKeyDown(KeyCode.G))  // Birincil Slotu mu kullanýyoruz ? -- G tuþu basýldý mý ?
+        {
+            DropItem(Hand1Weapon, Hand1, Hand1Sprite);   // LÝNE -- 56 
+        }
+        if (Hand2Online && Input.GetKeyDown(KeyCode.G))  // Ýkincil Slotu mu kullanýyoruz ? -- G tuþu basýldý mý ?
+        {
+            DropItem(Hand2Weapon, Hand2, Hand2Sprite);   // LÝNE -- 56 
         }
     }
+    private void DropItem(GameObject DropHandWeapon, GameObject DropHand, Image DropHandSprite)
+    {
+        GameObject DroppedWeapon = Instantiate(DropHandWeapon, DropHand.transform.position, this.transform.rotation);  // Elimizdeki Silahý Yerde Oluþtur.
+        DroppedWeapon.transform.localScale = DropHandWeapon.transform.lossyScale;                                     // Boyutunu Ayarla.
+        SpriteRenderer DroppedWeaponSprite = DroppedWeapon.GetComponent<SpriteRenderer>();                           // Yerde Oluþan Silahýn Sprite'ýný çek.
+        DroppedWeaponSprite.flipY = false;                                                                          // Yerde Oluþan Silahýn Yönünü Ayarla.
+        Destroy(DropHandWeapon);                                                                                   // Elimizdeki Silahý Sil.
+        DropHandSprite.sprite = null;                                                                             // UI'da Silahý Göstermeyi Kaldýr.
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("weapon"))
         {
-            WeaponCheck = true;
-            Weapon = collision.gameObject;
-            WeaponName = collision.gameObject.name;
+            WeaponCheck = true;                                        // Silahla collide olundu mu ? ( EVET )
+            Weapon = collision.gameObject;                            // Collidelanan silahý kaydet.
+            WeaponSprite = collision.GetComponent<SpriteRenderer>(); // Collidelanan silahýn Sprite'ýný kaydet.        
         }
     }
-
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("weapon"))
         {
-            Weapon = null;
-            WeaponCheck = false;
-            WeaponName = collision.gameObject.name;
+            Weapon = null;                       // Collidelanan silah kaydýný sil
+            WeaponCheck = false;                 // Silahla collide olundu mu ? ( HAYIR )
         }
     }
+
+    // ---------------- HAND SELECTÝON ----------------------- HAND SELECTÝON ------------------------ HAND SELECTÝON ------------------
+    public Image Hand1Color, Hand2Color;         // Kullanýlan Eli belirtmek için çekilen UI Image'larý.
+    private void HandSelection()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))    // "1" Tuþuna basýldý mý?
+        {
+            // Hand 1 Activate
+            Hand1.SetActive(true);               // Birincil Silah Slotunu Aktifleþtir.
+            Hand1Online = true;                 // Birincil Slotu mu kullanýyoruz ? ( EVET )
+            ChangeAlpha(Hand1Color, 1);        // Görünürlük = OPAK
+
+            // Hand 2 Deactivate
+            Hand2.SetActive(false);             // Ýkincil Silah Slotunu DeAktifleþtir.
+            Hand2Online = false;               // Ýkincil Slotu mu kullanýyoruz ? ( HAYIR )
+            ChangeAlpha(Hand2Color, 0);       // Görünürlük = SAYDAM
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2)) // "2" Tuþuna basýldý mý?
+        {
+            // Hand 2 Activate
+            Hand2.SetActive(true);             // Ýkincil Silah Slotunu Aktifleþtir.
+            Hand2Online = true;               // Ýkincil Slotu mu kullanýyoruz ? ( EVET )
+            ChangeAlpha(Hand2Color, 1);      // Görünürlük = OPAK
+
+            // Hand 1 Deactivate
+            Hand1.SetActive(false);          // Birincil Silah Slotunu DeAktifleþtir.
+            Hand1Online = false;            // Birincil Slotu mu kullanýyoruz ? ( HAYIR )
+            ChangeAlpha(Hand1Color, 0);    // Görünürlük = SAYDAM
+        }
+    }
+    private void ChangeAlpha(Image Handname, float alphavalue)  // Görünürlük ( OPAK / SAYDAM)  Ayarlama yeri.
+    {
+        Color Hand1AlphaColor = Handname.color;
+        Hand1AlphaColor.a = alphavalue;
+        Handname.color = Hand1AlphaColor;
+    }
+    // --------------------------------------------------------------------------------------------------------------------------------
 
 }

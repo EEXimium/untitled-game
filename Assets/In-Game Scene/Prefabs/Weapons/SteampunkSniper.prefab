@@ -59,7 +59,7 @@ Transform:
   m_GameObject: {fileID: 8625498092463866117}
   m_LocalRotation: {x: -0, y: -0, z: 0.70318604, w: 0.711006}
   m_LocalPosition: {x: -1.0930716, y: -0.11680291, z: 0}
-  m_LocalScale: {x: 1.887861, y: 1.668613, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5911592649071124685}
@@ -134,8 +134,7 @@ MonoBehaviour:
   firePoint: {fileID: 5911592649071124685}
   gun: {fileID: 9197284738387309501}
   orbitRadius: 0.7
-  fireRate: 0.5
-  canshoot: 1
+  fireRate: 2
   camlimitrender: {fileID: 0}
 --- !u!58 &-201073423303816094
 CircleCollider2D:

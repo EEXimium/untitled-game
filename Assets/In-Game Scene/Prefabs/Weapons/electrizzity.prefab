@@ -75,10 +75,11 @@ GameObject:
   - component: {fileID: 6474397525683861700}
   - component: {fileID: 3146183036455776268}
   - component: {fileID: 254465369286020140}
-  - component: {fileID: 7451312018924452800}
+  - component: {fileID: 7323841283766074445}
+  - component: {fileID: 4465750922246996575}
   m_Layer: 0
   m_Name: electrizzity
-  m_TagString: Untagged
+  m_TagString: weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,7 +100,7 @@ Transform:
   - {fileID: 9081314712357691359}
   - {fileID: 508940717986862702}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7788531031788492165
 SpriteRenderer:
@@ -264,7 +265,42 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.33924472, y: 0.3030955}
   m_EdgeRadius: 0
---- !u!114 &7451312018924452800
+--- !u!58 &7323841283766074445
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5590390527749689373}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.06565404
+--- !u!114 &4465750922246996575
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -276,24 +312,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dff0ee70be989f74093274643a9c72a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 0}
   attackPoint: {fileID: 7564379033519342080}
   lightningGlove: {fileID: 7788531031788492165}
   bcoll: {fileID: 254465369286020140}
   bcollright: {fileID: 3146183036455776268}
   anim: {fileID: 6474397525683861700}
-  attack1Damage: 10
+  attack1Damage: 54
   knocbackPower: 10
-  attackCooldown: 0.16
-  hitRange: 0.3
+  attack1Rate: 10
+  hitRange: 0.5
   attack2Damage: 54
   knocback2Power: 10
-  attack2Cooldown: 0.5
+  attack2Rate: 7
   hitRange2: 0.5
   firePoint1: {fileID: 9081314712357691359}
   firePoint2: {fileID: 508940717986862702}
   BulletPrefab: {fileID: 573570370025025618, guid: 4ddf2294028bada4e8e4e4d81e543e8d, type: 3}
-  orbitRadius: 1
+  orbitRadius: 0.8
 --- !u!1 &5971092996619012552
 GameObject:
   m_ObjectHideFlags: 0

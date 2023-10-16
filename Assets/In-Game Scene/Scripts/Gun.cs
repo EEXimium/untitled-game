@@ -7,14 +7,18 @@ public class Gun : MonoBehaviour
 {
     private GameObject character; // Reference to the character's Transform
     public float orbitRadius = 1.5f;
+
+    // Primary Fire (Bullet)
     public GameObject BulletPrefab;
-    public GameObject GranadePrefab;
     public Transform firePoint;
     public float fireRate;
-    public float granadefireRate;
-    bool cangranade = true;
-    bool canshoot = true;
+    private float nextFireTime = 0f;
+
+    // Secondary Fire (Granade)
+    public GameObject GranadePrefab;
     public SpriteRenderer gun;
+    public float granadefireRate;
+
 
     private void Start()
     {
@@ -36,45 +40,25 @@ public class Gun : MonoBehaviour
             transform.position = orbitPosition;
             transform.rotation = Quaternion.Euler(0, 0, currentAngle);
 
-            if (directionToMouse.x < 0)
-            {
-                gun.flipY = true;
-            }
-            else
-            {
-                gun.flipY = false;
-            }
+            if (directionToMouse.x < 0)   {  gun.flipY = true;  }
+            else                          {  gun.flipY = false; }
 
             Vector3 aimDirection = (mousePosition - character.transform.position).normalized;
             float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, aimAngle);
 
-            if (Input.GetMouseButton(0) && canshoot)
+            if (Input.GetMouseButton(0) && Time.time >= nextFireTime)
             {
-                StartCoroutine(Shoot());
+                Instantiate(BulletPrefab, firePoint.position, firePoint.rotation);
+                nextFireTime = Time.time + 1f / fireRate;
             }
 
-            if (Input.GetMouseButton(1) && cangranade)
+            if (Input.GetMouseButton(1) && Time.time >= nextFireTime)
             {
-                StartCoroutine(Granade());
+                Instantiate(GranadePrefab, firePoint.position, firePoint.rotation);
+                nextFireTime = Time.time + 1f / granadefireRate;
             }
         }
-
-    }
-
-    public IEnumerator Shoot()
-    {
-        canshoot = false;
-        Instantiate(BulletPrefab, firePoint.position, firePoint.rotation);
-        yield return new WaitForSeconds(fireRate);
-        canshoot = true;
-    }
-    public IEnumerator Granade()
-    {
-        cangranade = false;
-        Instantiate(GranadePrefab, firePoint.position, firePoint.rotation);
-        yield return new WaitForSeconds(granadefireRate);
-        cangranade = true;
     }
 
 
