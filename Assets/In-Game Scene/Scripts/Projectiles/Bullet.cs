@@ -21,6 +21,7 @@ public class Bullet : MonoBehaviour
         {
             enemy.BossTakeDamage(damage);
         }
+
         Destroy(gameObject);
     }
 

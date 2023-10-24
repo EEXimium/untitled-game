@@ -10,8 +10,8 @@ public class PlayerHealth : MonoBehaviour
     public HealthBar healthBar;
     private SpriteRenderer charSpriteR;
     [Header("Variables")]
-    public int maxHealth = 4;
-    public int currentHealth;
+    public float maxHealth = 4f;
+    public float currentHealth;
     [SerializeField] private Color damageColor = Color.red;
 
     void Start()
@@ -38,13 +38,13 @@ public class PlayerHealth : MonoBehaviour
         charSpriteR.color = Color.white;
     }
 
-    public void TakeDamage(int damage) 
+    public void TakeDamage(float damage) 
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
     }
 
-    public void TakeHeal(int healcount)
+    public void TakeHeal(float healcount)
     {
         currentHealth += healcount;
         healthBar.SetHealth(currentHealth);
