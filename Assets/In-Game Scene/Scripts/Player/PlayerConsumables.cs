@@ -18,9 +18,12 @@ public class PlayerConsumables : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftAlt) && HealthPotCount > 0)
         {
-            PH.TakeHeal(2);
-            HealthPotCount--;
-            HealthPotCountText.text = HealthPotCount.ToString();
+            if (PH.currentHealth < PH.maxHealth)
+            {
+                PH.TakeHeal(2);
+                HealthPotCount--;
+                HealthPotCountText.text = HealthPotCount.ToString();
+            }
         }
     }
 

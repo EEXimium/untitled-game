@@ -13,8 +13,10 @@ public class FlameThrowTrap : MonoBehaviour
     private bool CanFlame;
     private bool Flaming;
 
+    private float lastDamageTime = 0f;
     [SerializeField] private float FlamePeriod = 2.2f;
     [SerializeField] private float FlameDamage = 0.8f;
+    [SerializeField] private float DamageCooldown = 2f;
 
 
     private void Start()
@@ -27,6 +29,8 @@ public class FlameThrowTrap : MonoBehaviour
 
         CanFlame = true;
         Flaming = false;
+
+        lastDamageTime = -FlamePeriod;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -36,12 +40,13 @@ public class FlameThrowTrap : MonoBehaviour
         {
             if (CanFlame)
             {
-                StartCoroutine(FlameOn());
+                StartCoroutine(FlameOn());               
             }
 
-            if (Flaming)
+            if (Flaming && Time.time >= lastDamageTime)
             {
                 PH.TakeDamage(FlameDamage);
+                lastDamageTime = Time.time + 1f / DamageCooldown;
             }
         }
     }

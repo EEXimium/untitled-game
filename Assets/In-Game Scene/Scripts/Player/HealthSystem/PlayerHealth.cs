@@ -14,6 +14,8 @@ public class PlayerHealth : MonoBehaviour
     public float currentHealth;
     [SerializeField] private Color damageColor = Color.red;
 
+    public InsantiateText InsText;
+
     void Start()
     {
         currentHealth = maxHealth;  
@@ -27,7 +29,7 @@ public class PlayerHealth : MonoBehaviour
         {
             TakeDamage(1);
             StartCoroutine(ColorShift());
-            DisplayText();
+            InsText.DisplayText(this.gameObject.transform, new Vector3(0,1,0), Quaternion.identity, .8f, "Ughh!");
         }
     }
 
@@ -40,8 +42,12 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float damage) 
     {
-        currentHealth -= damage;
-        healthBar.SetHealth(currentHealth);
+        if (currentHealth > 0)
+        {
+            currentHealth -= damage;
+            healthBar.SetHealth(currentHealth);
+            InsText.DisplayText(this.gameObject.transform, new Vector3(0, 1, 0), Quaternion.identity, .8f, "Ughh!");
+        }
     }
 
     public void TakeHeal(float healcount)
@@ -52,16 +58,16 @@ public class PlayerHealth : MonoBehaviour
 
 
     //UsableScript!!
-    public string textToDisplay = "UGhh!";
-    public float deleteTime = 0.2f;
+    //public string textToDisplay = "UGhh!";
+    //public float deleteTime = 0.2f;
 
-    public void DisplayText()
-    {
-        GameObject textObject = Instantiate(new GameObject("text"), Vector3.zero, Quaternion.identity);
-        TextMesh textMesh = textObject.AddComponent<TextMesh>();
-        textMesh.text = textToDisplay;
-        textObject.transform.Translate(0,0,-1);
-        Object.Destroy(GameObject.Find("text"));// method creates a blank object somehow this is for it.
-        Object.Destroy(textObject, deleteTime);
-    }
+    //public void DisplayText()
+    //{
+    //    GameObject textObject = Instantiate(new GameObject("text"), Vector3.zero, Quaternion.identity);
+    //    TextMesh textMesh = textObject.AddComponent<TextMesh>();
+    //    textMesh.text = textToDisplay;
+    //    textObject.transform.Translate(0,0,-1);
+    //    Object.Destroy(GameObject.Find("text"));// method creates a blank object somehow this is for it.
+    //    Object.Destroy(textObject, deleteTime);
+    //}
 }
