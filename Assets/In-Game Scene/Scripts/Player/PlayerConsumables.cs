@@ -7,7 +7,8 @@ public class PlayerConsumables : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI HealthPotCountText;
     public PlayerHealth PH;
-    
+    private ShopManagerScript Shop;
+       
     public int HealthPotCount = 2;
 
     private void Start()
@@ -25,6 +26,22 @@ public class PlayerConsumables : MonoBehaviour
                 HealthPotCountText.text = HealthPotCount.ToString();
             }
         }
+        try
+        {
+            Shop = GameObject.Find("ShopManager").GetComponent<ShopManagerScript>();
+
+            if (Shop.shopItems[3, 1] > 0)
+            {
+                HealthPotCount += Shop.shopItems[3, 1];
+                Shop.shopItems[3, 1] = 0;
+                HealthPotCountText.text = HealthPotCount.ToString();
+            }
+        }
+        catch (System.Exception)
+        {
+            return;
+        }
+
     }
 
 }

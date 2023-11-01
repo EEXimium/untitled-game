@@ -27,15 +27,17 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // ----------- Move ------------
-        currentPos = rb.position;
-        InputVector.x = Input.GetAxisRaw("Horizontal");
-        InputVector.y = Input.GetAxisRaw("Vertical");
+
 
     }
 
     private void FixedUpdate()
     {
+        // ----------- Move ------------
+        currentPos = rb.position;
+        InputVector.x = Input.GetAxisRaw("Horizontal");
+        InputVector.y = Input.GetAxisRaw("Vertical");
+
         InputVector.Normalize(); //Diagonal hareketin bozuk hýzlý olmamasý için
         InputVector = Vector2.ClampMagnitude(InputVector, 1);    // Diagonal movement 1,4 => 1
 

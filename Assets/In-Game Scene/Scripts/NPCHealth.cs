@@ -3,7 +3,7 @@ using UnityEngine;
 public class NPCHealth : MonoBehaviour
 {
     public int maxHealth = 100;
-    private int currentHealth;
+    public int currentHealth;
 
     private Animator animator;
 
