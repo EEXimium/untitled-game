@@ -13,6 +13,7 @@ TagManager:
   - InfoPanels
   - OrbHolder
   - Cards
+  - Coin
   layers:
   - Default
   - TransparentFX
