@@ -7,6 +7,7 @@ public class PlayerConsumables : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI HealthPotCountText;
     public PlayerHealth PH;
+    public EffectMethods EM;
     private ShopManagerScript Shop;
        
     public int HealthPotCount = 2;
@@ -21,7 +22,7 @@ public class PlayerConsumables : MonoBehaviour
         {
             if (PH.currentHealth < PH.maxHealth)
             {
-                PH.TakeHeal(2);
+                EM.TakeHeal(2);
                 HealthPotCount--;
                 HealthPotCountText.text = HealthPotCount.ToString();
             }

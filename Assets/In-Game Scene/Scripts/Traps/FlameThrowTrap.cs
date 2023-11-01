@@ -7,11 +7,14 @@ public class FlameThrowTrap : MonoBehaviour
     private BoxCollider2D OutLine;
     private CapsuleCollider2D HitBox;
     private PolygonCollider2D FlameSpace;
-
+   
+    public EffectMethods characterStatus;                     
+    
     private Animator anim;
 
     private bool CanFlame;
     private bool Flaming;
+    private bool collided = false;                              
 
     private float lastDamageTime = 0f;
     [SerializeField] private float FlamePeriod = 2.2f;
@@ -38,7 +41,8 @@ public class FlameThrowTrap : MonoBehaviour
         PlayerHealth PH = collision.GetComponent<PlayerHealth>();
         if (PH != null)
         {
-            if (CanFlame)
+            collided = true;
+            if (CanFlame)             
             {
                 StartCoroutine(FlameOn());               
             }
@@ -47,7 +51,12 @@ public class FlameThrowTrap : MonoBehaviour
             {
                 PH.TakeDamage(FlameDamage);
                 lastDamageTime = Time.time + 1f / DamageCooldown;
-            }
+            }                                                
+        }
+
+        if (Flaming && collided)                                            
+        {
+            characterStatus.SetOnFire();
         }
     }
 

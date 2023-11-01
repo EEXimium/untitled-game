@@ -50,11 +50,11 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    public void TakeHeal(float healcount)
-    {
-        currentHealth += healcount;
-        healthBar.SetHealth(currentHealth);
-    }
+    //public void TakeHeal(float healcount)
+    //{
+    //    currentHealth += healcount;
+    //    healthBar.SetHealth(currentHealth);
+    //}
 
 
     //UsableScript!!

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
+    public EffectMethods EM;
 
     // ----------- Move ------------
     [SerializeField] private float movespeed = 3f;
@@ -23,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        EM = GetComponent<EffectMethods>();
     }
 
     void Update()
@@ -41,16 +43,19 @@ public class PlayerMovement : MonoBehaviour
         InputVector.Normalize(); //Diagonal hareketin bozuk hýzlý olmamasý için
         InputVector = Vector2.ClampMagnitude(InputVector, 1);    // Diagonal movement 1,4 => 1
 
-        if (Input.GetKey(KeyCode.LeftShift))
-        { 
-            newPos = currentPos + (InputVector * (movespeed + sprintspeed) * Time.fixedDeltaTime); 
-        }
-        else
-        { 
-            newPos = currentPos + (InputVector * movespeed * Time.fixedDeltaTime); 
-        }
+        if (!EM.isStuck)
+        {
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                newPos = currentPos + (InputVector * (movespeed + sprintspeed) * Time.fixedDeltaTime);
+            }
+            else
+            {
+                newPos = currentPos + (InputVector * movespeed * Time.fixedDeltaTime);
+            }
 
-        rb.MovePosition(newPos);
+            rb.MovePosition(newPos);
+        }
 
     }
 
