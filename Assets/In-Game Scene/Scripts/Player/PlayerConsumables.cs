@@ -18,6 +18,12 @@ public class PlayerConsumables : MonoBehaviour
     }
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            StartCoroutine(EM.ExtraHp());
+            Debug.Log("T located.");
+        }
+
         if (Input.GetKeyDown(KeyCode.LeftAlt) && HealthPotCount > 0)
         {
             if (PH.currentHealth < PH.maxHealth)

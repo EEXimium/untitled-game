@@ -1,6 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+//using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class EffectMethods : MonoBehaviour
 {
@@ -12,6 +16,7 @@ public class EffectMethods : MonoBehaviour
     [SerializeField] private float FlamePeriod = 2.2f;
     [SerializeField] private float DamageCooldown = 2f;
     private PlayerMovement PM;
+    public HealthBar HB;
 
     private float lastDamageTime = 0f;
 
@@ -23,6 +28,12 @@ public class EffectMethods : MonoBehaviour
     }
     private void Update()
     {
+        if (ExtraHpActive)
+        {
+            buffDurationText -= Time.deltaTime;
+            intDuration = Convert.ToInt32(buffDurationText);
+            timer.text = intDuration.ToString();
+        }
         // Set On fire+
         if (isOnFire)
         {
@@ -59,4 +70,31 @@ public class EffectMethods : MonoBehaviour
         PH.healthBar.SetHealth(PH.currentHealth);
     }
 
+
+    //#########  ExtraHpBuff  #########
+
+    [SerializeField] private float buffDuration = 1f;
+    [SerializeField] private int extraHpGiven = 4;
+    private float buffDurationText;
+
+    public GameObject healtBuffIco;
+    public bool ExtraHpActive;
+    public TextMeshProUGUI timer;
+    public int intDuration;
+
+    public IEnumerator ExtraHp()
+    {
+        healtBuffIco.SetActive(true);
+        PH.currentHealth += extraHpGiven;
+        HB.SetHealth(PH.currentHealth);
+        
+        ExtraHpActive = true;
+        buffDurationText = buffDuration;
+
+        yield return new WaitForSeconds(buffDuration);
+        ExtraHpActive=false;
+        healtBuffIco.SetActive(false);
+        PH.currentHealth -= extraHpGiven;
+        HB.SetHealth(PH.currentHealth);
+    }
 }
