@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class PlayerConsumables : MonoBehaviour
@@ -18,10 +19,16 @@ public class PlayerConsumables : MonoBehaviour
     }
     private void Update()
     {
+        // Speed buff
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            StartCoroutine(EM.SpeedBuff());
+        }
+
+        // Extra HP
         if (Input.GetKeyDown(KeyCode.T))
         {
             StartCoroutine(EM.ExtraHp());
-            Debug.Log("T located.");
         }
 
         if (Input.GetKeyDown(KeyCode.LeftAlt) && HealthPotCount > 0)

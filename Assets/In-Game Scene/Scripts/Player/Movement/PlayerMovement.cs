@@ -8,8 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public EffectMethods EM;
 
     // ----------- Move ------------
-    [SerializeField] private float movespeed = 3f;
-    [SerializeField] private float sprintspeed = 1f;
+    [SerializeField] public float movespeed = 3f;
+    [SerializeField] public float sprintspeed = 1f;
     private Vector2 currentPos;
     public Vector2 InputVector;
     private Vector2 newPos;

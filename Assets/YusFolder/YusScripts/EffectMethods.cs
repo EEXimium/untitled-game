@@ -28,12 +28,23 @@ public class EffectMethods : MonoBehaviour
     }
     private void Update()
     {
+        // Speed Buff
+        if (SBActive)
+        {
+            SBbuffDurationText -= Time.deltaTime;
+            SBintDuration = Convert.ToInt32(SBbuffDurationText);
+            SBtimer.text = SBintDuration.ToString();
+        }
+
+        // Extra Hp
         if (ExtraHpActive)
         {
             buffDurationText -= Time.deltaTime;
             intDuration = Convert.ToInt32(buffDurationText);
-            timer.text = intDuration.ToString();
+            ExtHpTimer.text = intDuration.ToString();
         }
+        
+
         // Set On fire+
         if (isOnFire)
         {
@@ -72,14 +83,14 @@ public class EffectMethods : MonoBehaviour
 
 
     //#########  ExtraHpBuff  #########
-
+    [Header("Extra Hp Buff Settings")]
     [SerializeField] private float buffDuration = 1f;
     [SerializeField] private int extraHpGiven = 4;
     private float buffDurationText;
 
     public GameObject healtBuffIco;
     public bool ExtraHpActive;
-    public TextMeshProUGUI timer;
+    public TextMeshProUGUI ExtHpTimer;
     public int intDuration;
 
     public IEnumerator ExtraHp()
@@ -96,5 +107,32 @@ public class EffectMethods : MonoBehaviour
         healtBuffIco.SetActive(false);
         PH.currentHealth -= extraHpGiven;
         HB.SetHealth(PH.currentHealth);
+    }
+
+    //#########  SpeedBuff  #########
+    [Header("Speed Buff Settings")]
+    [SerializeField] private float SBbuffDuration = 1f;
+    [SerializeField] private float SBpercentage = 0.8f;
+    [SerializeField] private float SpeedGiven;
+    private float SBbuffDurationText;
+
+    public GameObject speedBuffIco;
+    public bool SBActive;
+    public TextMeshProUGUI SBtimer;
+    public int SBintDuration;
+
+    public IEnumerator SpeedBuff()
+    {
+        speedBuffIco.SetActive(true);
+        SpeedGiven = PM.movespeed * SBpercentage;
+        PM.movespeed += SpeedGiven;
+
+        SBActive = true;
+        SBbuffDurationText = SBbuffDuration;
+
+        yield return new WaitForSeconds(SBbuffDuration);
+        SBActive = false;
+        speedBuffIco.SetActive(false);
+        PM.movespeed -= SpeedGiven;
     }
 }
