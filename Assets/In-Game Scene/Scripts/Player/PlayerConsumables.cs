@@ -20,13 +20,13 @@ public class PlayerConsumables : MonoBehaviour
     private void Update()
     {
         // Speed buff
-        if (Input.GetKeyDown(KeyCode.V))
+        if (Input.GetKeyDown(KeyCode.V) && !EM.SBActive)
         {
             StartCoroutine(EM.SpeedBuff());
         }
 
         // Extra HP
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.T) && !EM.ExtraHpActive)
         {
             StartCoroutine(EM.ExtraHp());
         }
