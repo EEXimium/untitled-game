@@ -14,6 +14,7 @@ public class NPCMovement : MonoBehaviour
     private Animator animator;
     private float lastAttackTime;
     private bool isHit = false; // Flag to indicate if NPC is hit
+    public bool notMoving;
 
     private void Awake()
     {
@@ -27,6 +28,7 @@ public class NPCMovement : MonoBehaviour
 
         if (!isHit && distanceToPlayer <= detectionRange)
         {
+            notMoving= false;
             // Calculate the direction to the player
             Vector2 directionToPlayer = (target.position - transform.position).normalized;
 
@@ -37,20 +39,21 @@ public class NPCMovement : MonoBehaviour
             // Move the NPC towards the player using the calculated direction
             rb.velocity = directionToPlayer * moveSpeed;
 
-            // Update walking animation based on directionToPlayer
-            animator.SetFloat("Horizontal", horizontalInput);
-            animator.SetFloat("Vertical", verticalInput);
+            //update walking animation based on directiontoplayer
+            //animator.setfloat("horizontal", horizontalýnput);
+            //animator.setfloat("vertical", verticalýnput);
 
             // Check attack conditions and perform attacks if necessary
-            if (!animator.GetBool("IsAttacking") && distanceToPlayer <= attackRange && Time.time - lastAttackTime >= attackCooldown)
-            {                
-                Attack();
-            }
+            //if (!animator.GetBool("IsAttacking") && distanceToPlayer <= attackRange && Time.time - lastAttackTime >= attackCooldown)
+            //{
+            //    Attack();
+            //}
         }
         else
         {
             // Stop moving if the player is not in range
             rb.velocity = Vector2.zero;
+            notMoving = true;
         }
     }
 
