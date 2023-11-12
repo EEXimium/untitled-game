@@ -4,6 +4,7 @@ public class NPCHealth : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
+    private npcExplosion npcExplosion;
 
     private Animator animator;
 
@@ -11,6 +12,7 @@ public class NPCHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
+        npcExplosion = GetComponent<npcExplosion>();
     }
 
     public void TakeDamage(int damage)
@@ -23,7 +25,7 @@ public class NPCHealth : MonoBehaviour
         currentHealth -= damage;
         Debug.Log("NPC takes damage. Current Health: " + currentHealth);
 
-        animator.SetTrigger("IsHit");
+        //animator.SetTrigger("IsHit");
 
         if (currentHealth <= 0)
         {
@@ -41,7 +43,18 @@ public class NPCHealth : MonoBehaviour
     private void Die()
     {
         Debug.Log("NPC dies.");
-        animator.SetBool("IsDead", true);
+        //animator.SetBool("IsDead", true);
+
+        if(this.tag == "ExplosiveNPC")
+        {
+            GameObject deadExplosion = new GameObject("Dead explosion radius");
+            deadExplosion.transform.position = this.transform.position;
+            deadExplosion.AddComponent<CircleCollider2D>();
+            deadExplosion.GetComponent<CircleCollider2D>().radius = 1.0f;
+            deadExplosion.GetComponent<CircleCollider2D>().isTrigger = true;
+            deadExplosion.AddComponent<npcExplosion>();
+            Destroy(deadExplosion, 1.0f);
+        }
 
         // Disable NPC's collider or any other interactions
         Collider2D npcCollider = GetComponent<Collider2D>();
@@ -53,7 +66,7 @@ public class NPCHealth : MonoBehaviour
         // Insert any other death-related logic here
 
         // Optionally, destroy the GameObject after a delay
-        float destroyDelay = 2.0f; // Adjust this delay as needed
-        Destroy(gameObject, destroyDelay);
+        //float destroyDelay = 2.0f; // Adjust this delay as needed
+        Destroy(gameObject);
     }
 }

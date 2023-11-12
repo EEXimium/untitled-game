@@ -41739,6 +41739,7 @@ MonoBehaviour:
   attackCooldown: 1
   hitStopDuration: 1
   isDead: 0
+  notMoving: 0
 --- !u!95 &1869482820
 Animator:
   serializedVersion: 5
@@ -42054,6 +42055,7 @@ GameObject:
   - component: {fileID: 3104436411231361542}
   - component: {fileID: 6109932903555346064}
   - component: {fileID: 7545706395204371136}
+  - component: {fileID: 8654793859435066792}
   - component: {fileID: 3799566969902906695}
   - component: {fileID: 8654793859435066787}
   - component: {fileID: 5096033914101346814}
@@ -42076,7 +42078,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847448546170985827}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 50.56, y: 10.57, z: -0.5}
+  m_LocalPosition: {x: -2.2, y: -0.1, z: -0.5}
   m_LocalScale: {x: 0.5297, y: 0.5993, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -42136,6 +42138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 7545706395204371136}
+  EM: {fileID: 0}
   movespeed: 5
   sprintspeed: 5
   InputVector: {x: 0, y: 0}
@@ -42351,6 +42354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthPotCountText: {fileID: 1797646221}
   PH: {fileID: 8654793859435066788}
+  EM: {fileID: 0}
   HealthPotCount: 4
 --- !u!114 &8654793859435066791
 MonoBehaviour:
@@ -42370,3 +42374,33 @@ MonoBehaviour:
   Hand2Sprite: {fileID: 1881778159}
   Hand1Color: {fileID: 1080180202}
   Hand2Color: {fileID: 2093978625}
+--- !u!114 &8654793859435066792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847448546170985827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aed0f6db7a700e4a84fee70b9daa8e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireDamage: 1
+  isStuck: 0
+  FlamePeriod: 2.2
+  DamageCooldown: 2
+  HB: {fileID: 0}
+  buffDuration: 1
+  extraHpGiven: 4
+  healtBuffIco: {fileID: 0}
+  ExtraHpActive: 0
+  ExtHpTimer: {fileID: 0}
+  intDuration: 0
+  SBbuffDuration: 1
+  SBpercentage: 0.8
+  SpeedGiven: 0
+  speedBuffIco: {fileID: 0}
+  SBActive: 0
+  SBtimer: {fileID: 0}
+  SBintDuration: 0

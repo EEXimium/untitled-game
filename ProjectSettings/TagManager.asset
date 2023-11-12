@@ -14,6 +14,7 @@ TagManager:
   - OrbHolder
   - Cards
   - Coin
+  - ExplosiveNPC
   layers:
   - Default
   - TransparentFX
