@@ -4,41 +4,42 @@ using UnityEngine;
 
 public class Bomba : MonoBehaviour
 {
-    public Rigidbody2D rb;
-    public float speed = 20f;
-    public int damage = 10;
-    public float Explosiontimer = 3f;
     private CircleCollider2D Ccoll;
+    private Rigidbody2D rb;
+
+    public float speed = 20f;   
+    public float damage = 10;
+    public float ExplosionRange = 2f;
+    public float Explosiontimer = 3f;
 
     void Start()
     {
         Ccoll = GetComponent<CircleCollider2D>();
-        rb.velocity = transform.right * speed;
-        StartCoroutine(Explosion());
-    }
+        rb = GetComponent<Rigidbody2D>();
 
-    private void OnTriggerEnter2D (Collider2D collision)
-    {
-        Ccoll.radius = 0.8f;
+        rb.velocity = transform.right * speed;
+        Invoke("Explosion", Explosiontimer);
     }
 
     private void OnTriggerStay2D (Collider2D collision)
     {
-
-        EnemyHealth enemy = collision.GetComponent<EnemyHealth>();
-        if (enemy != null && enemy.BossAlive)
+        NPCHealth enemy = collision.GetComponent<NPCHealth>();
+        if (enemy != null)
         {
-            enemy.BossTakeDamage(damage);
+            Explosion();
         }
-        Destroy(gameObject);
     }
 
-
-    public IEnumerator Explosion()
+    private void Explosion()
     {
-        yield return new WaitForSeconds(Explosiontimer);
-        Ccoll.radius = 0.8f;
-        yield return new WaitForSeconds(0.3f);
+        GameObject deadExplosion = new GameObject("Dead explosion radius");
+        deadExplosion.transform.position = this.transform.position;
+        deadExplosion.AddComponent<CircleCollider2D>();
+        deadExplosion.AddComponent<Explosion>();
+        deadExplosion.GetComponent<Explosion>().damage = damage;
+        deadExplosion.GetComponent<CircleCollider2D>().radius = ExplosionRange;
+        deadExplosion.GetComponent<CircleCollider2D>().isTrigger = true;
+        Destroy(deadExplosion, .1f);
         Destroy(gameObject);
     }
 

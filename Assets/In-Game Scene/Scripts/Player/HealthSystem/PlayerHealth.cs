@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
     public HealthBar healthBar;
     private SpriteRenderer charSpriteR;
     [Header("Variables")]
-    public float maxHealth = 4f;
+    public float maxHealth;
     public float currentHealth;
     [SerializeField] private Color damageColor = Color.red;
 
@@ -28,8 +28,6 @@ public class PlayerHealth : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TakeDamage(1);
-            StartCoroutine(ColorShift());
-            InsText.DisplayText(this.gameObject.transform, new Vector3(0,1,0), Quaternion.identity, .8f, "Ughh!");
         }
     }
 
@@ -45,29 +43,13 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth > 0)
         {
             currentHealth -= damage;
+            StartCoroutine(ColorShift());
             healthBar.SetHealth(currentHealth);
             InsText.DisplayText(this.gameObject.transform, new Vector3(0, 1, 0), Quaternion.identity, .8f, "Ughh!");
+
+            Debug.Log("Player takes damage: " + damage);
+            Debug.Log("Player takes damage. Current Health: " + currentHealth);
         }
     }
 
-    //public void TakeHeal(float healcount)
-    //{
-    //    currentHealth += healcount;
-    //    healthBar.SetHealth(currentHealth);
-    //}
-
-
-    //UsableScript!!
-    //public string textToDisplay = "UGhh!";
-    //public float deleteTime = 0.2f;
-
-    //public void DisplayText()
-    //{
-    //    GameObject textObject = Instantiate(new GameObject("text"), Vector3.zero, Quaternion.identity);
-    //    TextMesh textMesh = textObject.AddComponent<TextMesh>();
-    //    textMesh.text = textToDisplay;
-    //    textObject.transform.Translate(0,0,-1);
-    //    Object.Destroy(GameObject.Find("text"));// method creates a blank object somehow this is for it.
-    //    Object.Destroy(textObject, deleteTime);
-    //}
 }

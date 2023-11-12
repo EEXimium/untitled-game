@@ -13,7 +13,6 @@ public class Bullet : MonoBehaviour
         rb.velocity = transform.right * speed;
     }
 
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         NPCHealth enemy = collision.GetComponent<NPCHealth>();
