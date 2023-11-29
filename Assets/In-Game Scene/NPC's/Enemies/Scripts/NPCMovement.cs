@@ -7,9 +7,11 @@ public class NPCMovement : MonoBehaviour
     private Animator anim;
 
     public float moveSpeed = 3f; 
-    public float detectionRange = 5f; 
-       
-    public bool notMoving;
+    public float detectionRange = 5f;
+    public float shootRange = 8f;
+    public float distanceToPlayer;
+
+    public bool moving;
 
     private void Awake()
     {
@@ -20,22 +22,30 @@ public class NPCMovement : MonoBehaviour
 
     private void Update()
     {       
-        float distanceToPlayer = Vector2.Distance(transform.position, target.position);
+        distanceToPlayer = Vector2.Distance(transform.position, target.position);
 
         if (distanceToPlayer <= detectionRange)
         {
-            notMoving= false;
+            moving = true;
             // Calculate the direction to the player
             Vector2 directionToPlayer = (target.position - transform.position).normalized;
 
-            // Move the NPC towards the player using the calculated direction
-            rb.velocity = directionToPlayer * moveSpeed;
+            if(this.tag == "ExplosiveNPC")
+            {
+                // Move the NPC towards the player using the calculated direction
+                rb.velocity = directionToPlayer * moveSpeed;
+            }else if(this.tag == "RangedNPC")
+            {
+                rb.velocity = -directionToPlayer * moveSpeed;
+            }
+
         }
         else
         {
             // Stop moving if the player is not in range
+            moving = false;
             rb.velocity = Vector2.zero;
-            notMoving = true;
+            
         }
     }
 

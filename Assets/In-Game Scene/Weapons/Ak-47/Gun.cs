@@ -48,18 +48,26 @@ public class Gun : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, aimAngle);
 
             if (Input.GetMouseButton(0) && Time.time >= nextFireTime)
-            {
-                Instantiate(BulletPrefab, firePoint.position, firePoint.rotation);
-                nextFireTime = Time.time + 1f / fireRate;
-            }
+                shootPrimary();
 
             if (Input.GetMouseButton(1) && Time.time >= nextFireTime)
-            {
-                Instantiate(GranadePrefab, firePoint.position, firePoint.rotation);
-                nextFireTime = Time.time + 1f / granadefireRate;
-            }
+                shootSecondary();
+
         }
     }
 
+    public void shootPrimary()
+    {
+        if(Time.time > nextFireTime)
+        {
+            Instantiate(BulletPrefab, firePoint.position, firePoint.rotation);
+            nextFireTime = Time.time + 1f / fireRate;
+        }   
+    }
 
+    public void shootSecondary()
+    {
+        Instantiate(GranadePrefab, firePoint.position, firePoint.rotation);
+        nextFireTime = Time.time + 1f / granadefireRate;
+    }
 }

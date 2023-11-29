@@ -15,6 +15,7 @@ TagManager:
   - Cards
   - Coin
   - ExplosiveNPC
+  - RangedNPC
   layers:
   - Default
   - TransparentFX
