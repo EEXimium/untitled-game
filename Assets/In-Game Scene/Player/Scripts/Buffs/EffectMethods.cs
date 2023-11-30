@@ -17,14 +17,22 @@ public class EffectMethods : MonoBehaviour
     [SerializeField] private float DamageCooldown = 2f;
     private PlayerMovement PM;
     public HealthBar HB;
-
+    private GameObject BuffLayout;
+    private TextMeshProUGUI SBtimer;
+    private TextMeshProUGUI ExtHpTimer;
     private float lastDamageTime = 0f;
 
     private void Start()
     {
        PH = GetComponent<PlayerHealth>();
        PM = GetComponent<PlayerMovement>();
+
         lastDamageTime = -FlamePeriod;
+
+        BuffLayout = GameObject.Find("Buff Layout");
+
+        SBtimer = speedBuffPrefab.gameObject.GetComponentInChildren<TextMeshProUGUI>();
+        ExtHpTimer = healtBuffPrefab.gameObject.GetComponentInChildren<TextMeshProUGUI>();
     }
     private void Update()
     {
@@ -88,14 +96,14 @@ public class EffectMethods : MonoBehaviour
     [SerializeField] private int extraHpGiven = 4;
     private float buffDurationText;
 
-    public GameObject healtBuffIco;
+    public GameObject healtBuffPrefab;
     public bool ExtraHpActive;
-    public TextMeshProUGUI ExtHpTimer;
-    public int intDuration;
+
+    private int intDuration;
 
     public IEnumerator ExtraHp()
     {
-        healtBuffIco.SetActive(true);
+        GameObject HealthBuffIcon = Instantiate(healtBuffPrefab, BuffLayout.transform);
         PH.currentHealth += extraHpGiven;
         HB.SetHealth(PH.currentHealth);
         
@@ -104,7 +112,7 @@ public class EffectMethods : MonoBehaviour
 
         yield return new WaitForSeconds(buffDuration);
         ExtraHpActive=false;
-        healtBuffIco.SetActive(false);
+        Destroy(HealthBuffIcon);
         PH.currentHealth -= extraHpGiven;
         HB.SetHealth(PH.currentHealth);
     }
@@ -116,14 +124,14 @@ public class EffectMethods : MonoBehaviour
     [SerializeField] private float SpeedGiven;
     private float SBbuffDurationText;
 
-    public GameObject speedBuffIco;
+    public GameObject speedBuffPrefab;
     public bool SBActive;
-    public TextMeshProUGUI SBtimer;
-    public int SBintDuration;
+ 
+    private int SBintDuration;
 
     public IEnumerator SpeedBuff()
     {
-        speedBuffIco.SetActive(true);
+        GameObject SpeedBuffIcon = Instantiate(speedBuffPrefab, BuffLayout.transform);
         SpeedGiven = PM.movespeed * SBpercentage;
         PM.movespeed += SpeedGiven;
 
@@ -132,7 +140,7 @@ public class EffectMethods : MonoBehaviour
 
         yield return new WaitForSeconds(SBbuffDuration);
         SBActive = false;
-        speedBuffIco.SetActive(false);
+        Destroy(SpeedBuffIcon);
         PM.movespeed -= SpeedGiven;
     }
 }
