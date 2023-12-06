@@ -244,9 +244,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 379581429257240106}
-        m_TargetAssemblyTypeName: spawnorb, Assembly-CSharp
-        m_MethodName: OnClick
+      - m_Target: {fileID: 1447423194008158518}
+        m_TargetAssemblyTypeName: SteampunkCardScript, Assembly-CSharp
+        m_MethodName: SpawnOrbUniversal
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -256,9 +256,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 379581429257240106}
-        m_TargetAssemblyTypeName: spawnorb, Assembly-CSharp
-        m_MethodName: SpawnSteampunkOrb
+      - m_Target: {fileID: 1447423194008158518}
+        m_TargetAssemblyTypeName: SteampunkCardScript, Assembly-CSharp
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -762,7 +762,7 @@ GameObject:
   - component: {fileID: 3740612175309448264}
   - component: {fileID: 2658079722336356446}
   - component: {fileID: 2202144430284441026}
-  - component: {fileID: 379581429257240106}
+  - component: {fileID: 1447423194008158518}
   m_Layer: 5
   m_Name: SteampunkCard
   m_TagString: Cards
@@ -885,8 +885,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 379581429257240106}
-        m_TargetAssemblyTypeName: spawnorb, Assembly-CSharp
+      - m_Target: {fileID: 1447423194008158518}
+        m_TargetAssemblyTypeName: SteampunkCardScript, Assembly-CSharp
         m_MethodName: PositionCorrecter
         m_Mode: 1
         m_Arguments:
@@ -897,7 +897,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
---- !u!114 &379581429257240106
+--- !u!114 &1447423194008158518
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -906,25 +906,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8391313749321589246}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0188c8a2804ec244b321164a45d4513, type: 3}
+  m_Script: {fileID: 11500000, guid: 4110e39681bc9d14b8d20b790974576b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   InfoPanel: {fileID: 1679346643620056465}
-  itself: {fileID: 8391313749321589246}
-  OrbHolder: {fileID: 0}
-  CardChoice: {fileID: 0}
-  Orbs:
-  - {fileID: 1181402894749419328, guid: dfc8232495b92e148a1d568d7ef8360f, type: 3}
-  - {fileID: 6973292655582810787, guid: 184fae348d5aa3a418be41cfda2af8e3, type: 3}
-  - {fileID: 1589955594731235357, guid: 23b36591119fe1c4c807b209b1cb0e0a, type: 3}
-  - {fileID: 3326349616884792472, guid: c96ca08efead10241bebce87ab91859f, type: 3}
-  - {fileID: 7707625354251956548, guid: 7b3613f382f052b46a10acdd20668623, type: 3}
-  - {fileID: 2640925095458265764, guid: 9f38384ddd3ed5a408d056c3e53cef9d, type: 3}
-  - {fileID: 5551389300769995188, guid: a439fb4faee63cf4c981eb66311328bf, type: 3}
-  - {fileID: 6814137576690608785, guid: 91b88de2eaec12d4e9ace6f0e25ba5e4, type: 3}
-  - {fileID: 5656714677154338787, guid: b3b890f9f2e1b0547bfad391416be9fc, type: 3}
-  - {fileID: 3889872734245006041, guid: 1ca846203a36e2c43bd4206dc497835a, type: 3}
-  - {fileID: 1181402894749419328, guid: 257dc8a0c29461b44afaabf13a7c7981, type: 3}
+  orbwhospawn: {fileID: 5656714677154338787, guid: b3b890f9f2e1b0547bfad391416be9fc, type: 3}
 --- !u!1 &9093448986124595667
 GameObject:
   m_ObjectHideFlags: 0

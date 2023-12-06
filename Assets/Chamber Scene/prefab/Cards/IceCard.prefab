@@ -616,7 +616,7 @@ GameObject:
   - component: {fileID: 9161736629158695020}
   - component: {fileID: 2980542252867406185}
   - component: {fileID: 1162459398639159399}
-  - component: {fileID: 5527019869310651878}
+  - component: {fileID: 3687465776382609735}
   m_Layer: 5
   m_Name: IceCard
   m_TagString: Cards
@@ -739,8 +739,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 5527019869310651878}
-        m_TargetAssemblyTypeName: spawnorb, Assembly-CSharp
+      - m_Target: {fileID: 3687465776382609735}
+        m_TargetAssemblyTypeName: IceCardScript, Assembly-CSharp
         m_MethodName: PositionCorrecter
         m_Mode: 1
         m_Arguments:
@@ -751,7 +751,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
---- !u!114 &5527019869310651878
+--- !u!114 &3687465776382609735
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -760,25 +760,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6290462586513120269}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0188c8a2804ec244b321164a45d4513, type: 3}
+  m_Script: {fileID: 11500000, guid: f11c636c6afbb4d4f8e5ba0995fae70c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   InfoPanel: {fileID: 7678598425039512050}
-  itself: {fileID: 6290462586513120269}
-  OrbHolder: {fileID: 0}
-  CardChoice: {fileID: 0}
-  Orbs:
-  - {fileID: 1181402894749419328, guid: dfc8232495b92e148a1d568d7ef8360f, type: 3}
-  - {fileID: 6973292655582810787, guid: 184fae348d5aa3a418be41cfda2af8e3, type: 3}
-  - {fileID: 1589955594731235357, guid: 23b36591119fe1c4c807b209b1cb0e0a, type: 3}
-  - {fileID: 3326349616884792472, guid: c96ca08efead10241bebce87ab91859f, type: 3}
-  - {fileID: 7707625354251956548, guid: 7b3613f382f052b46a10acdd20668623, type: 3}
-  - {fileID: 2640925095458265764, guid: 9f38384ddd3ed5a408d056c3e53cef9d, type: 3}
-  - {fileID: 5551389300769995188, guid: a439fb4faee63cf4c981eb66311328bf, type: 3}
-  - {fileID: 6814137576690608785, guid: 91b88de2eaec12d4e9ace6f0e25ba5e4, type: 3}
-  - {fileID: 5656714677154338787, guid: b3b890f9f2e1b0547bfad391416be9fc, type: 3}
-  - {fileID: 3889872734245006041, guid: 1ca846203a36e2c43bd4206dc497835a, type: 3}
-  - {fileID: 1181402894749419328, guid: 257dc8a0c29461b44afaabf13a7c7981, type: 3}
+  orbwhospawn: {fileID: 1181402894749419328, guid: dfc8232495b92e148a1d568d7ef8360f, type: 3}
 --- !u!1 &6659294783409664466
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,9 +887,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5527019869310651878}
-        m_TargetAssemblyTypeName: spawnorb, Assembly-CSharp
-        m_MethodName: OnClick
+      - m_Target: {fileID: 3687465776382609735}
+        m_TargetAssemblyTypeName: IceCardScript, Assembly-CSharp
+        m_MethodName: SpawnOrbUniversal
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -913,9 +899,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5527019869310651878}
-        m_TargetAssemblyTypeName: spawnorb, Assembly-CSharp
-        m_MethodName: SpawnIceOrb
+      - m_Target: {fileID: 3687465776382609735}
+        m_TargetAssemblyTypeName: IceCardScript, Assembly-CSharp
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -220,7 +220,7 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 382291543}
-        m_TargetAssemblyTypeName: spawncards1, Assembly-CSharp
+        m_TargetAssemblyTypeName: CanvasGeneralManager, Assembly-CSharp
         m_MethodName: SpawnCard
         m_Mode: 1
         m_Arguments:
@@ -868,6 +868,19 @@ MonoBehaviour:
   - {fileID: 246893279192019203, guid: 0e1729ab2dd555c47ad6f7342bcfade1, type: 3}
   - {fileID: 4022928533040371878, guid: c8d10656fbe2fd64da349765e66d14b1, type: 3}
   - {fileID: 3901695663641387455, guid: 72166a709a1bcb849a3c815092d505ac, type: 3}
+  CardChoice: {fileID: 1751549865}
+  Orbs:
+  - {fileID: 1181402894749419328, guid: dfc8232495b92e148a1d568d7ef8360f, type: 3}
+  - {fileID: 6973292655582810787, guid: 184fae348d5aa3a418be41cfda2af8e3, type: 3}
+  - {fileID: 1589955594731235357, guid: 23b36591119fe1c4c807b209b1cb0e0a, type: 3}
+  - {fileID: 3326349616884792472, guid: c96ca08efead10241bebce87ab91859f, type: 3}
+  - {fileID: 7707625354251956548, guid: 7b3613f382f052b46a10acdd20668623, type: 3}
+  - {fileID: 2640925095458265764, guid: 9f38384ddd3ed5a408d056c3e53cef9d, type: 3}
+  - {fileID: 5551389300769995188, guid: a439fb4faee63cf4c981eb66311328bf, type: 3}
+  - {fileID: 6814137576690608785, guid: 91b88de2eaec12d4e9ace6f0e25ba5e4, type: 3}
+  - {fileID: 5656714677154338787, guid: b3b890f9f2e1b0547bfad391416be9fc, type: 3}
+  - {fileID: 3889872734245006041, guid: 1ca846203a36e2c43bd4206dc497835a, type: 3}
+  - {fileID: 1181402894749419328, guid: 257dc8a0c29461b44afaabf13a7c7981, type: 3}
 --- !u!4 &383653024 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4515961904536656163, guid: ebb9bbc853066244ea21acc7c14fad77, type: 3}
@@ -1417,7 +1430,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 382291543}
-        m_TargetAssemblyTypeName: spawncards1, Assembly-CSharp
+        m_TargetAssemblyTypeName: CanvasGeneralManager, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
