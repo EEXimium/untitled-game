@@ -42,41 +42,86 @@ public class Npclookatdirection : MonoBehaviour
 
         //ANIM CHANGES
 
-        if (direction.x >= 0.1f && direction.y == 0 && npcM.moving)
+        if(tag == "ExplosiveNPC")
         {
-            ChangeAnimationState(Walk_Left);
+            if (direction.x >= 0.1f && direction.y == 0 && npcM.moving)
+            {
+                ChangeAnimationState(Walk_Left);
+            }
+            else if (direction.x <= -0.1f && direction.y == 0 && npcM.moving)
+            {
+                ChangeAnimationState(Walk_Right);
+            }
+            else if (direction.x == 0 && direction.y >= 0.1 && npcM.moving)
+            {
+                ChangeAnimationState(Walk_Down);
+            }
+            else if (direction.x >= 0.1f && direction.y >= 0.1 && npcM.moving)
+            {
+                ChangeAnimationState(Walk_Down_Left);
+            }
+            else if (direction.x <= -0.1f && direction.y >= 0.1 && npcM.moving)
+            {
+                ChangeAnimationState(Walk_Down_Right);
+            }
+            else if (direction.x == 0 && direction.y <= -0.1 && npcM.moving)
+            {
+                ChangeAnimationState(Walk_Up);
+            }
+            else if (direction.x >= 0.1f && direction.y <= -0.1 && npcM.moving)
+            {
+                ChangeAnimationState(Walk_Up_Left);
+            }
+            else if (direction.x <= -0.1f && direction.y <= -0.1 && npcM.moving)
+            {
+                ChangeAnimationState(Walk_Up_Right);
+            }
+            else if (npcM.moving)
+            {
+                ChangeAnimationState(Idle);
+            }
         }
-        else if (direction.x <= -0.1f && direction.y == 0 && npcM.moving)
+
+        
+
+        if(tag == "RangedNPC")
         {
-            ChangeAnimationState(Walk_Right);
-        }
-        else if (direction.x == 0 && direction.y >= 0.1 && npcM.moving)
-        {
-            ChangeAnimationState(Walk_Down);
-        }
-        else if (direction.x >= 0.1f && direction.y >= 0.1 && npcM.moving)
-        {
-            ChangeAnimationState(Walk_Down_Left);
-        }
-        else if (direction.x <= -0.1f && direction.y >= 0.1 && npcM.moving)
-        {
-            ChangeAnimationState(Walk_Down_Right);
-        }
-        else if (direction.x == 0 && direction.y <= -0.1 && npcM.moving)
-        {
-            ChangeAnimationState(Walk_Up);
-        }
-        else if (direction.x >= 0.1f && direction.y <= -0.1 && npcM.moving)
-        {
-            ChangeAnimationState(Walk_Up_Left);
-        }
-        else if (direction.x <= -0.1f && direction.y <= -0.1 && npcM.moving)
-        {
-            ChangeAnimationState(Walk_Up_Right);
-        }
-        else if (npcM.moving)
-        {
-            ChangeAnimationState(Idle);
+            if (direction.x >= 0.1f && direction.y == 0 && npcM.moving)
+            {
+                ChangeAnimationState(Walk_Right);
+            }
+            else if (direction.x <= -0.1f && direction.y == 0 && npcM.moving)
+            {
+                ChangeAnimationState(Walk_Left);
+            }
+            else if (direction.x == 0 && direction.y >= 0.1 && npcM.moving)
+            {
+                ChangeAnimationState(Walk_Up);
+            }
+            else if (direction.x >= 0.1f && direction.y >= 0.1 && npcM.moving)
+            {
+                ChangeAnimationState(Walk_Up_Right);
+            }
+            else if (direction.x <= -0.1f && direction.y >= 0.1 && npcM.moving)
+            {
+                ChangeAnimationState(Walk_Up_Left);
+            }
+            else if (direction.x == 0 && direction.y <= -0.1 && npcM.moving)
+            {
+                ChangeAnimationState(Walk_Down);
+            }
+            else if (direction.x >= 0.1f && direction.y <= -0.1 && npcM.moving)
+            {
+                ChangeAnimationState(Walk_Down_Right);
+            }
+            else if (direction.x <= -0.1f && direction.y <= -0.1 && npcM.moving)
+            {
+                ChangeAnimationState(Walk_Down_Left);
+            }
+            else if (npcM.moving)
+            {
+                ChangeAnimationState(Idle);
+            }
         }
 
         
