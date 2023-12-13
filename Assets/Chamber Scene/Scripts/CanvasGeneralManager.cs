@@ -9,58 +9,20 @@ using UnityEngine.EventSystems;
 
 public class CanvasGeneralManager : MonoBehaviour
 {
-    private EventSystem Event;
+    //private EventSystem Event;
     //----------------- MAP - Cards Button --------------------
     [Header("Map-Cards Button Section")]
     [SerializeField] private int clickCount = 1;
-    public GameObject Panel;
-    public TextMeshProUGUI ButtonText;
+    [SerializeField] private GameObject Panel;
+    [SerializeField] private TextMeshProUGUI ButtonText;
 
     //----------------- Cards -------------------
-    [Header("araba")]
-    [SerializeField] 
-    public GameObject CardSlot1;
-    public GameObject CardSlot2;
-    public GameObject CardSlot3;
-    public List<GameObject> Cards;
+    [Header("Card Variables")]
+    [SerializeField] private GameObject CardSlot1;
+    [SerializeField] private GameObject CardSlot2;
+    [SerializeField] private GameObject CardSlot3;
+    [SerializeField] private List<GameObject> Cards;
 
-    //----------------- ORBS -------------------
-    [Header("Spawn Orb Section")]
-    public GameObject CardChoice;
-    [SerializeField] private GameObject OrbHolder;
-    public List<GameObject> Orbs;
-    private Dictionary<string, GameObject> OrbsDictionary = new Dictionary<string, GameObject>();
-    private Transform cone;
-    private bool executed;
-    private void Start()
-    {
-        OrbHolder = GameObject.Find("orbHolder");
-        Event = GameObject.Find("EventSystem").GetComponent<EventSystem>();
-        OrbsDictionary.Add("IceCard(Clone) (UnityEngine.GameObject)", Orbs[0]);
-        OrbsDictionary.Add("NoirCard(Clone) (UnityEngine.GameObject)", Orbs[1]);
-        OrbsDictionary.Add("ThunderCard(Clone) (UnityEngine.GameObject)", Orbs[2]);
-        OrbsDictionary.Add("LavaCard(Clone) (UnityEngine.GameObject)", Orbs[3]);
-        OrbsDictionary.Add("FoggyCard(Clone) (UnityEngine.GameObject)", Orbs[4]);
-        OrbsDictionary.Add("ToxicCard(Clone) (UnityEngine.GameObject)", Orbs[5]);
-        OrbsDictionary.Add("WindCard(Clone) (UnityEngine.GameObject)", Orbs[6]);
-        OrbsDictionary.Add("ForrestCard(Clone) (UnityEngine.GameObject)", Orbs[7]);
-        OrbsDictionary.Add("SteampunkCard(Clone) (UnityEngine.GameObject)", Orbs[8]);
-        OrbsDictionary.Add("StockCard(Clone) (UnityEngine.GameObject)", Orbs[9]);
-        OrbsDictionary.Add("CyberpunkCard(Clone) (UnityEngine.GameObject)", Orbs[10]);
-    }
-    private void Update()
-    {
-        if (Event.currentSelectedGameObject.name == "Info-SelectButton" && !executed && Event.currentSelectedGameObject != null)
-        {
-            SpawnOrbUniversal();
-            executed = true;    
-        }
-        else if (Event.currentSelectedGameObject.name != "Info-SelectButton")
-        {
-            executed = false;
-        }
-
-    }
 
     public void OnClick()
     {
@@ -104,11 +66,4 @@ public class CanvasGeneralManager : MonoBehaviour
         Cards.Add(usedcard2);
     }
 
-    //----------------- ORBS -------------------
-    private string orbwhospawn;
-
-    public void SpawnOrbUniversal()
-    {
-        Instantiate(OrbsDictionary[orbwhospawn], OrbHolder.transform.position, OrbHolder.transform.rotation, OrbHolder.transform);
-    }
 }
