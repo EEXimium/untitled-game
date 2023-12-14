@@ -335,6 +335,7 @@ GameObject:
   - component: {fileID: 370584066}
   - component: {fileID: 370584065}
   - component: {fileID: 370584064}
+  - component: {fileID: 370584076}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -361,17 +362,13 @@ MonoBehaviour:
   HB: {fileID: 0}
   buffDuration: 3
   extraHpGiven: 4
-  healtBuffIco: {fileID: 0}
+  healtBuffPrefab: {fileID: 0}
   ExtraHpActive: 0
-  ExtHpTimer: {fileID: 0}
-  intDuration: 0
   SBbuffDuration: 1
   SBpercentage: 0.8
   SpeedGiven: 0
-  speedBuffIco: {fileID: 0}
+  speedBuffPrefab: {fileID: 0}
   SBActive: 0
-  SBtimer: {fileID: 0}
-  SBintDuration: 0
 --- !u!114 &370584065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -623,6 +620,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plmov: {fileID: 370584069}
+--- !u!114 &370584076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370584063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1724e3cc7622842b89801c054220ad7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &659361104
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -9,6 +9,9 @@ public class NPCHealth : MonoBehaviour
     public float ExplodeDamage;
     public float ExplosionRange;
 
+    public GameObject deathCoin;
+    private Transform DropPoint;
+
     private Animator animator;
     private SpriteRenderer spriterenderer;
 
@@ -46,6 +49,7 @@ public class NPCHealth : MonoBehaviour
 
     private void Die()
     {
+        DropPoint = this.transform;
         if(this.tag == "ExplosiveNPC")
         {
             Explode();
@@ -53,6 +57,7 @@ public class NPCHealth : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            Instantiate(deathCoin, DropPoint.position, Quaternion.identity);
         }
     }
     private void Explode()
@@ -70,7 +75,7 @@ public class NPCHealth : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && this.tag == "ExplosiveNPC")
         {
             Die();
             Destroy(gameObject);

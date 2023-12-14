@@ -2006,10 +2006,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5a54964076a62a48b6291d6d43a705f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1000
-  currentHealth: 100
+  maxHealth: 100
+  currentHealth: 50
   ExplodeDamage: 10
   ExplosionRange: 2
+  deathCoin: {fileID: 4387132032024809813, guid: 4724cd910fd874ae2bbf9297e3d53708, type: 3}
 --- !u!95 &383742632
 Animator:
   serializedVersion: 5
@@ -3046,11 +3047,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5107920842800381088, guid: 000d4774a73835e4583095761f117a68, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: -3.9
       objectReference: {fileID: 0}
     - target: {fileID: 5107920842800381088, guid: 000d4774a73835e4583095761f117a68, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.4
+      value: 2.24
       objectReference: {fileID: 0}
     - target: {fileID: 5107920842800381088, guid: 000d4774a73835e4583095761f117a68, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3090,7 +3091,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8941525670978794551, guid: 000d4774a73835e4583095761f117a68, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4168,10 +4169,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5a54964076a62a48b6291d6d43a705f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1000
-  currentHealth: 100
+  maxHealth: 100
+  currentHealth: 50
   ExplodeDamage: 10
   ExplosionRange: 2
+  deathCoin: {fileID: 0}
 --- !u!95 &1070926632
 Animator:
   serializedVersion: 5
@@ -4429,6 +4431,7 @@ GameObject:
   - component: {fileID: 1158044437}
   - component: {fileID: 1158044436}
   - component: {fileID: 1158044435}
+  - component: {fileID: 1158044445}
   m_Layer: 0
   m_Name: Player (1)
   m_TagString: Player
@@ -4701,6 +4704,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1158044445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158044433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1724e3cc7622842b89801c054220ad7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1208002999
 GameObject:
   m_ObjectHideFlags: 0
@@ -5215,6 +5230,10 @@ PrefabInstance:
     - target: {fileID: 5107920842800381088, guid: 000d4774a73835e4583095761f117a68, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 89.366
+      objectReference: {fileID: 0}
+    - target: {fileID: 8565699967343861301, guid: 000d4774a73835e4583095761f117a68, type: 3}
+      propertyPath: fireRate
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8941525670978794551, guid: 000d4774a73835e4583095761f117a68, type: 3}
       propertyPath: m_Name
