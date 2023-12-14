@@ -53,6 +53,7 @@ public class NPCHealth : MonoBehaviour
         if(this.tag == "ExplosiveNPC")
         {
             Explode();
+            Instantiate(deathCoin, DropPoint.position, Quaternion.identity);
         }
         else
         {

@@ -32,14 +32,14 @@ public class Bomba : MonoBehaviour
 
     private void Explosion()
     {
-        GameObject deadExplosion = new GameObject("Dead explosion radius");
-        deadExplosion.transform.position = this.transform.position;
-        deadExplosion.AddComponent<CircleCollider2D>();
-        deadExplosion.AddComponent<Explosion>();
-        deadExplosion.GetComponent<Explosion>().damage = damage;
-        deadExplosion.GetComponent<CircleCollider2D>().radius = ExplosionRange;
-        deadExplosion.GetComponent<CircleCollider2D>().isTrigger = true;
-        Destroy(deadExplosion, .1f);
+        GameObject GranadeExplosion = new GameObject("Granade explosion radius");
+        GranadeExplosion.transform.position = this.transform.position;
+        GranadeExplosion.AddComponent<CircleCollider2D>();
+        GranadeExplosion.AddComponent<Explosion>();
+        GranadeExplosion.GetComponent<Explosion>().damage = damage;
+        GranadeExplosion.GetComponent<CircleCollider2D>().radius = ExplosionRange;
+        GranadeExplosion.GetComponent<CircleCollider2D>().isTrigger = true;
+        Destroy(GranadeExplosion, .1f);
         Destroy(gameObject);
     }
 

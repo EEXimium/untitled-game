@@ -9,11 +9,14 @@ public class ShopManagerScript : MonoBehaviour
 {
 
     public int[,] shopItems = new int[5,5]; //Shop'a koymak istediðimiz max item sayýsýný arttýrýyor.
-    public float Goldcoins;
+    private CoinCollector CoinCollector;
+    private int Goldcoins = 0;
     public TextMeshProUGUI GoldcoinsTxt;
 
     void Start()
     {
+        CoinCollector = GameObject.FindWithTag("Player").GetComponent<CoinCollector>();
+        Goldcoins = CoinCollector.coinsCollected;
         GoldcoinsTxt.text = "GoldCoins:" + Goldcoins.ToString();
 
         //ID's
