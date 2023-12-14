@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CoinCollector : MonoBehaviour
 {
-    public int coinsCollected { get; private set; } = 0;
+    public int coinsCollected;
+    [SerializeField] private TextMeshProUGUI CoinsCountText;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -15,7 +17,7 @@ public class CoinCollector : MonoBehaviour
     void CollectCoin(GameObject coin)
     {
         coinsCollected++;
-        Debug.Log("Coin collected! Total coins collected: " + coinsCollected);
+        CoinsCountText.text = coinsCollected.ToString();
         Destroy(coin);
     }
 }

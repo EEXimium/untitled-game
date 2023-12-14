@@ -28748,7 +28748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 7545706395204371136}
-  EM: {fileID: 0}
+  EM: {fileID: 8654793859435066792}
   movespeed: 5
   sprintspeed: 5
   InputVector: {x: 0, y: 0}
@@ -28899,7 +28899,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthPotCountText: {fileID: 1797646221}
   PH: {fileID: 8654793859435066788}
-  EM: {fileID: 0}
+  EM: {fileID: 8654793859435066792}
   HealthPotCount: 4
 --- !u!114 &8654793859435066791
 MonoBehaviour:
@@ -28935,13 +28935,13 @@ MonoBehaviour:
   isStuck: 0
   FlamePeriod: 2.2
   DamageCooldown: 2
-  HB: {fileID: 0}
+  HB: {fileID: 1238891532}
   buffDuration: 1
   extraHpGiven: 4
-  healtBuffPrefab: {fileID: 0}
+  healtBuffPrefab: {fileID: 4246624843099186936, guid: fc1239c402e084f4cabae4eb9b785fdb, type: 3}
   ExtraHpActive: 0
   SBbuffDuration: 1
   SBpercentage: 0.8
   SpeedGiven: 0
-  speedBuffPrefab: {fileID: 0}
+  speedBuffPrefab: {fileID: 7517697920387087145, guid: 72c8214a0e49f9f4b9f370d0054111e2, type: 3}
   SBActive: 0
