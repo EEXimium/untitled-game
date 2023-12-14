@@ -306,6 +306,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 454866394}
   m_CullTransparentMesh: 1
+--- !u!1 &515497947
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 515497949}
+  - component: {fileID: 515497948}
+  m_Layer: 0
+  m_Name: DataPersistenceManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &515497948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515497947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5db6a8e9f85083247ba22f7c9fc3d73b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filename: data.game
+--- !u!4 &515497949
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515497947}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.921109, y: -0.5616018, z: -0.431299}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -28703,6 +28748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 7545706395204371136}
+  EM: {fileID: 0}
   movespeed: 5
   sprintspeed: 5
   InputVector: {x: 0, y: 0}
@@ -28853,6 +28899,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthPotCountText: {fileID: 1797646221}
   PH: {fileID: 8654793859435066788}
+  EM: {fileID: 0}
   HealthPotCount: 4
 --- !u!114 &8654793859435066791
 MonoBehaviour:
@@ -28888,3 +28935,13 @@ MonoBehaviour:
   isStuck: 0
   FlamePeriod: 2.2
   DamageCooldown: 2
+  HB: {fileID: 0}
+  buffDuration: 1
+  extraHpGiven: 4
+  healtBuffPrefab: {fileID: 0}
+  ExtraHpActive: 0
+  SBbuffDuration: 1
+  SBpercentage: 0.8
+  SpeedGiven: 0
+  speedBuffPrefab: {fileID: 0}
+  SBActive: 0
