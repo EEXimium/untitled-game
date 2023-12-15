@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7896828220533067739}
   - component: {fileID: 2387723710153993586}
   - component: {fileID: 4961597623104716129}
+  - component: {fileID: 1116502921869136616}
   m_Layer: 0
   m_Name: Chamber-Wind
   m_TagString: ActiveChamber
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 47c98a2a5b3f52940947b3a95670b4bf, type: 3}
+  m_Sprite: {fileID: -1786015645, guid: 55bf5dbd278f7ca49aa6b0a9254b1e6c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -180,3 +181,24 @@ MonoBehaviour:
   excludedLayers:
     serializedVersion: 2
     m_Bits: 64
+--- !u!95 &1116502921869136616
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987113110023443001}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d305f47123640c64aa9670a6b4288d93, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

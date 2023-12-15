@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5058329900928937236}
   - component: {fileID: 2041070687102132223}
   - component: {fileID: 2541305585156446145}
+  - component: {fileID: 5684908919998549864}
   m_Layer: 0
   m_Name: Chamber-Lava
   m_TagString: ActiveChamber
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 750b3ab180189014ca0e7ab560c42662, type: 3}
+  m_Sprite: {fileID: -866081780, guid: d1b985d8f9182344095f007f08685d28, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -180,3 +181,24 @@ MonoBehaviour:
   excludedLayers:
     serializedVersion: 2
     m_Bits: 64
+--- !u!95 &5684908919998549864
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838537332454007754}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c052e1487236ef147a3c7fcd7605363b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
