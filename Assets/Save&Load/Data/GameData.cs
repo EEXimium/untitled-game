@@ -14,7 +14,7 @@ public class GameData
 
     public GameData()
     {
-        playerPosition = Vector2.zero;
+        playerPosition = Vector3.zero;
         this.curentHealth = 20;
         HealthPotCount = 2;
     }

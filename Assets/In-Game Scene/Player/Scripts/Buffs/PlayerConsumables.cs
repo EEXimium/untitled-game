@@ -4,29 +4,20 @@ using TMPro;
 using UnityEditor.Rendering;
 using UnityEngine;
 
-public class PlayerConsumables : MonoBehaviour, IDataPersistence
+public class PlayerConsumables : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI HealthPotCountText;
     public PlayerHealth PH;
     public EffectMethods EM;
     private ShopManagerScript Shop;
        
-    public int HealthPotCount = 2;
+    public int HealthPotCount;
 
     private void Start()
     {
-        HealthPotCountText.text = HealthPotCount.ToString();
+        SetHealthPotCount(HealthPotCount);
     }
 
-    //part of the Save&Load System
-    public void LoadData(GameData data)
-    {
-        this.HealthPotCount = data.HealthPotCount;
-    }
-    public void SaveData(ref GameData data)
-    {
-        data.HealthPotCount = this.HealthPotCount;
-    }
     private void Update()
     {
         // Speed buff
@@ -47,7 +38,7 @@ public class PlayerConsumables : MonoBehaviour, IDataPersistence
             {
                 EM.TakeHeal(2);
                 HealthPotCount--;
-                HealthPotCountText.text = HealthPotCount.ToString();
+                SetHealthPotCount(HealthPotCount);
             }
         }
         try
@@ -58,7 +49,7 @@ public class PlayerConsumables : MonoBehaviour, IDataPersistence
             {
                 HealthPotCount += Shop.shopItems[3, 1];
                 Shop.shopItems[3, 1] = 0;
-                HealthPotCountText.text = HealthPotCount.ToString();
+                SetHealthPotCount(HealthPotCount);
             }
         }
         catch (System.Exception)
@@ -66,6 +57,10 @@ public class PlayerConsumables : MonoBehaviour, IDataPersistence
             return;
         }
 
+    }
+    public void SetHealthPotCount(int count)
+    {
+        HealthPotCountText.text = count.ToString();
     }
 
 }

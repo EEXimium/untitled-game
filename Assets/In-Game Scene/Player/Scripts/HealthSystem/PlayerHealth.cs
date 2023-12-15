@@ -4,10 +4,11 @@ using System.ComponentModel;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
-public class PlayerHealth : MonoBehaviour, IDataPersistence
+public class PlayerHealth : MonoBehaviour
 {
-    public HealthBar healthBar;
+    [SerializeField] private Slider slider;
     private SpriteRenderer charSpriteR;
     [Header("Variables")]
     public float maxHealth;
@@ -18,19 +19,9 @@ public class PlayerHealth : MonoBehaviour, IDataPersistence
 
     void Start()
     {
-        currentHealth = maxHealth;  
-        healthBar.SetMaxHealth(maxHealth);
+        SetMaxHealth(maxHealth);
+        SetHealth(currentHealth);
         charSpriteR = GetComponent<SpriteRenderer>();
-    }
-
-    //part of the save&Load System (not working due to 21st line)
-    public void LoadData(GameData data)
-    {
-        this.currentHealth = data.curentHealth;
-    }
-    public void SaveData(ref GameData data)
-    {
-        data.curentHealth = this.currentHealth;
     }
 
     void Update()
@@ -54,12 +45,21 @@ public class PlayerHealth : MonoBehaviour, IDataPersistence
         {
             currentHealth -= damage;
             StartCoroutine(ColorShift());
-            healthBar.SetHealth(currentHealth);
+            SetHealth(currentHealth);
             InsText.DisplayText(this.gameObject.transform, new Vector3(0, 1, 0), Quaternion.identity, .8f, "Ughh!");
 
             Debug.Log("Player takes damage: " + damage);
             Debug.Log("Player takes damage. Current Health: " + currentHealth);
         }
+    }
+    public void SetMaxHealth(float health)
+    {
+        slider.maxValue = health;
+    }
+
+    public void SetHealth(float health)
+    {
+        slider.value = health;
     }
 
 }

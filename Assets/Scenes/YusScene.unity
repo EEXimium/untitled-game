@@ -2377,7 +2377,6 @@ GameObject:
   - component: {fileID: 1238891535}
   - component: {fileID: 1238891534}
   - component: {fileID: 1238891533}
-  - component: {fileID: 1238891532}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -2408,19 +2407,6 @@ RectTransform:
   m_AnchoredPosition: {x: -708, y: 421}
   m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1238891532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1238891530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55f342a62c32a9147a0eadc2bfe4f3ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 1238891533}
 --- !u!114 &1238891533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28674,6 +28660,7 @@ GameObject:
   - component: {fileID: 8654793859435066789}
   - component: {fileID: 8654793859435066790}
   - component: {fileID: 8654793859435066791}
+  - component: {fileID: 8654793859435066793}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -28867,7 +28854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6dba69d8ea5f941a4bdfe23f878ebd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 1238891532}
+  slider: {fileID: 1238891533}
   maxHealth: 20
   currentHealth: 0
   damageColor: {r: 1, g: 0, b: 0, a: 1}
@@ -28935,7 +28922,6 @@ MonoBehaviour:
   isStuck: 0
   FlamePeriod: 2.2
   DamageCooldown: 2
-  HB: {fileID: 1238891532}
   buffDuration: 1
   extraHpGiven: 4
   healtBuffPrefab: {fileID: 4246624843099186936, guid: fc1239c402e084f4cabae4eb9b785fdb, type: 3}
@@ -28945,3 +28931,18 @@ MonoBehaviour:
   SpeedGiven: 0
   speedBuffPrefab: {fileID: 7517697920387087145, guid: 72c8214a0e49f9f4b9f370d0054111e2, type: 3}
   SBActive: 0
+--- !u!114 &8654793859435066793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847448546170985827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f05eb7e4446ead74fbf8391457cc5371, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PM: {fileID: 5096033914101346814}
+  PH: {fileID: 8654793859435066788}
+  PC: {fileID: 8654793859435066790}

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour, IDataPersistence
+public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
     public EffectMethods EM;
@@ -26,23 +26,6 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
         animator = GetComponent<Animator>();
         EM = GetComponent<EffectMethods>();
     }
-
-    void Update()
-    {
-
-
-    }
-
-    //part of he Save&Load system
-    public void LoadData(GameData data)
-    {
-        this.transform.position = data.playerPosition;
-    }
-    public void SaveData(ref GameData data)
-    {
-        data.playerPosition = this.transform.position;
-    }
-
     private void FixedUpdate()
     {
         // ----------- Move ------------

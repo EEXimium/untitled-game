@@ -16,7 +16,6 @@ public class EffectMethods : MonoBehaviour
     [SerializeField] private float FlamePeriod = 2.2f;
     [SerializeField] private float DamageCooldown = 2f;
     private PlayerMovement PM;
-    public HealthBar HB;
     private GameObject BuffLayout;
     private TextMeshProUGUI SBtimer;
     private TextMeshProUGUI ExtHpTimer;
@@ -86,7 +85,7 @@ public class EffectMethods : MonoBehaviour
     public void TakeHeal(float healcount)
     {
         PH.currentHealth += healcount;
-        PH.healthBar.SetHealth(PH.currentHealth);
+        PH.SetHealth(PH.currentHealth);
     }
 
 
@@ -105,7 +104,7 @@ public class EffectMethods : MonoBehaviour
     {
         GameObject HealthBuffIcon = Instantiate(healtBuffPrefab, BuffLayout.transform);
         PH.currentHealth += extraHpGiven;
-        HB.SetHealth(PH.currentHealth);
+        PH.SetHealth(PH.currentHealth);
         
         ExtraHpActive = true;
         buffDurationText = buffDuration;
@@ -114,7 +113,7 @@ public class EffectMethods : MonoBehaviour
         ExtraHpActive=false;
         Destroy(HealthBuffIcon);
         PH.currentHealth -= extraHpGiven;
-        HB.SetHealth(PH.currentHealth);
+        PH.SetHealth(PH.currentHealth);
     }
 
     //#########  SpeedBuff  #########

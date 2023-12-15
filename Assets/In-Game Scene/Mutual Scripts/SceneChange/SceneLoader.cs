@@ -10,15 +10,15 @@ public class SceneLoader : MonoBehaviour
 
     private void Start()
     {
-        DontDestroyOnLoad(GameObject.FindGameObjectWithTag("Player"));
-        DontDestroyOnLoad(GameObject.Find("Canvas"));
+        //DontDestroyOnLoad(GameObject.FindGameObjectWithTag("Player"));
+        //DontDestroyOnLoad(GameObject.Find("Canvas"));
     }
 
     private void Update()
     {
         if (collided && Input.GetKeyDown(KeyCode.F)) 
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneLoad();
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -26,7 +26,7 @@ public class SceneLoader : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             collided = true;
-            InsText.DisplayText(this.transform, new Vector3 (0,2,0), Quaternion.identity, 5f, "Press 'F' for Go Lobi");
+            InsText.DisplayText(this.transform, new Vector3 (0,2,0), Quaternion.identity, 5f, "Press 'F' for Go Chambers");
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -35,5 +35,10 @@ public class SceneLoader : MonoBehaviour
         {
             collided = false;
         }
+    }
+    public void SceneLoad()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(53, 22, 0);
     }
 }

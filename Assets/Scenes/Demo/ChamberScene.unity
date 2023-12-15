@@ -207,6 +207,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 382291544}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: SceneLoad
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1751549865}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -747,6 +759,7 @@ GameObject:
   - component: {fileID: 382291540}
   - component: {fileID: 382291539}
   - component: {fileID: 382291543}
+  - component: {fileID: 382291544}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -851,6 +864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a25b5f4e86f29734bbe3f51dc8b4ea75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clickCount: 1
   Panel: {fileID: 1181238554}
   ButtonText: {fileID: 2068326491}
   CardSlot1: {fileID: 286650285}
@@ -868,6 +882,19 @@ MonoBehaviour:
   - {fileID: 246893279192019203, guid: 0e1729ab2dd555c47ad6f7342bcfade1, type: 3}
   - {fileID: 4022928533040371878, guid: c8d10656fbe2fd64da349765e66d14b1, type: 3}
   - {fileID: 3901695663641387455, guid: 72166a709a1bcb849a3c815092d505ac, type: 3}
+--- !u!114 &382291544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382291538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e90a350efded2d149bd4e910a74a85e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InsText: {fileID: 0}
 --- !u!4 &383653024 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4515961904536656163, guid: ebb9bbc853066244ea21acc7c14fad77, type: 3}
