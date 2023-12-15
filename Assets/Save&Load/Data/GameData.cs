@@ -6,6 +6,8 @@ using UnityEngine;
 public class GameData
 {
     public Vector3 playerPosition;
+    public float curentHealth;
+    public int HealthPotCount;
 
     //The values defined here must be the defaults.
     //The game starts wih this setings if there's no data o load.
@@ -13,5 +15,7 @@ public class GameData
     public GameData()
     {
         playerPosition = Vector2.zero;
+        this.curentHealth = 20;
+        HealthPotCount = 2;
     }
 }

@@ -4,7 +4,7 @@ using TMPro;
 using UnityEditor.Rendering;
 using UnityEngine;
 
-public class PlayerConsumables : MonoBehaviour
+public class PlayerConsumables : MonoBehaviour, IDataPersistence
 {
     [SerializeField] TextMeshProUGUI HealthPotCountText;
     public PlayerHealth PH;
@@ -16,6 +16,16 @@ public class PlayerConsumables : MonoBehaviour
     private void Start()
     {
         HealthPotCountText.text = HealthPotCount.ToString();
+    }
+
+    //part of the Save&Load System
+    public void LoadData(GameData data)
+    {
+        this.HealthPotCount = data.HealthPotCount;
+    }
+    public void SaveData(ref GameData data)
+    {
+        data.HealthPotCount = this.HealthPotCount;
     }
     private void Update()
     {

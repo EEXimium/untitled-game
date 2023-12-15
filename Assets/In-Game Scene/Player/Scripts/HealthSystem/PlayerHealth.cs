@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour, IDataPersistence
 {
     public HealthBar healthBar;
     private SpriteRenderer charSpriteR;
@@ -21,6 +21,16 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;  
         healthBar.SetMaxHealth(maxHealth);
         charSpriteR = GetComponent<SpriteRenderer>();
+    }
+
+    //part of the save&Load System (not working due to 21st line)
+    public void LoadData(GameData data)
+    {
+        this.currentHealth = data.curentHealth;
+    }
+    public void SaveData(ref GameData data)
+    {
+        data.curentHealth = this.currentHealth;
     }
 
     void Update()
