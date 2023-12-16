@@ -46,7 +46,7 @@ public class SceneLoader : MonoBehaviour
     public Scenes ChooseScene;
     public void SceneLoad()
     {
-        SceneManager.LoadScene(ChooseScene.ToString());
+        SceneManager.LoadScene((int)ChooseScene);
         try
         {
             GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(0, 0, 0);
