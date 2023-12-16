@@ -346,7 +346,6 @@ GameObject:
   - component: {fileID: 130392430}
   - component: {fileID: 130392429}
   - component: {fileID: 130392428}
-  - component: {fileID: 130392427}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -377,19 +376,6 @@ RectTransform:
   m_AnchoredPosition: {x: -708, y: 421}
   m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &130392427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 130392425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55f342a62c32a9147a0eadc2bfe4f3ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 130392428}
 --- !u!114 &130392428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -972,8 +958,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c506a40983095124daf3c4e6815f35d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GoldcoinsTxt: {fileID: 1299839310}
-  GoldCoinsTextCanvas: {fileID: 0}
+  GoldcoinsTxtShop: {fileID: 1299839310}
+  GoldCoinsTextCanvas: {fileID: 1570736218}
 --- !u!4 &374971741
 Transform:
   m_ObjectHideFlags: 0
@@ -3030,6 +3016,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasToOpen: {fileID: 787071900}
+  GoldcoinsTxtShop: {fileID: 1299839310}
+  GoldCoinsTextCanvas: {fileID: 1570736218}
 --- !u!1 &865575775
 GameObject:
   m_ObjectHideFlags: 0
@@ -3486,6 +3474,7 @@ GameObject:
   - component: {fileID: 1001397967}
   - component: {fileID: 1001397966}
   - component: {fileID: 1001397965}
+  - component: {fileID: 1001397977}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3506,7 +3495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinsCollected: 0
-  CoinsCountText: {fileID: 0}
+  CoinsCountText: {fileID: 1570736218}
 --- !u!114 &1001397966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3523,7 +3512,6 @@ MonoBehaviour:
   isStuck: 0
   FlamePeriod: 2.2
   DamageCooldown: 2
-  HB: {fileID: 0}
   buffDuration: 3
   extraHpGiven: 4
   healtBuffPrefab: {fileID: 4246624843099186936, guid: fc1239c402e084f4cabae4eb9b785fdb, type: 3}
@@ -3547,10 +3535,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hand1: {fileID: 1454003749}
   Hand2: {fileID: 1160810643}
-  Hand1Sprite: {fileID: 0}
-  Hand2Sprite: {fileID: 0}
-  Hand1Color: {fileID: 0}
-  Hand2Color: {fileID: 0}
+  Hand1Sprite: {fileID: 734143257}
+  Hand2Sprite: {fileID: 1976073956}
+  Hand1Color: {fileID: 491485157}
+  Hand2Color: {fileID: 2002466082}
 --- !u!114 &1001397968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3563,7 +3551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6de4199d159c26429ad97440d53fbf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealthPotCountText: {fileID: 0}
+  HealthPotCountText: {fileID: 558716166}
   PH: {fileID: 1001397970}
   EM: {fileID: 1001397966}
   HealthPotCount: 4
@@ -3592,11 +3580,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6dba69d8ea5f941a4bdfe23f878ebd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
+  slider: {fileID: 130392428}
   maxHealth: 20
   currentHealth: 0
   damageColor: {r: 1, g: 0, b: 0, a: 1}
-  InsText: {fileID: 0}
+  InsText: {fileID: 1062241128}
 --- !u!114 &1001397971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3771,6 +3759,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1001397977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001397964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f05eb7e4446ead74fbf8391457cc5371, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1012105593
 GameObject:
   m_ObjectHideFlags: 0

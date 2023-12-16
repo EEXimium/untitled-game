@@ -9,18 +9,14 @@ public class ShopManagerScript : MonoBehaviour
 {
 
     public int[,] shopItems = new int[5,5]; //Shop'a koymak istediðimiz max item sayýsýný arttýrýyor.
+
     private CoinCollector CoinCollector;
-    private int Goldcoins = 0;
-    [SerializeField] private TextMeshProUGUI GoldcoinsTxt;
+    [SerializeField] private TextMeshProUGUI GoldcoinsTxtShop;
     [SerializeField] private TextMeshProUGUI GoldCoinsTextCanvas;
 
     void Start()
     {
         CoinCollector = GameObject.FindWithTag("Player").GetComponent<CoinCollector>();
-        Goldcoins = CoinCollector.coinsCollected;
-
-        GoldCoinsTextCanvas = GameObject.Find("CoinsCountText").GetComponent<TextMeshProUGUI>();
-        GoldcoinsTxt.text = "GoldCoins:" + Goldcoins.ToString();
 
         //ID's
         shopItems[1, 1] = 1;
@@ -39,7 +35,6 @@ public class ShopManagerScript : MonoBehaviour
         shopItems[3, 2] = 0;
         shopItems[3, 3] = 0;
         shopItems[3, 4] = 0;
-
     }
 
 
@@ -47,16 +42,13 @@ public class ShopManagerScript : MonoBehaviour
     {
         GameObject ButtonRef = GameObject.Find("EventSystem").GetComponent<EventSystem>().currentSelectedGameObject;
 
-        if (Goldcoins >= shopItems[2,ButtonRef.GetComponent<ButtonInfo>().ItemID])             // Gold coin miktarýnýn alýnmak isteyen itemden fazla ya da eþit olmasýný kontrol ediyor.
+        if (CoinCollector.coinsCollected >= shopItems[2,ButtonRef.GetComponent<ButtonInfo>().ItemID])             // Gold coin miktarýnýn alýnmak isteyen itemden fazla ya da eþit olmasýný kontrol ediyor.
         {
-            Goldcoins -= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID];            // Alýnan itemin deðerinin Gold coin sayýsýndan azaltýlmasýný saðlýyor.
+            CoinCollector.coinsCollected -= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID];            // Alýnan itemin deðerinin Gold coin sayýsýndan azaltýlmasýný saðlýyor.
             shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID]++;                       // Alýnan itemin miktarýnýn artmasýný saðlýyor.
-            GoldcoinsTxt.text = "GoldCoins:" + Goldcoins.ToString();
-            GoldCoinsTextCanvas.text = Goldcoins.ToString();
+            GoldcoinsTxtShop.text = "GoldCoins:" + CoinCollector.coinsCollected.ToString();
+            GoldCoinsTextCanvas.text = CoinCollector.coinsCollected.ToString();
             ButtonRef.GetComponent<ButtonInfo>().QuantityTxt.text = shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID].ToString();
-
-
-        }
-       
+        }      
     }
 }

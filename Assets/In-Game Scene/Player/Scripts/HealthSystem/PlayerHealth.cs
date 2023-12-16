@@ -20,7 +20,7 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         SetMaxHealth(maxHealth);
-        SetHealth(currentHealth);
+        //SetHealth(currentHealth);
         charSpriteR = GetComponent<SpriteRenderer>();
     }
 

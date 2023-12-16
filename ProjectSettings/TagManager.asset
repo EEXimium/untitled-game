@@ -17,6 +17,9 @@ TagManager:
   - ExplosiveNPC
   - RangedNPC
   - PlayerHand1
+  - Canvas
+  - Hand1
+  - Hand2
   layers:
   - Default
   - TransparentFX

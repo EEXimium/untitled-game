@@ -160,8 +160,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 822.48474, y: -480.78305}
-  m_SizeDelta: {x: 204.9693, y: 47.5661}
+  m_AnchoredPosition: {x: 795.68335, y: -480.78305}
+  m_SizeDelta: {x: 258.572, y: 47.5661}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &20573188
 MonoBehaviour:
@@ -207,18 +207,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 382291544}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: SceneLoad
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1751549865}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -230,6 +218,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 20573186}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 382291543}
         m_TargetAssemblyTypeName: spawncards1, Assembly-CSharp
@@ -759,10 +759,9 @@ GameObject:
   - component: {fileID: 382291540}
   - component: {fileID: 382291539}
   - component: {fileID: 382291543}
-  - component: {fileID: 382291544}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -882,19 +881,6 @@ MonoBehaviour:
   - {fileID: 246893279192019203, guid: 0e1729ab2dd555c47ad6f7342bcfade1, type: 3}
   - {fileID: 4022928533040371878, guid: c8d10656fbe2fd64da349765e66d14b1, type: 3}
   - {fileID: 3901695663641387455, guid: 72166a709a1bcb849a3c815092d505ac, type: 3}
---- !u!114 &382291544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 382291538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e90a350efded2d149bd4e910a74a85e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InsText: {fileID: 0}
 --- !u!4 &383653024 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4515961904536656163, guid: ebb9bbc853066244ea21acc7c14fad77, type: 3}
@@ -2079,7 +2065,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Cards ==>
+  m_text: Choose Cards ==>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}

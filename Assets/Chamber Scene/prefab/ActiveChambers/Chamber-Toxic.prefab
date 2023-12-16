@@ -181,6 +181,7 @@ MonoBehaviour:
   excludedLayers:
     serializedVersion: 2
     m_Bits: 64
+  GetBackButton: {fileID: 5841350765021045447, guid: 2f169feaafd7a7947bbbf7935c2415e1, type: 3}
 --- !u!95 &889517219066358213
 Animator:
   serializedVersion: 5

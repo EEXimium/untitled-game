@@ -15,7 +15,7 @@ public class PlayerConsumables : MonoBehaviour
 
     private void Start()
     {
-        SetHealthPotCount(HealthPotCount);
+        //SetHealthPotCount(HealthPotCount);
     }
 
     private void Update()

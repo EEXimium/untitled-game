@@ -8,17 +8,23 @@ public class CoinCollector : MonoBehaviour
     public int coinsCollected;
     [SerializeField] private TextMeshProUGUI CoinsCountText;
 
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Coin"))
             CollectCoin(other.gameObject);
     }
 
-    void CollectCoin(GameObject coin)
+    private void CollectCoin(GameObject coin)
     {
         coinsCollected++;
-        CoinsCountText.text = coinsCollected.ToString();
+        SetCoins(coinsCollected);
         Destroy(coin);
+    }
+
+    public void SetCoins(int count)
+    {
+        CoinsCountText.text = count.ToString();
     }
 }
 

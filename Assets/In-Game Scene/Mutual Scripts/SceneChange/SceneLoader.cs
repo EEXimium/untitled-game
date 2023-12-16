@@ -7,6 +7,7 @@ public class SceneLoader : MonoBehaviour
 {
     private bool collided = false;
     public InsantiateText InsText;
+    [SerializeField] private DataPersistenceManager dataPersistenceManager;
 
     private void Start()
     {
@@ -36,9 +37,25 @@ public class SceneLoader : MonoBehaviour
             collided = false;
         }
     }
+    public enum Scenes 
+    {
+        Outside = 0,
+        ToxicScene = 1, 
+        ChamberScene = 2
+    }
+    public Scenes ChooseScene;
     public void SceneLoad()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(53, 22, 0);
+        SceneManager.LoadScene(ChooseScene.ToString());
+        try
+        {
+            GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(0, 0, 0);
+            dataPersistenceManager.SaveGame();
+        }
+        catch (System.Exception)
+        {
+            return;
+        }
+        
     }
 }
