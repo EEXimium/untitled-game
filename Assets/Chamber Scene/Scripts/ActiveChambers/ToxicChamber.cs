@@ -10,11 +10,11 @@ public class ToxicChamber : MonoBehaviour
 
     public LayerMask excludedLayers;
 
-    [SerializeField] private GameObject GetBackButton;
+    //[SerializeField] private GameObject GetBackButton;
     private void Start()
     {
         Pcoll = GetComponent<PolygonCollider2D>();
-        Instantiate(GetBackButton, new Vector3 (960, 800,0), Quaternion.identity, GameObject.FindWithTag("Canvas").transform);
+        //Instantiate(GetBackButton, new Vector3 (960, 800,0), Quaternion.identity, GameObject.FindWithTag("Canvas").transform);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {        
@@ -84,8 +84,8 @@ public class ToxicChamber : MonoBehaviour
         }
     }
 
-    public void OpenChamber()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
+    //public void OpenChamber()
+    //{
+    //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    //}
 }

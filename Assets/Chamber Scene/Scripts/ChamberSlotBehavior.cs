@@ -5,20 +5,21 @@ using UnityEngine;
 
 public class ChamberSlotBehavior : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer SpriteRenderer;
     private CircleCollider2D Ccoll;
+    private Animator anim;
 
     void Start()
     {
         Ccoll = GetComponent<CircleCollider2D>();
+        anim = GetComponent<Animator>();
     }
 
     private void OnTriggerStay2D (Collider2D collision)
     {
         if (collision.gameObject.CompareTag("ActiveChamber"))
-        {           
+        {
+            anim.SetBool("start", true);
             Ccoll.isTrigger = true;
-            ChangeAlpha(1f);
         }
     }
 
@@ -26,14 +27,9 @@ public class ChamberSlotBehavior : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("ActiveChamber"))
         {
+            anim.SetBool("start", false);
             Ccoll.isTrigger = false;
-            ChangeAlpha(0f);
         }
     }
-    void ChangeAlpha(float alphaValue)
-    {
-        Color spriteColor = SpriteRenderer.color;
-        spriteColor.a = alphaValue;
-        SpriteRenderer.color = spriteColor;
-    }
+
 }
