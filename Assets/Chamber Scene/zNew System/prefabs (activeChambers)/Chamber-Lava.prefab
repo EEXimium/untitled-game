@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 1864630752443742235}
   - component: {fileID: 7398864987927965557}
   - component: {fileID: 1880556590944797342}
-  - component: {fileID: 7787419203327650324}
+  - component: {fileID: 2702473976069204513}
   - component: {fileID: 1488317695514394669}
   - component: {fileID: 6325800807865184827}
   - component: {fileID: 5571591696545099805}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Chamber-Lava
   m_TagString: ActiveChamber
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!50 &7787419203327650324
+--- !u!50 &2702473976069204513
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -88,14 +88,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7344833686206787601}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

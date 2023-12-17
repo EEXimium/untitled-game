@@ -7,20 +7,25 @@ public class OrbBehavior : MonoBehaviour
     private bool dragging;
     private CircleCollider2D Ccoll;
 
-    [SerializeField] private Vector3 AnchorPoint;
+    [SerializeField] private GameObject SelfOrb;
+    [SerializeField] private GameObject ChamberPrefab;
 
-    public GameObject SelfOrb;
-    public GameObject ChamberPrefab;
+    private RectTransform Rtransform;
+    private RectTransform SpawnParent;
+    private RectTransform AnchorPoint;
 
     private void Start()
     {
         dragging = false;
         Ccoll = GetComponent<CircleCollider2D>();
+        Rtransform = GetComponent<RectTransform>();
+        AnchorPoint = GameObject.FindWithTag("OrbHolder").GetComponent<RectTransform>();
+        SpawnParent = GameObject.Find("ActiveChambers").GetComponent<RectTransform>();
     }
 
     void Update()
     {
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);  // Get mouse pos
+        Vector2 mousePos = Input.mousePosition;  // Get mouse pos
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -32,7 +37,7 @@ public class OrbBehavior : MonoBehaviour
 
         if (dragging)
         {
-            this.transform.position = mousePos;         // obje ==> mouse pos
+            Rtransform.position = mousePos;         // obje ==> mouse pos
         }
         else
         {
@@ -50,7 +55,7 @@ public class OrbBehavior : MonoBehaviour
         if (collision.gameObject.CompareTag("Slot") && !dragging)
         {
             Destroy(SelfOrb);
-            Instantiate(ChamberPrefab, collision.gameObject.transform.position, collision.gameObject.transform.rotation);
+            Instantiate(ChamberPrefab, collision.gameObject.transform.position, collision.gameObject.transform.rotation, SpawnParent);
             Destroy(collision.gameObject);
         }
     }
@@ -58,6 +63,6 @@ public class OrbBehavior : MonoBehaviour
     private IEnumerator ReturnToBase()
     {
         yield return new WaitForSeconds(.05f);
-        this.transform.position = AnchorPoint;
+        Rtransform.position = AnchorPoint.position;
     }
 }

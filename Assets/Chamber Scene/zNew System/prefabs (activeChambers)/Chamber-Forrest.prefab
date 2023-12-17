@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 3025652033526966858}
   - component: {fileID: 8566398808634962913}
   - component: {fileID: 3591530619028007941}
-  - component: {fileID: 8706517042769673048}
+  - component: {fileID: 331692696136981555}
   - component: {fileID: 7402792593528876828}
   - component: {fileID: 6655608858788246275}
   - component: {fileID: 8000049139995361775}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Chamber-Forrest
   m_TagString: ActiveChamber
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!50 &8706517042769673048
+--- !u!50 &331692696136981555
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -88,14 +88,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5383266717665916194}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

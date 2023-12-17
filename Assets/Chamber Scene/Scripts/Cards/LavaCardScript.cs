@@ -14,7 +14,7 @@ public class LavaCardScript : MonoBehaviour
     }
     private void Start()
     {
-        OrbHolder = GameObject.Find("orbHolder");
+        OrbHolder = GameObject.FindWithTag("OrbHolder");
         CardChoice = GameObject.Find("CardChoice");
     }
     public void PositionCorrecter()
