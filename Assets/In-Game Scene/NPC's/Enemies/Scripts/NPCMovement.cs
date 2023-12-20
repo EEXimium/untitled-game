@@ -30,7 +30,7 @@ public class NPCMovement : MonoBehaviour
             // Calculate the direction to the player
             Vector2 directionToPlayer = (target.position - transform.position).normalized;
 
-            if(this.tag == "ExplosiveNPC")
+            if(this.tag == "ExplosiveNPC" || this.tag == "SplitMOB")
             {
                 // Move the NPC towards the player using the calculated direction
                 rb.velocity = directionToPlayer * moveSpeed;

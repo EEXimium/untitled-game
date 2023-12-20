@@ -5,9 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    private bool collided = false;
-    public InsantiateText InsText;
-    [SerializeField] private DataPersistenceManager dataPersistenceManager;
+    //[SerializeField] private DataPersistenceManager dataPersistenceManager;
 
     private void Start()
     {
@@ -15,28 +13,6 @@ public class SceneLoader : MonoBehaviour
         //DontDestroyOnLoad(GameObject.Find("Canvas"));
     }
 
-    private void Update()
-    {
-        if (collided && Input.GetKeyDown(KeyCode.F)) 
-        {
-            SceneLoad();
-        }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            collided = true;
-            InsText.DisplayText(this.transform, new Vector3 (0,2,0), Quaternion.identity, 5f, "Press 'F' for Go Chambers");
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            collided = false;
-        }
-    }
     public enum Scenes 
     {
         Outside = 0,
@@ -46,16 +22,9 @@ public class SceneLoader : MonoBehaviour
     public Scenes ChooseScene;
     public void SceneLoad()
     {
+        GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(0, 0, 0);
         SceneManager.LoadScene((int)ChooseScene);
-        try
-        {
-            GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(0, 0, 0);
-            dataPersistenceManager.SaveGame();
-        }
-        catch (System.Exception)
-        {
-            return;
-        }
+        //dataPersistenceManager.SaveGame();
         
     }
 }

@@ -5,6 +5,7 @@ public class NPCHealth : MonoBehaviour
 {
     public float maxHealth = 100;
     public float currentHealth;
+    public bool isDeath = false;
 
     public float ExplodeDamage;
     public float ExplosionRange;
@@ -49,11 +50,18 @@ public class NPCHealth : MonoBehaviour
 
     private void Die()
     {
+        isDeath = true;
         DropPoint = this.transform;
         if(this.tag == "ExplosiveNPC")
         {
             Explode();
             Instantiate(deathCoin, DropPoint.position, Quaternion.identity);
+        }
+        else if (this.tag == "SplitMOB")
+        {
+            this.gameObject.GetComponent<SplitOnDeath>().SpawnOnDeath();
+            Explode();
+            Instantiate(deathCoin, DropPoint.position, Quaternion.identity);            
         }
         else
         {
@@ -74,9 +82,11 @@ public class NPCHealth : MonoBehaviour
         Destroy(gameObject);
     }
 
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && this.tag == "ExplosiveNPC")
+        if (collision.gameObject.CompareTag("Player") && (this.tag == "ExplosiveNPC" || this.tag == "SplitMOB"))
         {
             Die();
             Destroy(gameObject);

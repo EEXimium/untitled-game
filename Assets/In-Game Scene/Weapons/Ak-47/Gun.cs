@@ -28,7 +28,7 @@ public class Gun : MonoBehaviour
     {
         if (this.transform.parent != null)
         {
-            if(this.transform.parent.transform.parent.tag == "Player")
+            if (this.transform.parent.tag == "Hand1" || this.transform.parent.tag == "Hand2")
             {
                 // Calculate the angle based on mouse position
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -54,6 +54,10 @@ public class Gun : MonoBehaviour
 
                 if (Input.GetMouseButton(1) && Time.time >= nextFireTime)
                     shootSecondary();
+            }
+            else 
+            {
+                
             }
         }
     }
