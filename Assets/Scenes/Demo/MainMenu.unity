@@ -996,7 +996,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1450404270}
         m_TargetAssemblyTypeName: InGameCanvasGM, Assembly-CSharp
-        m_MethodName: LoadScene
+        m_MethodName: Continue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1804,6 +1804,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d09cde3502b2b1d43804157f7ac0fff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newGameButton: {fileID: 1326639945}
+  continueGameButton: {fileID: 597082645}
   PauseMenu: {fileID: 0}
   HUD: {fileID: 0}
   dataPersistenceManager: {fileID: 1847823200}
@@ -1887,7 +1889,7 @@ RectTransform:
   - {fileID: 1271016212}
   - {fileID: 1544839727}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2199,7 +2201,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1663800308
 MonoBehaviour:
@@ -2274,7 +2276,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5db6a8e9f85083247ba22f7c9fc3d73b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initializeDataIfNull: 0
   filename: data.game
+  useEncryption: 0
 --- !u!4 &1847823201
 Transform:
   m_ObjectHideFlags: 0
@@ -2288,7 +2292,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1897314278
 GameObject:

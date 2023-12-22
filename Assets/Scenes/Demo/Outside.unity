@@ -3116,7 +3116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InsText: {fileID: 792533393}
   ChamberCanvas: {fileID: 1303736163}
-  dataPersistenceManager: {fileID: 1501173405}
+  dataPersistenceManager: {fileID: 0}
 --- !u!1 &924869509
 GameObject:
   m_ObjectHideFlags: 0
@@ -3786,9 +3786,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d09cde3502b2b1d43804157f7ac0fff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newGameButton: {fileID: 0}
+  continueGameButton: {fileID: 0}
   PauseMenu: {fileID: 1300745129}
   HUD: {fileID: 408644323}
-  dataPersistenceManager: {fileID: 1501173405}
+  dataPersistenceManager: {fileID: 0}
   ChooseScene: 0
 --- !u!1 &1019684553
 GameObject:
@@ -46229,51 +46231,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2473042010508341194, guid: 4724cd910fd874ae2bbf9297e3d53708, type: 3}
   m_PrefabInstance: {fileID: 1492358466}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1501173404
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1501173406}
-  - component: {fileID: 1501173405}
-  m_Layer: 0
-  m_Name: DataPersistenceManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1501173405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1501173404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5db6a8e9f85083247ba22f7c9fc3d73b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  filename: data.game
---- !u!4 &1501173406
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1501173404}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.92110443, y: -0.56160355, z: -0.431299}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1509527002
 GameObject:
   m_ObjectHideFlags: 0
