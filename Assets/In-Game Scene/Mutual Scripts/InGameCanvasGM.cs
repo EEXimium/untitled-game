@@ -7,9 +7,13 @@ using UnityEngine.UI;
 
 public class InGameCanvasGM : MonoBehaviour
 {
+    [Header("Menu Navigation")]
+    [SerializeField] private SaveSlotsMenu saveSlotsMenu;
+
     [Header("Menu Buttons")]
     [SerializeField] private Button newGameButton;
     [SerializeField] private Button continueGameButton;
+    [SerializeField] private Button LoadGameButton;
     [SerializeField] private GameObject PauseMenu;
     [SerializeField] private GameObject HUD;
 
@@ -25,6 +29,7 @@ public class InGameCanvasGM : MonoBehaviour
         if (!DataPersistenceManager.Instance.HasGameData())
         {
             continueGameButton.interactable = false;
+            LoadGameButton.interactable = false;
         }
     }
 
@@ -60,12 +65,14 @@ public class InGameCanvasGM : MonoBehaviour
 
     public void NewGame()
     {
-        DisableMenuButtons();
-        //create new game - which will initialize our game data
-        DataPersistenceManager.Instance.NewGame();
-        //Load the gameplay scene - which will in turn save the game because of 
-        //OnSceneUnloaded() in the DataPesistenceManager
-        SceneManager.LoadSceneAsync("Outside");
+        saveSlotsMenu.ActivateMenu(false);
+        this.DeactivateMenu();
+    }
+
+    public void OnLoadGameClicked()
+    {
+        saveSlotsMenu.ActivateMenu(true);
+        this.DeactivateMenu();
     }
 
     public void Continue()
@@ -79,5 +86,14 @@ public class InGameCanvasGM : MonoBehaviour
     {
         newGameButton.interactable = false;
         continueGameButton.interactable = false;
+    }
+
+    public void ActivateMenu()
+    {
+        this.gameObject.SetActive(true);
+    }
+    public void DeactivateMenu()
+    {
+        this.gameObject.SetActive(false);
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class GameData
 {
+    public long lastUpdated;
     public Vector3 playerPosition;
     public float curentHealth;
     public int HealthPotCount;

@@ -17,10 +17,16 @@ public class FileDataHandler
         this.useEncryption = useEncryption;
     }
 
-    public GameData Load()
+    public GameData Load(string profileId)
     {
+        //base case - if the profileId is null, return right away
+        if (profileId == null)
+        {
+            return null;
+        }
+
         //use path.Combine to account for different OS's having different path seperators (çok anlamadým :( ).
-        string fullPath = Path.Combine(dataDirPath, dataFileName);
+        string fullPath = Path.Combine(dataDirPath,profileId, dataFileName);
         GameData loadedData = null;
         if (File.Exists(fullPath))
         {
@@ -54,10 +60,15 @@ public class FileDataHandler
         return loadedData;
     }
 
-    public void Save(GameData data)
+    public void Save(GameData data, string profileId)
     {
+        //base case - if the profileId is null, return right away
+        if (profileId == null)
+        {
+            return;
+        }
         //use path.Combine to account for different OS's having different path seperators (çok anlamadým :( ).
-        string fullPath = Path.Combine(dataDirPath, dataFileName);
+        string fullPath = Path.Combine(dataDirPath, profileId, dataFileName);
         try
         {
             //For creating diectoy to write data if it doesn't already exist.
@@ -86,6 +97,73 @@ public class FileDataHandler
         {
             Debug.LogError("Error occured when trying to save data to file:" + fullPath + "\n" + e);
         }
+    }
+    public Dictionary<string, GameData> LoadAllProfiles()
+    {
+        Dictionary<string, GameData> profileDictionary = new Dictionary<string, GameData>();
+
+        //loop over all dictionary names in data directory path.
+        IEnumerable<DirectoryInfo> diInfos = new DirectoryInfo(dataDirPath).EnumerateDirectories();
+        foreach (DirectoryInfo diInfo in diInfos)
+        {
+            string profileId = diInfo.Name;
+
+            //Check if data file exists if doesn't, then this folder isn't profile and should be skipped.
+            string fullPath = Path.Combine(dataDirPath, profileId, dataFileName);
+            if (!File.Exists(fullPath))
+            {
+                Debug.LogWarning("Skipping directory when loading all profiles because it doesn't contain data:" + profileId);
+                continue;
+            }
+
+            GameData profileData = Load(profileId);
+            // make sure data isn't null
+            if (profileData != null)
+            {
+                profileDictionary.Add(profileId, profileData);
+            }
+            else
+            {
+                Debug.LogError("can not load profile. ProfileId :" + profileId);
+            }
+        }
+
+        return profileDictionary;
+    }
+
+    public string GetMostRecentlyUpdatedProfileId()
+    {
+        string mostRecentProfileId = null;
+
+        Dictionary<string, GameData> profilesGameData = LoadAllProfiles();
+        foreach (KeyValuePair<string, GameData> pair in profilesGameData)
+        {
+            string profileId = pair.Key;
+            GameData gameData = pair.Value;
+            //skip if gamedata null
+            if (gameData == null)
+            {
+                continue;
+            }
+
+            // if this is the first data we've come across that exists, it's the most recent so far.
+            if (mostRecentProfileId == null)
+            {
+                mostRecentProfileId = profileId;
+            }
+            //otherwise, compare to see which date is the most recent 
+            else
+            {
+                DateTime mostRecentDateTime = DateTime.FromBinary(profilesGameData[mostRecentProfileId].lastUpdated);
+                DateTime newDateTime = DateTime.FromBinary(gameData.lastUpdated);
+                //The greatest DateTTime value is the most recent
+                if (newDateTime > mostRecentDateTime)
+                {
+                    mostRecentProfileId = profileId;
+                }
+            }
+        }
+        return mostRecentProfileId;
     }
 
     // simple implemantation of XOR encryption method
