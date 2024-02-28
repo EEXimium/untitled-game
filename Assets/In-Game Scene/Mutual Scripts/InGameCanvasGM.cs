@@ -7,31 +7,31 @@ using UnityEngine.UI;
 
 public class InGameCanvasGM : MonoBehaviour
 {
-    [Header("Menu Navigation")]
-    [SerializeField] private SaveSlotsMenu saveSlotsMenu;
+    //[Header("Menu Navigation")]
+    //[SerializeField] private SaveSlotsMenu saveSlotsMenu;
 
     [Header("Menu Buttons")]
-    [SerializeField] private Button newGameButton;
-    [SerializeField] private Button continueGameButton;
-    [SerializeField] private Button LoadGameButton;
+    //[SerializeField] private Button newGameButton;
+    //[SerializeField] private Button continueGameButton;
+    //[SerializeField] private Button LoadGameButton;
     [SerializeField] private GameObject PauseMenu;
     [SerializeField] private GameObject HUD;
 
 
-    [SerializeField] private DataPersistenceManager dataPersistenceManager;
+    //[SerializeField] private DataPersistenceManager dataPersistenceManager;
 
-    private void Start()
-    {
-        DisableButtonsDependingOnData();
-    }
-    private void DisableButtonsDependingOnData()
-    {
-        if (!DataPersistenceManager.Instance.HasGameData())
-        {
-            continueGameButton.interactable = false;
-            LoadGameButton.interactable = false;
-        }
-    }
+    //private void Start()
+    //{
+    //    DisableButtonsDependingOnData();
+    //}
+    //private void DisableButtonsDependingOnData()
+    //{
+    //    if (!DataPersistenceManager.Instance.HasGameData())
+    //    {
+    //        continueGameButton.interactable = false;
+    //        LoadGameButton.interactable = false;
+    //    }
+    //}
 
     private void Update()
     {
@@ -46,10 +46,10 @@ public class InGameCanvasGM : MonoBehaviour
     public void FreezeGame()  { Time.timeScale = 0; }
     public void UnFreezeGame() { Time.timeScale = 1; }
 
-    public void SaveGame()
-    {
-        dataPersistenceManager.SaveGame();
-    }
+    //public void SaveGame()
+    //{
+    //    dataPersistenceManager.SaveGame();
+    //}
     
     public enum Scenes { MainMenu, Outside }
     public Scenes ChooseScene;
@@ -58,42 +58,42 @@ public class InGameCanvasGM : MonoBehaviour
         SceneManager.LoadScene(ChooseScene.ToString());
     }
 
-    public void QuitGame()
-    {
-        Application.Quit(); 
-    }
+    //public void QuitGame()
+    //{
+    //    Application.Quit(); 
+    //}
 
-    public void NewGame()
-    {
-        saveSlotsMenu.ActivateMenu(false);
-        this.DeactivateMenu();
-    }
+    //public void NewGame()
+    //{
+    //    saveSlotsMenu.ActivateMenu(false);
+    //    this.DeactivateMenu();
+    //}
 
-    public void OnLoadGameClicked()
-    {
-        saveSlotsMenu.ActivateMenu(true);
-        this.DeactivateMenu();
-    }
+    //public void OnLoadGameClicked()
+    //{
+    //    saveSlotsMenu.ActivateMenu(true);
+    //    this.DeactivateMenu();
+    //}
 
-    public void Continue()
-    {
-        //Load the next Scene - which will in turn load the game because of
-        //OnSceneLoaded() in the datapersistencemanager
+    //public void Continue()
+    //{
+    //    //Load the next Scene - which will in turn load the game because of
+    //    //OnSceneLoaded() in the datapersistencemanager
 
-        SceneManager.LoadSceneAsync("Outside");
-    }
-    private void DisableMenuButtons()
-    {
-        newGameButton.interactable = false;
-        continueGameButton.interactable = false;
-    }
+    //    SceneManager.LoadSceneAsync("Outside");
+    //}
+    //private void DisableMenuButtons()
+    //{
+    //    newGameButton.interactable = false;
+    //    continueGameButton.interactable = false;
+    //}
 
-    public void ActivateMenu()
-    {
-        this.gameObject.SetActive(true);
-    }
-    public void DeactivateMenu()
-    {
-        this.gameObject.SetActive(false);
-    }
+    //public void ActivateMenu()
+    //{
+    //    this.gameObject.SetActive(true);
+    //}
+    //public void DeactivateMenu()
+    //{
+    //    this.gameObject.SetActive(false);
+    //}
 }

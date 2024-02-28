@@ -21,6 +21,7 @@ TagManager:
   - Hand1
   - Hand2
   - SplitMOB
+  - dpm
   layers:
   - Default
   - TransparentFX

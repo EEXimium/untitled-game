@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class SaveSlotsMenu : MonoBehaviour
 {
     [Header("Menu Navigation")]
-    [SerializeField] private InGameCanvasGM mainMenu;
+    [SerializeField] private MainMenuGM mainMenu;
 
     [Header("Menu Buttons")]
     [SerializeField] private Button backButon;

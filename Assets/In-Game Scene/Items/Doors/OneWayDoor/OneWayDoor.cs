@@ -9,7 +9,6 @@ public class OneWayDoor : MonoBehaviour
     private bool collided = false ;
     [SerializeField] private InsantiateText InsText;
     [SerializeField] private GameObject ChamberCanvas;
-    [SerializeField] private DataPersistenceManager dataPersistenceManager;
 
     private void Start()
     {
@@ -21,7 +20,6 @@ public class OneWayDoor : MonoBehaviour
         if (collided && Input.GetKey(KeyCode.E)) 
         {
             GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(0, 0, 0);
-            dataPersistenceManager.SaveGame();
             ChamberCanvas.SetActive(true);
             anim.SetTrigger("DoorOpen");
         }
