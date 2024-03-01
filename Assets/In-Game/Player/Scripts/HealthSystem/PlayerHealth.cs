@@ -14,6 +14,7 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealth;
     public float currentHealth;
     [SerializeField] private Color damageColor = Color.red;
+    public bool isDead = false;
 
     public InsantiateText InsText;
 
@@ -41,7 +42,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float damage) 
     {
-        if (currentHealth > 0)
+        if (!isDead)
         {
             currentHealth -= damage;
             StartCoroutine(ColorShift());
@@ -51,7 +52,19 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("Player takes damage: " + damage);
             Debug.Log("Player takes damage. Current Health: " + currentHealth);
         }
+            
+        
+
+        if (currentHealth <= 0) { Die(); }
     }
+
+    private void Die()
+    {
+        isDead = true;
+        Debug.Log("öldün");
+        Time.timeScale = 0;
+    }
+
     public void SetMaxHealth(float health)
     {
         slider.maxValue = health;

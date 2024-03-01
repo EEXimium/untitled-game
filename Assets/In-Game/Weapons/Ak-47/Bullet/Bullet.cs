@@ -16,9 +16,14 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         NPCHealth enemy = collision.GetComponent<NPCHealth>();
-        if (enemy != null)
+        PlayerHealth player = collision.GetComponent<PlayerHealth>();
+        if (enemy != null && (collision.tag == "RangedNPC" || collision.tag == "ExplosiveNPC"))
         {
             enemy.TakeDamage(damage);
+        }
+        if(player != null && collision.tag == "Player")
+        {
+            player.TakeDamage(damage);
         }
 
         Destroy(gameObject);
