@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
         InputVector.Normalize(); //Diagonal hareketin bozuk hýzlý olmamasý için
         InputVector = Vector2.ClampMagnitude(InputVector, 1);    // Diagonal movement 1,4 => 1
 
-        if (!EM.isStuck)
+        if (!EM.isStuck && !DialogueManager.instance.isDialogueActive)
         {
             if (Input.GetKey(KeyCode.LeftShift))
             {
