@@ -32,7 +32,7 @@ public class PlayerConsumables : MonoBehaviour
             StartCoroutine(EM.ExtraHp());
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftAlt) && HealthPotCount > 0)
+        if (Input.GetButtonDown("Use") && HealthPotCount > 0)
         {
             if (PH.currentHealth < PH.maxHealth)
             {

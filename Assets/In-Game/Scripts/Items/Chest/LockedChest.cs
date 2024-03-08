@@ -35,7 +35,7 @@ public class LockedChes : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && ChestOpen && ChestUsed)
+        if (Input.GetButtonDown("Interact") && ChestOpen && ChestUsed)
         {
             if (anim.GetBool("Open"))
             {

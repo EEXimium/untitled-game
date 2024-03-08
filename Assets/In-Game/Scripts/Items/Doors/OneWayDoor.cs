@@ -17,7 +17,7 @@ public class OneWayDoor : MonoBehaviour
     }
     private void Update()
     {
-        if (collided && Input.GetKey(KeyCode.E)) 
+        if (collided && Input.GetButtonDown("Interact")) 
         {
             GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(0, 0, 0);
             ChamberCanvas.SetActive(true);

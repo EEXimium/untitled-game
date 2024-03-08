@@ -24,7 +24,7 @@ public class InGameCanvasGM : MonoBehaviour
     private void Update()
     {
         // ESC tuþu ile oyunu durdur.
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetButtonDown("Pause"))
         {
             FreezeGame();
             PauseMenu.SetActive(true);

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ChestTrigger : MonoBehaviour
 {
 
-    private Collider2D boxCollider;
+    private Collider2D CircleCollider;
     private Animator anim;
     [SerializeField] private bool ChestOpen = false; //chestopen is actually check if chest can be oppenable or not
     public GameObject itemToDrop;
@@ -15,12 +15,13 @@ public class ChestTrigger : MonoBehaviour
     {
         Vector3 childPosition = DropPoint.position;
         anim = GetComponent<Animator>();
-        boxCollider = GetComponent<Collider2D>();
+        CircleCollider = GetComponent<CircleCollider2D>();
     }
     public void OpenChest()
     {
         Instantiate(itemToDrop, DropPoint.position, Quaternion.identity);
         anim.SetBool("Open", true);
+        CircleCollider.enabled = false;
 
     }
 
@@ -31,7 +32,7 @@ public class ChestTrigger : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && ChestOpen && ChestUsed)
+        if (Input.GetButtonDown("Interact") && ChestOpen && ChestUsed)
         {
             if (anim.GetBool("Open"))
             {

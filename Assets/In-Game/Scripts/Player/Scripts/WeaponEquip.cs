@@ -28,14 +28,14 @@ public class WeaponEquip : MonoBehaviour
 
         if (WeaponCheck)  // Silahla collide olundu mu ?
         {
-            if (Hand1.transform.childCount == 0 && Hand1Online && Input.GetKeyDown(KeyCode.E)) // Birincil Silah Slotu boþ mu ? -- Birincil Slotu mu kullanýyoruz ? -- E tuþu basýldý mý ?
+            if (Hand1.transform.childCount == 0 && Hand1Online && Input.GetButtonDown("Interact")) // Birincil Silah Slotu boþ mu ? -- Birincil Slotu mu kullanýyoruz ? -- E tuþu basýldý mý ?
             {
                 Hand1Weapon = Instantiate(Weapon, Hand1.transform.position, Quaternion.identity); // Yerdeki Silahý Elde Oluþtur.
                 Hand1Weapon.transform.parent = Hand1.transform;                                  // Birincil Silah Slotunun Child'ý yap.
                 Destroy(Weapon);                                                                // Yerdeki Silahý Sil.
                 Hand1Sprite.sprite = WeaponSprite.sprite;                                      // Silah Sprite'ýný UI'da göster.
             }
-            else if (Hand2.transform.childCount == 0 && Hand2Online && Input.GetKeyDown(KeyCode.E)) // Ýkincil Silah Slotu boþ mu ? -- Ýkincil Slotu mu kullanýyoruz ? -- E tuþu basýldý mý ?
+            else if (Hand2.transform.childCount == 0 && Hand2Online && Input.GetButtonDown("Interact")) // Ýkincil Silah Slotu boþ mu ? -- Ýkincil Slotu mu kullanýyoruz ? -- E tuþu basýldý mý ?
             {
                 Hand2Weapon = Instantiate(Weapon, Hand2.transform.position, Quaternion.identity); // Yerdeki Silahý Elde Oluþtur.
                 Hand2Weapon.transform.parent = Hand2.transform;                                  // Ýkincil Silah Slotunun Child'ý yap.

@@ -27,7 +27,7 @@ public class NewBehaviourScript : MonoBehaviour
  
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && DoorButtonActive) {
+        if (Input.GetButtonDown("Interact") && DoorButtonActive) {
             if (anim.GetBool("Open"))
             {
                 CloseDoor();
