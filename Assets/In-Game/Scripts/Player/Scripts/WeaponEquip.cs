@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class WeaponEquip : MonoBehaviour
 {
+
+    private float HoldButton = 1f;
+
     public GameObject Hand1;  // Birincil Silah Slotu.
     public GameObject Hand2;  // Ýkincil Silah Slotu.
 
@@ -13,8 +16,8 @@ public class WeaponEquip : MonoBehaviour
 
     private SpriteRenderer WeaponSprite;  // UI'da Göstermek için sprite çekme.
 
-    private bool Hand1Online;  // Hangi Eli kullanýyoruz ?
-    private bool Hand2Online;  // Hangi Eli kullanýyoruz ?
+    private bool Hand1Online = true;  // Hangi Eli kullanýyoruz ?
+    private bool Hand2Online = false;  // Hangi Eli kullanýyoruz ?
 
     private GameObject Weapon;  // Collide Olunan Yerdeki Silah.
 
@@ -28,30 +31,49 @@ public class WeaponEquip : MonoBehaviour
 
         if (WeaponCheck)  // Silahla collide olundu mu ?
         {
-            if (Hand1.transform.childCount == 0 && Hand1Online && Input.GetButtonDown("Interact")) // Birincil Silah Slotu boþ mu ? -- Birincil Slotu mu kullanýyoruz ? -- E tuþu basýldý mý ?
+            if (Hand1Online && Input.GetButton("Interact")) // Birincil Silah Slotu boþ mu ? -- Birincil Slotu mu kullanýyoruz ? -- E tuþu basýldý mý ?
             {
-                Hand1Weapon = Instantiate(Weapon, Hand1.transform.position, Quaternion.identity); // Yerdeki Silahý Elde Oluþtur.
-                Hand1Weapon.transform.parent = Hand1.transform;                                  // Birincil Silah Slotunun Child'ý yap.
-                Destroy(Weapon);                                                                // Yerdeki Silahý Sil.
-                Hand1Sprite.sprite = WeaponSprite.sprite;                                      // Silah Sprite'ýný UI'da göster.
+                HoldButton -= Time.deltaTime;
+                if (HoldButton <= 0)
+                {
+                    HoldButton = 1f;
+                    if (Hand1.transform.childCount > 0)
+                    {
+                        DropItem(Hand1Weapon, Hand1, Hand1Sprite);
+                    }
+                    Hand1Weapon = Instantiate(Weapon, Hand1.transform.position, Quaternion.identity); // Yerdeki Silahý Elde Oluþtur.
+                    Hand1Weapon.transform.parent = Hand1.transform;                                  // Birincil Silah Slotunun Child'ý yap.
+                    Destroy(Weapon);                                                                // Yerdeki Silahý Sil.
+                    Hand1Sprite.sprite = WeaponSprite.sprite;                                      // Silah Sprite'ýný UI'da göster.
+
+                }                                   
             }
-            else if (Hand2.transform.childCount == 0 && Hand2Online && Input.GetButtonDown("Interact")) // Ýkincil Silah Slotu boþ mu ? -- Ýkincil Slotu mu kullanýyoruz ? -- E tuþu basýldý mý ?
+            else if (Hand2Online && Input.GetButton("Interact")) // Ýkincil Silah Slotu boþ mu ? -- Ýkincil Slotu mu kullanýyoruz ? -- E tuþu basýldý mý ?
             {
-                Hand2Weapon = Instantiate(Weapon, Hand2.transform.position, Quaternion.identity); // Yerdeki Silahý Elde Oluþtur.
-                Hand2Weapon.transform.parent = Hand2.transform;                                  // Ýkincil Silah Slotunun Child'ý yap.
-                Destroy(Weapon);                                                                // Yerdeki Silahý Sil.
-                Hand2Sprite.sprite = WeaponSprite.sprite;                                      // Silah Sprite'ýný UI'da göster.
+                HoldButton -= Time.deltaTime;
+                if (HoldButton <= 0)
+                {
+                    HoldButton = 1f;
+                    if (Hand2.transform.childCount > 0)
+                    {
+                        DropItem(Hand2Weapon, Hand2, Hand2Sprite);
+                    }
+                    Hand2Weapon = Instantiate(Weapon, Hand2.transform.position, Quaternion.identity); // Yerdeki Silahý Elde Oluþtur.
+                    Hand2Weapon.transform.parent = Hand2.transform;                                  // Ýkincil Silah Slotunun Child'ý yap.
+                    Destroy(Weapon);                                                                // Yerdeki Silahý Sil.
+                    Hand2Sprite.sprite = WeaponSprite.sprite;                                      // Silah Sprite'ýný UI'da göster.
+                }
             }
         }
 
-        if (Hand1Online && Input.GetKeyDown(KeyCode.G))  // Birincil Slotu mu kullanýyoruz ? -- G tuþu basýldý mý ?
-        {
-            DropItem(Hand1Weapon, Hand1, Hand1Sprite);   // LÝNE -- 56 
-        }
-        if (Hand2Online && Input.GetKeyDown(KeyCode.G))  // Ýkincil Slotu mu kullanýyoruz ? -- G tuþu basýldý mý ?
-        {
-            DropItem(Hand2Weapon, Hand2, Hand2Sprite);   // LÝNE -- 56 
-        }
+        //if (Hand1Online && Input.GetKeyDown(KeyCode.G))  // Birincil Slotu mu kullanýyoruz ? -- G tuþu basýldý mý ?
+        //{
+        //    DropItem(Hand1Weapon, Hand1, Hand1Sprite);   // LÝNE -- 56 
+        //}
+        //if (Hand2Online && Input.GetKeyDown(KeyCode.G))  // Ýkincil Slotu mu kullanýyoruz ? -- G tuþu basýldý mý ?
+        //{
+        //    DropItem(Hand2Weapon, Hand2, Hand2Sprite);   // LÝNE -- 56 
+        //}
     }
     private void DropItem(GameObject DropHandWeapon, GameObject DropHand, Image DropHandSprite)
     {
@@ -85,7 +107,7 @@ public class WeaponEquip : MonoBehaviour
     public Image Hand1Color, Hand2Color;         // Kullanýlan Eli belirtmek için çekilen UI Image'larý.
     private void HandSelection()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))    // "1" Tuþuna basýldý mý?
+        if (Input.GetButtonDown("HandSwitch") && !Hand1Online)    // "q" Tuþuna basýldý mý?
         {
             // Hand 1 Activate
             Hand1.SetActive(true);               // Birincil Silah Slotunu Aktifleþtir.
@@ -97,7 +119,7 @@ public class WeaponEquip : MonoBehaviour
             Hand2Online = false;               // Ýkincil Slotu mu kullanýyoruz ? ( HAYIR )
             ChangeAlpha(Hand2Color, 0);       // Görünürlük = SAYDAM
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2)) // "2" Tuþuna basýldý mý?
+        else if (Input.GetButtonDown("HandSwitch") && !Hand2Online) // "q" Tuþuna basýldý mý?
         {
             // Hand 2 Activate
             Hand2.SetActive(true);             // Ýkincil Silah Slotunu Aktifleþtir.

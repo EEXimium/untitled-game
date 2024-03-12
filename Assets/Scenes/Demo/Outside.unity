@@ -3047,7 +3047,7 @@ GameObject:
   - component: {fileID: 792533393}
   m_Layer: 0
   m_Name: Insantiate Text (empty)
-  m_TagString: Untagged
+  m_TagString: InsText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50645,6 +50645,10 @@ PrefabInstance:
       propertyPath: Hand2Color
       value: 
       objectReference: {fileID: 502943779}
+    - target: {fileID: 3366630053688008652, guid: 5814ba1dc34a13d4890e7fc95245c362, type: 3}
+      propertyPath: HoldButton
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3366630053688008652, guid: 5814ba1dc34a13d4890e7fc95245c362, type: 3}
       propertyPath: Hand1Sprite
       value: 

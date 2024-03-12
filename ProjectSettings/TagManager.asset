@@ -22,6 +22,7 @@ TagManager:
   - Hand2
   - SplitMOB
   - dpm
+  - InsText
   layers:
   - Default
   - TransparentFX
