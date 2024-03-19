@@ -15,11 +15,16 @@ public class InGameCanvasGM : MonoBehaviour
     //[SerializeField] private Button continueGameButton;
     //[SerializeField] private Button LoadGameButton;
     [SerializeField] private GameObject PauseMenu;
-    [SerializeField] private GameObject HUD;
+    private GameObject HUD;
     [SerializeField] private GameObject DeathMenu;
-    [SerializeField] private GameObject Player;
+    private GameObject Player;
     [SerializeField] private SaveSlotsMenu saveSlotsMenu;
 
+    private void Start()
+    {
+        HUD = GameObject.Find("HUD");
+        Player = GameObject.FindWithTag("Player");
+    }
 
     private void Update()
     {
@@ -28,14 +33,12 @@ public class InGameCanvasGM : MonoBehaviour
         {
             FreezeGame();
             PauseMenu.SetActive(true);
-            HUD.SetActive(false);
         }
 
         if (Player.GetComponent<PlayerHealth>().isDead)
         {
             FreezeGame();
             DeathMenu.SetActive(true);
-            HUD.SetActive(false);
         }
     }
 
@@ -46,8 +49,9 @@ public class InGameCanvasGM : MonoBehaviour
         
     }
 
-    public void FreezeGame()  { Time.timeScale = 0; }
-    public void UnFreezeGame() { Time.timeScale = 1; }
+    public void FreezeGame() { Time.timeScale = 1; HUD.SetActive(false); }
+
+    public void UnFreezeGame() { Time.timeScale = 1; HUD.SetActive(true); }
     
     public enum Scenes { MainMenu, Outside }
     public Scenes ChooseScene;
