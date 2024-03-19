@@ -4,7 +4,7 @@ public class NPCMovement : MonoBehaviour
 {
     private Transform target;
     private Rigidbody2D rb;
-    private Animator anim;
+    //private Animator anim;
 
     public float moveSpeed = 3f; 
     public float detectionRange = 5f;
@@ -16,7 +16,7 @@ public class NPCMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+        //anim = GetComponent<Animator>();
         target = GameObject.FindWithTag("Player").GetComponent<Transform>();
     }
 

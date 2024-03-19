@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 1081250483489384399}
   - component: {fileID: 4845163734156438347}
   - component: {fileID: 7429830913754055158}
-  - component: {fileID: 7113062941110251795}
   m_Layer: 0
   m_Name: RangedNPC
   m_TagString: RangedNPC
@@ -39,7 +38,7 @@ Transform:
   m_Children:
   - {fileID: 1471246836042514597}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4958928721981796660
 SpriteRenderer:
@@ -224,18 +223,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &7429830913754055158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5613982876558274409}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c855933eec1173a4f90dc6a700b83318, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7113062941110251795
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -5,17 +5,16 @@ using UnityEngine;
 public class npcAttack : MonoBehaviour
 {
     // Start is called before the first frame update
-    private GameObject player;
+    //private GameObject player; //sorun olursa bu satýrý ve startýn içini yorumdan çýkar
 
     private void Start()
     {
-        player = GameObject.FindWithTag("Player");
+        //player = GameObject.FindWithTag("Player");
     }
 
     void Update()
     {
-        if (this.GetComponent<NPCMovement>().moving == false
-            && this.GetComponent<NPCMovement>().distanceToPlayer <= this.GetComponent<NPCMovement>().shootRange)
+        if (this.GetComponent<NPCMovement>().moving == false && this.GetComponent<NPCMovement>().distanceToPlayer <= this.GetComponent<NPCMovement>().shootRange)
         {
             this.GetComponentInChildren<Gun>().rangedNpcAttack();
         }
