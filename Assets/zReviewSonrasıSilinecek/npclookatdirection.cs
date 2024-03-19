@@ -6,8 +6,6 @@ public class Npclookatdirection : MonoBehaviour
 {
     private string currentState;
 
-    
-    private GameObject npc;
     private Animator anim;
     private Transform target;
     private NPCMovement npcM;
@@ -28,7 +26,6 @@ public class Npclookatdirection : MonoBehaviour
 
     private void Start()
     {
-        npc = GetComponent<GameObject>();
         anim = GetComponent<Animator>();
         target = GameObject.FindWithTag("Player").GetComponent<Transform>();
         npcM = GetComponent<NPCMovement>();

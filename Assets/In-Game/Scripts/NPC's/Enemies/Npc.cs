@@ -5,23 +5,20 @@ using UnityEngine;
 public class Npc : MonoBehaviour
 {
 
-    private Transform target;
-    private Rigidbody2D rb;
+    protected Transform target;
+    protected Rigidbody2D rb;
+    protected Vector2 directionToPlayer;
+    protected Vector2 goDirection;
 
-    public GameObject deathCoin;
-    private Transform DropPoint;
+    protected Transform DropPoint;
 
-    private Animator animator;
-    private SpriteRenderer spriterenderer;
-
-    public float ExplodeDamage;
-    public float ExplosionRange;
+    protected Animator animator;
+    protected SpriteRenderer spriterenderer;
 
     [Header("Movement Settings")] //INSPECTOR'DAN AYARLAYIN! KODDA DEÐER GÝRMEYÝN!
 
     public float moveSpeed;
     public float detectionRange;
-    public float shootRange;
     public float distanceToPlayer;
     public bool moving;
 
@@ -30,37 +27,48 @@ public class Npc : MonoBehaviour
     public float currentHealth;
     public bool isDeath = false;
 
-    private void Awake()
+    [Header("Other Settings")]
+    public GameObject deathCoin;
+
+    //--------------ANIMATION
+    protected private string currentState;
+
+    protected const string Idle = "Idle";
+    protected const string Run = "Run";
+    protected const string Walk_Left = "Walk_Left";
+    protected const string Walk_Right = "Walk_Right";
+    protected const string Walk_Up = "Walk_Up";
+    protected const string Walk_Up_Left = "Walk_Up_Left";
+    protected const string Walk_Up_Right = "Walk_Up_Right";
+    protected const string Walk_Down = "Walk_Down";
+    protected const string Walk_Down_Left = "Walk_Down_Left";
+    protected const string Walk_Down_Right = "Walk_Down_Right";
+    protected const string diabloAnim = "diablo";
+
+    protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindWithTag("Player").GetComponent<Transform>();
     }//end of awake
 
-    private void Start()
+    protected virtual void Start()
     {
-        //----------------HEALTH------------------
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
         spriterenderer = GetComponent<SpriteRenderer>();
-        //----------------HEALTH------------------
     }//end of start
 
-    private void Update()
+    protected virtual void Update()
     {
-
-        //----------------MOVEMENT---------------
+        //----------------HAREKET---------------
         distanceToPlayer = Vector2.Distance(transform.position, target.position);
-
         if (distanceToPlayer <= detectionRange)
         {
             moving = true;
             // Player'a doðru olan yönü hesapla
-            Vector2 directionToPlayer = (target.position - transform.position).normalized;
+            directionToPlayer = (target.position - transform.position).normalized;
             // Npc'yi hesaplanmýþ yöne doðru hareket ettir.
-            if (this.tag == "ExplosiveNPC" || this.tag == "SplitMOB") //Explosive ve split movementi
                 rb.velocity = directionToPlayer * moveSpeed;
-            else if (this.tag == "RangedNPC")                         //Ranged movementi
-                rb.velocity = -directionToPlayer * moveSpeed;
         }
         else
         {
@@ -68,14 +76,46 @@ public class Npc : MonoBehaviour
             moving = false;
             rb.velocity = Vector2.zero;
         }
-        //----------------MOVEMENT END--------------
-
-        //---------------ATTACK---------------------
-        if (moving == false && distanceToPlayer <= shootRange)
-            this.GetComponentInChildren<Gun>().rangedNpcAttack(); //Ranged attacký
-        //---------------ATTACK END-----------------
-
     }//end of update
+
+    protected virtual void FixedUpdate()
+    {
+        goDirection = this.transform.position - target.transform.position;
+
+            if (goDirection.x >= 0.1f && goDirection.y == 0 && moving)
+                ChangeAnimationState(Walk_Left);
+            else if (goDirection.x <= -0.1f && goDirection.y == 0 && moving)
+                ChangeAnimationState(Walk_Right);
+            else if (goDirection.x == 0 && goDirection.y >= 0.1 && moving)
+                ChangeAnimationState(Walk_Down);
+            else if (goDirection.x >= 0.1f && goDirection.y >= 0.1 && moving)
+                ChangeAnimationState(Walk_Down_Left);
+            else if (goDirection.x <= -0.1f && goDirection.y >= 0.1 && moving)
+                ChangeAnimationState(Walk_Down_Right);
+            else if (goDirection.x == 0 && goDirection.y <= -0.1 && moving)
+                ChangeAnimationState(Walk_Up);
+            else if (goDirection.x >= 0.1f && goDirection.y <= -0.1 && moving)
+                ChangeAnimationState(Walk_Up_Left);
+            else if (goDirection.x <= -0.1f && goDirection.y <= -0.1 && moving)
+                ChangeAnimationState(Walk_Up_Right);
+            else if (moving)
+                ChangeAnimationState(Idle);
+
+    }//end of FixedUpdate
+
+    protected void ChangeAnimationState(string newState)
+    {
+        //halihazýrda oynayan animasyonun kendini kesmesine engel ol
+        if (currentState == newState)
+            return;
+
+        //yeni anim oynat
+
+        animator.Play(newState);
+
+        //current state güncelle çünkü deðiþti
+        currentState = newState;
+    }
 
     public void TakeDamage(float damage)
     {
@@ -105,48 +145,12 @@ public class Npc : MonoBehaviour
         rb.AddForce(KnockbackDirec * knockbackForce, ForceMode2D.Impulse);
     }//end of ApplyKnockback
 
-    private void Die()
+    protected virtual void Die()
     {
         isDeath = true;
         DropPoint = this.transform;
-        if (this.tag == "ExplosiveNPC")
-        {
-            Explode();
-            Instantiate(deathCoin, DropPoint.position, Quaternion.identity);
-        }
-        else if (this.tag == "SplitMOB")
-        {
-            this.gameObject.GetComponent<SplitOnDeath>().SpawnOnDeath();
-            Explode();
-            Instantiate(deathCoin, DropPoint.position, Quaternion.identity);
-        }
-        else
-        {
+
             Destroy(gameObject);
             Instantiate(deathCoin, DropPoint.position, Quaternion.identity);
-        }
     }//end of Die
-
-    private void Explode()
-    {
-        GameObject deadExplosion = new GameObject("Dead explosion radius");
-        deadExplosion.transform.position = this.transform.position;
-        deadExplosion.AddComponent<CircleCollider2D>();
-        deadExplosion.AddComponent<Explosion>();
-        deadExplosion.GetComponent<Explosion>().damage = ExplodeDamage;
-        deadExplosion.GetComponent<CircleCollider2D>().radius = ExplosionRange;
-        deadExplosion.GetComponent<CircleCollider2D>().isTrigger = true;
-        Destroy(deadExplosion, .1f);
-        Destroy(gameObject);
-    }//end of Explode
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player") && (this.tag == "ExplosiveNPC" || this.tag == "SplitMOB"))
-        {
-            Die();
-            Destroy(gameObject);
-        }
-    }//end of OnTriggerEnter2D
-
 }//end of class
