@@ -120,8 +120,6 @@ public class Npclookatdirection : MonoBehaviour
                 ChangeAnimationState(Idle);
             }
         }
-
-        
     }
 
 

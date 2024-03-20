@@ -149,8 +149,7 @@ public class Npc : MonoBehaviour
     {
         isDeath = true;
         DropPoint = this.transform;
-
-            Destroy(gameObject);
-            Instantiate(deathCoin, DropPoint.position, Quaternion.identity);
+        Destroy(gameObject);
+        Instantiate(deathCoin, DropPoint.position, Quaternion.identity);
     }//end of Die
 }//end of class

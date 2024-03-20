@@ -34,6 +34,7 @@ public class NPCHealth : MonoBehaviour
 
         Debug.Log("NPC takes damage. Current Health: " + currentHealth);
     }
+
     private IEnumerator ColorShift()
     {
         spriterenderer.color = Color.red;
@@ -81,8 +82,6 @@ public class NPCHealth : MonoBehaviour
         Destroy(deadExplosion, .1f);
         Destroy(gameObject);
     }
-
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

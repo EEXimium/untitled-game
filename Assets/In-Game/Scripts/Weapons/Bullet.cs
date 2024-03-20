@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        NPCHealth enemy = collision.GetComponent<NPCHealth>();
+        Npc enemy = collision.GetComponent<Npc>();
         PlayerHealth player = collision.GetComponent<PlayerHealth>();
         if (enemy != null && (collision.tag == "RangedNPC" || collision.tag == "ExplosiveNPC"))
         {
