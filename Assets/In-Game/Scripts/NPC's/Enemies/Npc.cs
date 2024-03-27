@@ -62,7 +62,7 @@ public class Npc : MonoBehaviour
     {
         //----------------HAREKET---------------
         distanceToPlayer = Vector2.Distance(transform.position, target.position);
-        if (distanceToPlayer <= detectionRange)
+        if (distanceToPlayer <= detectionRange && !isDeath)
         {
             moving = true;
             // Player'a doðru olan yönü hesapla
@@ -98,7 +98,7 @@ public class Npc : MonoBehaviour
                 ChangeAnimationState(Walk_Up_Left);
             else if (goDirection.x <= -0.1f && goDirection.y <= -0.1 && moving)
                 ChangeAnimationState(Walk_Up_Right);
-            else if (moving)
+            else if (!moving)
                 ChangeAnimationState(Idle);
 
     }//end of FixedUpdate
