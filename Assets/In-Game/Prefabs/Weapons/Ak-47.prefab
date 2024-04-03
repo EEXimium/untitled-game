@@ -131,6 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orbitRadius: 1
+  WeaponSpr: {fileID: 1514707405845596045}
   BulletPrefab: {fileID: 573570370025025618, guid: 4ddf2294028bada4e8e4e4d81e543e8d, type: 3}
   firePoint: {fileID: 6937194617085932244}
   fireRate: 7

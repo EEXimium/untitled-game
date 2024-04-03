@@ -312,6 +312,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dff0ee70be989f74093274643a9c72a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orbitRadius: 0.8
+  WeaponSpr: {fileID: 7788531031788492165}
   attackPoint: {fileID: 7564379033519342080}
   lightningGlove: {fileID: 7788531031788492165}
   bcoll: {fileID: 254465369286020140}

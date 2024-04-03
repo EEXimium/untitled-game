@@ -130,10 +130,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3c2b96e532ceaf4f94c552a3cb68488, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orbitRadius: 0.7
+  WeaponSpr: {fileID: 9197284738387309501}
   BulletPrefab: {fileID: 573570370025025618, guid: 4ddf2294028bada4e8e4e4d81e543e8d, type: 3}
   firePoint: {fileID: 5911592649071124685}
-  gun: {fileID: 9197284738387309501}
-  orbitRadius: 0.7
   fireRate: 2
 --- !u!58 &-201073423303816094
 CircleCollider2D:

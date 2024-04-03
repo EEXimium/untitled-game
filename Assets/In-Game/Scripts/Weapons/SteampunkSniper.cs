@@ -4,14 +4,12 @@ using TMPro.Examples;
 using UnityEngine;
 using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
-public class SteampunkSniper : MonoBehaviour
+public class SteampunkSniper : Weapon, IAttack
 {
     private GameObject character;
     public GameObject BulletPrefab;
     public Transform firePoint;
-    public SpriteRenderer gun;
 
-    public float orbitRadius = 1.5f;  // silahýn karaktere olan uzaklýðý ya da yakýnlýðý
     public float fireRate;
     private float nextFireTime = 0f;
 
@@ -23,18 +21,20 @@ public class SteampunkSniper : MonoBehaviour
     private float limitminX, limitmaxX, limitminY, limitmaxY;
     Vector3 StartMousePos;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         camera = Camera.main;
-        character = GameObject.FindWithTag("Player");
         camlimitrender = GameObject.Find("CameraLimit");
         camlimitrenderSprite = camlimitrender.GetComponent<SpriteRenderer>();
     }
 
-    private void Update()
+    protected override void Update()
     {
         if (this.transform.parent != null)
         {
+            base.Update();
+            Attack();
             // --------------- Zoom -------------------
             if (Input.GetMouseButton(1))
             {
@@ -43,37 +43,7 @@ public class SteampunkSniper : MonoBehaviour
             if (Input.GetMouseButtonUp(1))
             {
                 Offzoom();
-            }
-
-            // Calculate the angle based on mouse position
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 directionToMouse = mousePosition - character.transform.position;
-            float targetAngle = Mathf.Atan2(directionToMouse.y, directionToMouse.x) * Mathf.Rad2Deg;
-
-            // Orbit the gun around the character
-            float currentAngle = targetAngle;
-            Vector3 orbitPosition = character.transform.position + Quaternion.Euler(0, 0, currentAngle) * Vector3.right * orbitRadius;
-
-            transform.position = orbitPosition;
-            transform.rotation = Quaternion.Euler(0, 0, currentAngle);
-
-            if (directionToMouse.x < 0)
-            {
-                gun.flipY = true;
-            }
-            else
-            {
-                gun.flipY = false;
-            }
-            Vector3 aimDirection = (mousePosition - character.transform.position).normalized;
-            float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0, 0, aimAngle);
-
-            if (Input.GetMouseButtonDown(0) && Time.time > nextFireTime)
-            {
-                Instantiate(BulletPrefab, firePoint.position, firePoint.rotation);
-                nextFireTime = Time.time + 1f / fireRate;
-            }
+            }           
         }      
     }
 
@@ -107,4 +77,12 @@ public class SteampunkSniper : MonoBehaviour
         return new Vector3(newX, newY, targetPosition.z);
     }
     // ---------------------------------------
+    public void Attack()
+    {
+        if (Input.GetMouseButtonDown(0) && Time.time > nextFireTime)
+        {
+            Instantiate(BulletPrefab, firePoint.position, firePoint.rotation);
+            nextFireTime = Time.time + 1f / fireRate;
+        }
+    }
 }

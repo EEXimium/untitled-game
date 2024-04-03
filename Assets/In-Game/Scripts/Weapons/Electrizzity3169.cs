@@ -2,11 +2,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
-public class electrizzity : MonoBehaviour
+public class electrizzity : Weapon, IAttack
 {
-    private GameObject character; // Assign this in the Inspector
     public Transform attackPoint; // Assign this in the Inspector
-    public SpriteRenderer lightningGlove;
     public BoxCollider2D bcoll;
     public BoxCollider2D bcollright;
     public Animator anim;
@@ -27,62 +25,13 @@ public class electrizzity : MonoBehaviour
     public GameObject BulletPrefab;
     
 
-    public float orbitRadius = 1.5f;
 
-     private void Start()
-    {
-        character = GameObject.FindWithTag("Player");
-    }
-    private void Update()
+    protected override void Update()
     {
         if (this.transform.parent != null)
         {
-            if (Input.GetMouseButtonDown(0) && Time.time >= nextAttackTime)
-            {
-                currentAttackHand = (currentAttackHand == 1) ? 2 : 1;
-                anim.SetInteger("Counter", currentAttackHand);
-                nextAttackTime = Time.time + 1f / attack1Rate;
-            }
-
-            if (Input.GetMouseButtonDown(1) && Time.time >= nextAttackTime)
-            {
-                currentAttackHand = (currentAttackHand == 1) ? 2 : 1;
-                anim.SetInteger("Counter", currentAttackHand + 2);
-                nextAttackTime = Time.time + 1f / attack2Rate;
-
-                if (currentAttackHand == 1)
-                {
-                    Instantiate(BulletPrefab, firePoint1.position, firePoint1.rotation);
-                }
-                else if (currentAttackHand == 2)
-                {
-                    Instantiate(BulletPrefab, firePoint2.position, firePoint2.rotation);
-                }
-            }
-
-            // ----------------------- WEAPON ROTATE -----------------------------
-            // Calculate the angle based on mouse position
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 directionToMouse = mousePosition - character.transform.position;
-            float targetAngle = Mathf.Atan2(directionToMouse.y, directionToMouse.x) * Mathf.Rad2Deg;
-
-            // Orbit the gun around the character
-            float currentAngle = targetAngle;
-            Vector3 orbitPosition = character.transform.position + Quaternion.Euler(0, 0, currentAngle) * Vector3.right * orbitRadius;
-
-            transform.position = orbitPosition;
-            transform.rotation = Quaternion.Euler(0, 0, currentAngle);
-
-            if (directionToMouse.x < 0)
-                lightningGlove.flipY = true;
-
-            else
-                lightningGlove.flipY = false;
-
-            Vector3 aimDirection = (mousePosition - character.transform.position).normalized;
-            float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0, 0, aimAngle);
-            // ----------------------------------------------------------------
+            base.Update();
+            Attack();           
         }
     }
 
@@ -123,6 +72,30 @@ public class electrizzity : MonoBehaviour
     }
     // -------------------------------------------------------------------------
 
+    public void Attack()
+    {
+        if (Input.GetMouseButtonDown(0) && Time.time >= nextAttackTime)
+        {
+            currentAttackHand = (currentAttackHand == 1) ? 2 : 1;
+            anim.SetInteger("Counter", currentAttackHand);
+            nextAttackTime = Time.time + 1f / attack1Rate;
+        }
 
+        if (Input.GetMouseButtonDown(2) && Time.time >= nextAttackTime)
+        {
+            currentAttackHand = (currentAttackHand == 1) ? 2 : 1;
+            anim.SetInteger("Counter", currentAttackHand + 2);
+            nextAttackTime = Time.time + 1f / attack2Rate;
+
+            if (currentAttackHand == 1)
+            {
+                Instantiate(BulletPrefab, firePoint1.position, firePoint1.rotation);
+            }
+            else if (currentAttackHand == 2)
+            {
+                Instantiate(BulletPrefab, firePoint2.position, firePoint2.rotation);
+            }
+        }
+    }
 
 }

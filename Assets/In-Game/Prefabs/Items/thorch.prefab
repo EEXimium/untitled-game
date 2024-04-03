@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orbitRadius: 0.5
-  thorch: {fileID: 8027339721344354684}
+  WeaponSpr: {fileID: 8027339721344354684}
 --- !u!1 &4935165312007056733
 GameObject:
   m_ObjectHideFlags: 0
