@@ -8,10 +8,12 @@ public class Weapon : MonoBehaviour
     private GameObject character;
     public float orbitRadius = 1.5f;
     public SpriteRenderer WeaponSpr;
+    private GameObject Cross;
 
     protected virtual void Start()
     {
         character = GameObject.FindWithTag("Player");
+        Cross = GameObject.FindWithTag("Cross");
     }
     
 
@@ -19,9 +21,9 @@ public class Weapon : MonoBehaviour
     protected virtual void Update()
     {
         // Calculate the angle based on mouse position
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 directionToMouse = mousePosition - character.transform.position;
-        float targetAngle = Mathf.Atan2(directionToMouse.y, directionToMouse.x) * Mathf.Rad2Deg;
+        Vector3 CrossPosition = Cross.transform.position;
+        Vector3 directionToCross = CrossPosition - character.transform.position;
+        float targetAngle = Mathf.Atan2(directionToCross.y, directionToCross.x) * Mathf.Rad2Deg;
 
         // Orbit the gun around the character
         float currentAngle = targetAngle;
@@ -30,10 +32,10 @@ public class Weapon : MonoBehaviour
         transform.position = orbitPosition;
         transform.rotation = Quaternion.Euler(0, 0, currentAngle);
 
-        if (directionToMouse.x < 0) { WeaponSpr.flipY = true; }
+        if (directionToCross.x < 0) { WeaponSpr.flipY = true; }
         else { WeaponSpr.flipY = false; }
 
-        Vector3 aimDirection = (mousePosition - character.transform.position).normalized;
+        Vector3 aimDirection = (CrossPosition - character.transform.position).normalized;
         float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, aimAngle);
     }

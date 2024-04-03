@@ -23,6 +23,7 @@ TagManager:
   - SplitMOB
   - dpm
   - InsText
+  - Cross
   layers:
   - Default
   - TransparentFX

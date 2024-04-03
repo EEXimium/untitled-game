@@ -79,7 +79,7 @@ public class Gun : Weapon, IAttack
         if (Input.GetMouseButton(0) && Time.time >= nextFireTime)
             shootPrimary();
 
-        if (Input.GetMouseButton(1) && Time.time >= nextFireTime)
+        if (Input.GetMouseButton(2) && Time.time >= nextFireTime)
             shootSecondary();
     }
 }

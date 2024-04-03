@@ -39,6 +39,7 @@ public class WeaponEquip : MonoBehaviour
                     HoldButton = 1f;
                     if (Hand1.transform.childCount > 0)
                     {
+                        Hand1Weapon.SetActive(true);
                         DropItem(Hand1Weapon, Hand1, Hand1Sprite);
                     }
                     Hand1Weapon = Instantiate(Weapon, Hand1.transform.position, Quaternion.identity); // Yerdeki Silahý Elde Oluþtur.
@@ -56,6 +57,7 @@ public class WeaponEquip : MonoBehaviour
                     HoldButton = 1f;
                     if (Hand2.transform.childCount > 0)
                     {
+                        Hand2Weapon.SetActive(true);
                         DropItem(Hand2Weapon, Hand2, Hand2Sprite);
                     }
                     Hand2Weapon = Instantiate(Weapon, Hand2.transform.position, Quaternion.identity); // Yerdeki Silahý Elde Oluþtur.

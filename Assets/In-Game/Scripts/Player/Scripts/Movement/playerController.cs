@@ -70,15 +70,31 @@ public class playerController : MonoBehaviour
             anim.SetLayerWeight(1, 1);
             aim.Normalize();
             aim *= 2f;
-            Crosshair.SetActive(true);
+            Crosshair.GetComponent<SpriteRenderer>().enabled = true;
             Crosshair.transform.localPosition = aim;        
             MainAim = aim;
+            if (this.transform.GetChild(0).transform.childCount > 0)
+            {
+                this.transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(true);
+            }
+            if (this.transform.GetChild(1).transform.childCount > 0)
+            {
+                this.transform.GetChild(1).transform.GetChild(0).gameObject.SetActive(true);
+            }
         }
         else
         {
             anim.SetLayerWeight(1, 0);
-            Crosshair.SetActive(false);
-            Crosshair.transform.localPosition = this.transform.position;
+            Crosshair.GetComponent<SpriteRenderer>().enabled = false;
+            Crosshair.transform.localPosition = new Vector2 (0,0);
+            if (this.transform.GetChild(0).transform.childCount > 0)
+            {
+                this.transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);
+            }
+            if (this.transform.GetChild(1).transform.childCount > 0)
+            {
+                this.transform.GetChild(1).transform.GetChild(0).gameObject.SetActive(false);
+            }
         }
     }
     private void MouseAim()
@@ -94,15 +110,32 @@ public class playerController : MonoBehaviour
         if (direction.magnitude > 0f && Input.GetMouseButton(1))
         {
             anim.SetLayerWeight(1, 1);
-            Crosshair.SetActive(true);
+            Crosshair.GetComponent<SpriteRenderer>().enabled = true;
             direction *= 2f;
             Crosshair.transform.localPosition = direction;
             MainAim = direction;
+            if (this.transform.GetChild(0).transform.childCount > 0)
+            {
+                this.transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(true);
+            }
+            if (this.transform.GetChild(1).transform.childCount > 0)
+            {
+                this.transform.GetChild(1).transform.GetChild(0).gameObject.SetActive(true);
+            }
         }
         else
         {
             anim.SetLayerWeight(1, 0);
-            Crosshair.SetActive(false) ;
+            Crosshair.GetComponent<SpriteRenderer>().enabled = false;
+            Crosshair.transform.localPosition = new Vector2(0, 0);
+            if (this.transform.GetChild(0).transform.childCount > 0)
+            {
+                this.transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);
+            }
+            if (this.transform.GetChild(1).transform.childCount > 0)
+            {
+                this.transform.GetChild(1).transform.GetChild(0).gameObject.SetActive(false);
+            }
         }
 
     }
