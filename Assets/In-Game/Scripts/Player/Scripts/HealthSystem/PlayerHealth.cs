@@ -17,6 +17,7 @@ public class PlayerHealth : MonoBehaviour
     public bool isDead = false;
     public Gradient gradient;
     public Image fill;
+    public SpriteRenderer eyefill;
 
     public InsantiateText InsText;
 
@@ -70,12 +71,14 @@ public class PlayerHealth : MonoBehaviour
     {
         slider.maxValue = health;
         fill.color = gradient.Evaluate(1f);
+        eyefill.color = gradient.Evaluate(1f);
     }
 
     public void SetHealth(float health)
     {
         slider.value = health;
         fill.color = gradient.Evaluate(slider.normalizedValue);
+        eyefill.color = gradient.Evaluate(slider.normalizedValue);
     }
 
 }
