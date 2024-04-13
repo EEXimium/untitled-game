@@ -23,7 +23,7 @@ public class Bomba : MonoBehaviour
 
     private void OnTriggerStay2D (Collider2D collision)
     {
-        NPCHealth enemy = collision.GetComponent<NPCHealth>();
+        Npc enemy = collision.GetComponent<Npc>();
         if (enemy != null)
         {
             Explosion();

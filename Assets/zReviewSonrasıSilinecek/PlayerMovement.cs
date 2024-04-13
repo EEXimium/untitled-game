@@ -17,9 +17,6 @@ public class PlayerMovement : MonoBehaviour
     public GameObject UIDoc;
     public Animator animator;
 
-    //private bool diabloState = false;
-
-
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -33,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
         InputVector.x = Input.GetAxisRaw("Horizontal");
         InputVector.y = Input.GetAxisRaw("Vertical");
 
-        InputVector.Normalize(); //Diagonal hareketin bozuk hýzlý olmamasý için
+        InputVector.Normalize(); //Diagonal hareketin bozuk hï¿½zlï¿½ olmamasï¿½ iï¿½in
         InputVector = Vector2.ClampMagnitude(InputVector, 1);    // Diagonal movement 1,4 => 1
 
         if (!EM.isStuck) //&& !DialogueManager.instance.isDialogueActive)

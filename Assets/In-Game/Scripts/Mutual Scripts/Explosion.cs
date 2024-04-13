@@ -22,12 +22,12 @@ public class Explosion : MonoBehaviour
 
         if (collision.gameObject.CompareTag("ExplosiveNPC")/* || collision.gameObject.CompareTag("Enemy")*/)
         {
-            NPCHealth Enemy = collision.GetComponent<NPCHealth>();
+            Npc enemy = collision.GetComponent<Npc>();
 
-            if (Enemy != null)
+            if (enemy != null)
             {
                 Vector2 distance = collision.gameObject.transform.position - this.transform.position;
-                Enemy.TakeDamage(damage * distance.magnitude);
+                enemy.TakeDamage(damage * distance.magnitude);
             }
         }
 

@@ -64,7 +64,7 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         isDead = true;
-        Debug.Log("öldün");
+        Debug.Log("ï¿½ldï¿½n");
     }
 
     public void SetMaxHealth(float health)

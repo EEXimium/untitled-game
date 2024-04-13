@@ -38,14 +38,14 @@ public class electrizzity : Weapon, IAttack
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        NPCHealth enemy = collision.GetComponent<NPCHealth>();
+        Npc enemy = collision.GetComponent<Npc>();
         if (enemy != null)
         {
             enemy.TakeDamage(attack1Damage);
             enemy.ApplyKnockback(enemy.transform.position - attackPoint.position, knocbackPower);
         }
 
-        NPCHealth npcHealth = collision.GetComponent<NPCHealth>();
+        Npc npcHealth = collision.GetComponent<Npc>();
         if (npcHealth != null)
         {
             npcHealth.TakeDamage(attack1Damage);
