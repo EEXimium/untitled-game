@@ -8,6 +8,30 @@ public class ExplosiveNpc : Npc
     [SerializeField] protected float ExplodeDamage;
     [SerializeField] protected float ExplosionRange;
 
+    protected const string exp_idle = "exp_idle";
+    protected const string run_right = "exp_run_right";
+    protected const string run_left = "exp_run_left";
+
+    protected override void FixedUpdate()
+    {
+        goDirection = this.transform.position - target.transform.position;
+
+        if (moving)
+        {
+            if (goDirection.x >= 0.1f)
+                ChangeAnimationState(run_left);
+            else if (goDirection.x <= -0.1f)
+                ChangeAnimationState(run_right);
+            else
+                ChangeAnimationState(exp_idle);
+        }
+        else
+        {
+            ChangeAnimationState(exp_idle);
+        }
+
+    }//end of FixedUpdate
+
     protected override void Die()
     {
         if (this.tag == "ExplosiveNPC")
