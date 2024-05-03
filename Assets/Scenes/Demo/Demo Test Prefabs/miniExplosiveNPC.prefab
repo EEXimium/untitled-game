@@ -13,9 +13,7 @@ GameObject:
   - component: {fileID: 6703375346177119747}
   - component: {fileID: 1292191539688747468}
   - component: {fileID: 4024446424344908974}
-  - component: {fileID: 4179875376673570541}
-  - component: {fileID: 3597030673683632433}
-  - component: {fileID: 7545893553302217967}
+  - component: {fileID: 6745457919936084951}
   m_Layer: 0
   m_Name: miniExplosiveNPC
   m_TagString: ExplosiveNPC
@@ -36,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6134341707437539864
 SpriteRenderer:
@@ -173,7 +171,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4179875376673570541
+--- !u!114 &6745457919936084951
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,41 +180,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 4250748734533197918}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5a54964076a62a48b6291d6d43a705f, type: 3}
+  m_Script: {fileID: 11500000, guid: f01cf7a59ebb5484da98b4a9853a2092, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
-  currentHealth: 50
-  isDeath: 0
-  ExplodeDamage: 10
-  ExplosionRange: 2
-  deathCoin: {fileID: 4387132032024809813, guid: 4724cd910fd874ae2bbf9297e3d53708, type: 3}
---- !u!114 &3597030673683632433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4250748734533197918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37e77bf86fbbb9541b79e078194d3ade, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 4
+  moveSpeed: 3
   detectionRange: 5
-  shootRange: 8
   distanceToPlayer: 0
   moving: 0
---- !u!114 &7545893553302217967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4250748734533197918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ca2fa43b75d62345a422231a192b61f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 50
+  isDeath: 0
+  deathCoin: {fileID: 0}
+  ExplodeDamage: 10
+  ExplosionRange: 1

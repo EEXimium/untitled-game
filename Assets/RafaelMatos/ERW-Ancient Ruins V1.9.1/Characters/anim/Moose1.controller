@@ -33,7 +33,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: moose1_atk
+  m_Name: moose1-atk with smear fx
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -146,10 +146,10 @@ AnimatorStateMachine:
     m_Position: {x: 290, y: 60, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2603638640449107489}
-    m_Position: {x: 610, y: 190, z: 0}
+    m_Position: {x: 630, y: 190, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8973537541480673294}
-    m_Position: {x: 280, y: 180, z: 0}
+    m_Position: {x: 290, y: 190, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

@@ -106,10 +106,7 @@ GameObject:
   - component: {fileID: 7648362456911938046}
   - component: {fileID: 4005488047879748999}
   - component: {fileID: 116817050290951505}
-  - component: {fileID: 572280518304048940}
-  - component: {fileID: 2999223442338393185}
-  - component: {fileID: 3572825358442362362}
-  - component: {fileID: 8520728867390812509}
+  - component: {fileID: 7018264234740761465}
   m_Layer: 0
   m_Name: SplitOnDeathMOB
   m_TagString: SplitMOB
@@ -134,7 +131,7 @@ Transform:
   - {fileID: 30664492114730104}
   - {fileID: 6045614861265411967}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &811882277614456572
 SpriteRenderer:
@@ -271,7 +268,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &572280518304048940
+--- !u!114 &7018264234740761465
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -280,56 +277,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 8462146568752614199}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5a54964076a62a48b6291d6d43a705f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 50
-  isDeath: 0
-  ExplodeDamage: 10
-  ExplosionRange: 2
-  deathCoin: {fileID: 4387132032024809813, guid: 4724cd910fd874ae2bbf9297e3d53708, type: 3}
---- !u!114 &2999223442338393185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8462146568752614199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37e77bf86fbbb9541b79e078194d3ade, type: 3}
+  m_Script: {fileID: 11500000, guid: a0dd19dcb7f58d2458fc0e7c28a6308a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
   detectionRange: 5
-  shootRange: 8
   distanceToPlayer: 0
   moving: 0
---- !u!114 &3572825358442362362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8462146568752614199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ca2fa43b75d62345a422231a192b61f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8520728867390812509
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8462146568752614199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fc3b51917f1cdd48a5e02548ac98d51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 50
+  isDeath: 0
+  deathCoin: {fileID: 0}
+  ExplodeDamage: 20
+  ExplosionRange: 2
   miniMOb: {fileID: 4250748734533197918, guid: 43f28e6901540a24cba72ac0e0634158, type: 3}
   SpawnLocations:
   - {fileID: 4477321839784309255}

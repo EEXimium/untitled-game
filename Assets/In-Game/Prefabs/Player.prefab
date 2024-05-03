@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &466182210202070048
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3143629646559410822}
+  - component: {fileID: 4828569505276112973}
+  m_Layer: 0
+  m_Name: Damage player text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3143629646559410822
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466182210202070048}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.2960333, y: 1.6256344, z: 0.16252816}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8999247522607076138}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4828569505276112973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466182210202070048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ad67b535f01eb94b8952c1da3352ab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PrefabText: {fileID: 3200684069413827639, guid: b24a59d9e6a15024f8ce8acf062e8ec4, type: 3}
 --- !u!1 &776239491118838245
 GameObject:
   m_ObjectHideFlags: 0
@@ -1598,8 +1643,9 @@ Transform:
   - {fileID: 7843395416745638618}
   - {fileID: 5971419604734845724}
   - {fileID: 5016407505653895480}
+  - {fileID: 3143629646559410822}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6274000467098896220
 SpriteRenderer:
@@ -1805,7 +1851,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   fill: {fileID: 7075994767580530933}
   eyefill: {fileID: 5275522678874128871}
-  InsText: {fileID: 0}
+  InsText: {fileID: 4828569505276112973}
 --- !u!114 &4942898939636441873
 MonoBehaviour:
   m_ObjectHideFlags: 0
