@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public codex CodexScript;
     public GameObject UIDoc;
     public Animator animator;
+    public bool canMove = true;
 
     void Start()
     {
@@ -25,29 +26,55 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        // ----------- Move ------------
-        currentPos = rb.position;
-        InputVector.x = Input.GetAxisRaw("Horizontal");
-        InputVector.y = Input.GetAxisRaw("Vertical");
-
-        InputVector.Normalize(); //Diagonal hareketin bozuk h�zl� olmamas� i�in
-        InputVector = Vector2.ClampMagnitude(InputVector, 1);    // Diagonal movement 1,4 => 1
-
-        if (!EM.isStuck) //&& !DialogueManager.instance.isDialogueActive)
+        if (canMove)
         {
-            if (Input.GetButton("Sprint"))
-            {
-                newPos = currentPos + (InputVector * (movespeed + sprintspeed) * Time.fixedDeltaTime);
-            }
-            else
-            {
-                newPos = currentPos + (InputVector * movespeed * Time.fixedDeltaTime);
-            }
+            // ----------- Move ------------
+            currentPos = rb.position;
+            InputVector.x = Input.GetAxisRaw("Horizontal");
+            InputVector.y = Input.GetAxisRaw("Vertical");
 
-            rb.MovePosition(newPos);
+            InputVector.Normalize(); //Diagonal hareketin bozuk h�zl� olmamas� i�in
+            InputVector = Vector2.ClampMagnitude(InputVector, 1);    // Diagonal movement 1,4 => 1
+
+            if (!EM.isStuck) //&& !DialogueManager.instance.isDialogueActive)
+            {
+                if (Input.GetButton("Sprint"))
+                {
+                    newPos = currentPos + (InputVector * (movespeed + sprintspeed) * Time.fixedDeltaTime);
+                }
+                else
+                {
+                    newPos = currentPos + (InputVector * movespeed * Time.fixedDeltaTime);
+                }
+                rb.MovePosition(newPos);
+            }
         }
-
     }
+
+    public void DisableMovementForTime(float duration)
+    {
+        if (canMove)
+        {
+            // Disable movement
+            canMove = false;
+            StartCoroutine(EnableMovementAfterDelay(duration));
+        }
+    }
+
+    private IEnumerator EnableMovementAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        // Re-enable movement
+        canMove = true;
+    }
+
+    public void applyKnockback(Vector2 KnockbackDirec, float knockbackForce)
+    {
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        rb.velocity = Vector2.zero;
+        rb.AddForce(KnockbackDirec * knockbackForce, ForceMode2D.Impulse);
+    }//end of ApplyKnockback
 
     /*
     public void endDiablo()

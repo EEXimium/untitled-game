@@ -7,10 +7,27 @@ public class Moose1 : Npc
     //--------------ANIMATION
     string moose1_run = "moose1_run";
     string moose1_idle = "moose1_idle";
-    string moose1_atk = "moose1_atk";
+    string moose1_atk = "moose1-atk with smear fx";
     string moose1_death = "moose1_death";
     string moose1_hurt = "moose1_hurt";
 
+
+    [Header("Moose settings")]
+
+    [SerializeField] protected float hitRange;
+
+
+    protected override void Update()
+    {
+        base.Update();
+        if (distanceToPlayer < hitRange)
+        {
+            rb.velocity = Vector3.zero;
+            moving = false;
+            animator.Play(moose1_atk);
+        }
+
+    }
 
     protected override void FixedUpdate()
     {
@@ -45,5 +62,14 @@ public class Moose1 : Npc
         Destroy(gameObject);
     }
 
-    
+    public void attack()
+    {
+        transform.GetChild(0).gameObject.SetActive(true);
+    }
+
+    public void deactivateHit()
+    {
+        transform.GetChild(0).gameObject.SetActive(false);
+    }
+
 }
