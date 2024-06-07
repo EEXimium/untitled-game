@@ -1,16 +1,20 @@
 
-# ZERO TASK : untitledgame
+# ZERO TASK PRESENTS: [untitledgame]
 
-This is a rogue-like, story game based on a dungeon creation mechanic.
+This is a 2D rogue-like, story game based on a dungeon creation mechanic.
+After GDD change 3 times, the game became rogue-like shoot 'em up.
+After a long period of time, project got stuck in development hell and got cancelled.
 
 
 ## Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/267930428566929408/1138755487958052916/image.png)
+![screenshot](https://github.com/EEXimium/untitled-game/blob/main/Screenshot_290.png)
 
-![screenshot](https://cdn.discordapp.com/attachments/267930428566929408/1138755530278572064/image.png)
+![gif](https://github.com/EEXimium/untitled-game/blob/main/gaming1.gif)
 
-![screenshot](https://cdn.discordapp.com/attachments/267930428566929408/1138755359692034098/image.png)
+![gif](https://github.com/EEXimium/untitled-game/blob/main/gaming2.gif)
+
+![gif](https://github.com/EEXimium/untitled-game/blob/main/gaming3.gif)
 
   
 ## Technologies
@@ -23,7 +27,9 @@ This is a rogue-like, story game based on a dungeon creation mechanic.
 ## Properties
 
 
-- Pc support
+- It was supposed to launch on PC but because of develpment hell, it couldn't.
+- Supposed to feature a weapon list similar to Hades
+- Supposed to a system which allows you to design your own maps therefore unique runs (see hexagons above). Every little map has properties which interacts other pieces of maps and create a new one.
 
   
 ## Color Palette
@@ -43,20 +49,12 @@ This is a rogue-like, story game based on a dungeon creation mechanic.
 - [@Bavsimus](https://www.github.com/Bavsimus) for artwork and develop.
 - [@merzifonlu1](https://www.github.com/merzifonlu1) for artwork and develop.
 - [@yusufgunsur](https://www.github.com/yusufgunsur) for artwork and develop.
-- [@Apei7](https://www.github.com/Apei7) for artwork.
-- [@kaanardaa](https://www.github.com/kaanardaa) for develop.
+- [@Apei7](https://www.github.com/Apei7) thanks.
+- [@kaanardaa](https://www.github.com/kaanardaa) thanks.
 
-  
-![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
-
-     
+       
 ## Feedback and Support
 
-If you have any feedback or want to help, please contact us at discord.
+If you have any feedback or want to help, please contact us at Discord.
 - Bavsimus : bavs
 - EEXimium : eeximium
-## Demo
-
-Not ready yet.
-
-  
