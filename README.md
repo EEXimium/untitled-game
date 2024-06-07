@@ -49,6 +49,7 @@ After a long period of time, project got stuck in development hell and got cance
 - [@Bavsimus](https://www.github.com/Bavsimus) for artwork and develop.
 - [@merzifonlu1](https://www.github.com/merzifonlu1) for artwork and develop.
 - [@yusufgunsur](https://www.github.com/yusufgunsur) for artwork and develop.
+- [@KiwiDeluxe](https://github.com/KiwiDeluxe) for artwork.
 - [@Apei7](https://www.github.com/Apei7) thanks.
 - [@kaanardaa](https://www.github.com/kaanardaa) thanks.
 
